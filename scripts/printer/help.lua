@@ -45,7 +45,9 @@ function printer:mapper()
     self:info("(Dostepne kierunki n w s e nw ne sw se")
     self:info("W przypadku braku lokacji w danym kierunku - lokacja zostanie utworzona")
     self:info("Przyklad /spe e poczta /spe n bank)")
-    self:command("/c (kolor)", "Kolory: poi, chata, las, gory, droga, woda, agro, plaza")
+    self:command("/c (kolor)", "Kolory: poi, chata, las, gory, droga, woda, agro")
+    self:command("/linia (kierunek)", "Polacz przerywana linia z najblizsza lokacja w kierunku")
+    self:command("/label (kierunek) (text)", "Etykieta w tym kierunku")
     self:bottom()
 end
 

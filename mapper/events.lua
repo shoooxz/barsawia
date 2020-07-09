@@ -1,6 +1,7 @@
 function roomLoadedCallback()
 	if mapper.drawing then
 		if mapper.draw then
+			--createRoomID(200000)
 			if mapper.draw.special then
 				roomID = mapper:generateRoom(mapper.draw.from, gmcp.Room.Info.id, mapper.draw.dir, nil)
 				-- dodaj wyjscie specjalne
@@ -13,7 +14,7 @@ function roomLoadedCallback()
 						["down"] = "up",
 					}
 					-- dodaj linie
-					addCustomLine(mapper.draw.from, roomID, string.upper(mapper.draw.command), "dot line", {220, 220, 220}, false)
+					mapper:addCustomLine(mapper.draw.from, roomID, mapper.draw.command)
 					-- polacz w druga strone
 					mapper:connectRooms(roomID, mapper.draw.from, reverse[mapper.draw.command])
 				end

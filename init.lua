@@ -10,7 +10,7 @@ function loadObjects()
         "mapper/area",
         "mapper/helper",
         "mapper/move",
-        "mapper/room",
+        "mapper/draw",
         "mapper/events",
     }
     for i = 1, #obj do

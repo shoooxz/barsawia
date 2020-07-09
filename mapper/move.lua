@@ -38,7 +38,7 @@ function mapper:getCommandViaDir(dir)
         for command, roomID in pairs(spe) do
             local x, y, z = getRoomCoordinates(roomID)
 			if self:coordsMatchDirection(dir, x, y, z) then
-				return command
+				return command, roomID
 			end
         end
     end
@@ -47,72 +47,10 @@ function mapper:getCommandViaDir(dir)
 		if command == "down" or command == "up" then
 			local x, y, z = getRoomCoordinates(roomID)
 			if self:coordsMatchDirection(dir, x, y, z) then
-				return self.dirEngToPl[command]
+				return self.dirEngToPl[command], roomID
 			end
 		end
 	end
-end
-
-function mapper:addSpecialExitAndRoom(dir, command)
-	if self.drawing and self:matchRose(dir) then
-		roomID = self:getRoomViaCoords(dir)
-		if roomID then
-			self:addSpecialExit(self.room.id, roomID, command)
-			printer:success("Specjalne przejscie",
-				"Polaczono lokacje specjalnym przejsciem '"..command.."' na "..dir.." !"
-			)
-		else
-			self.draw = {}
-			self.draw.from = self.room.id
-			self.draw.dir = dir
-			self.draw.command = command
-			self.draw.special = true
-			send(command)
-		end
-	end
-end
-
-function mapper:addSpecialExit(from, to, command)
-	addSpecialExit(from, to, command)
-end
-
-function mapper:generateRoomUp(dir)
-	if self.drawing and self:matchRose(dir) then
-		self.draw = {}
-		self.draw.from = self.room.id
-		self.draw.dir = dir
-		self.draw.command = 'up'
-		send('gora')
-	end
-end
-
-function mapper:generateRoomDown(dir)
-	if self.drawing and self:matchRose(dir) then
-		self.draw = {}
-		self.draw.from = self.room.id
-		self.draw.dir = dir
-		self.draw.command = 'down'
-		send('dol')
-	end
-end
-
-function mapper:matchRose(dir)
-	if dir == "n" or dir == "s" or dir == "w" or dir == "e" or dir == "nw" or dir == "ne" or dir == "sw" or dir == "se" then
-		return true
-	end
-end
-
-function mapper:connectRooms(from, to, dir)
-	setExit(from, to, dir)
-end
-
-function mapper:generateRoom(from, to, dir, command)
-	local coords = self:convertCoords(dir)
-	local roomID = self:addRoom(self.room.area, to, coords.x, coords.y, coords.z)
-	if command then
-		setExit(from, roomID, command)
-	end
-	return roomID
 end
 
 function mapper:gmcpExitExists(dir)

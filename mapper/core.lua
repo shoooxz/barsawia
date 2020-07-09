@@ -71,6 +71,28 @@ function mapper:centerGMCP(msg)
 	end
 end
 
+function mapper:matchRose(dir)
+	if dir == "n" or dir == "s" or dir == "w" or dir == "e" or dir == "nw" or dir == "ne" or dir == "sw" or dir == "se" then
+		return true
+	end
+end
+
+function mapper:getRoomInfo()
+	-- TODO rozwinac ta funkcje, zastanowic sie nad exits
+	local info = {}
+	info.id = self.gmcp.id
+	info.short = self.gmcp.short
+	info.exits = self.gmcp.exits
+	if next(self.room) then
+		local areaID, areaName = self:getArea(self.room.area)
+		info.area = areaName.."("..areaID..")"
+		info.coords = "("..self.room.coords.x..", "..self.room.coords.y..", "..self.room.coords.z..")"
+	else
+		printer:error("Aktualna lokacja", "Nie mozna odnalezc lokacji na mapie!")
+	end
+	printer:roomInfo(info)
+end
+
 function mapper:convertExits(arr)
 
 	local output = {}
