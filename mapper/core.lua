@@ -2,7 +2,8 @@ mudlet = mudlet or {}
 mudlet.mapper_script = true
 mapper = mapper or {}
 mapper.gmcp = {}
-mapper.step = 4
+mapper.step = 2
+mapper.mode = 1
 mapper.drawing = false
 mapper.file = "barsawia_mapa.dat"
 mapper.room = {}
@@ -44,6 +45,18 @@ mapper.pl2short = { --> mapper:convertExits
 	["poludniowy-wschod"] = "se",
 	["gora"]              = "u",
 	["dol"]               = "d",
+}
+mapper.shortMirror = { --> events.lua
+	["n"]    = "s",
+	["s"]    = "n",
+	["w"]    = "e",
+	["e"]    = "w",
+	["ne"]   = "sw",
+	["nw"]   = "se",
+	["se"]   = "nw",
+	["sw"]   = "ne",
+	["u"]    = "d",
+	["d"]    = "u",
 }
 
 function mapper:init()
@@ -90,6 +103,26 @@ end
 function mapper:matchZ(dir)
 	if dir == "u" or dir == "d" then
 		return true
+	end
+end
+
+function mapper:setMode(mode)
+	if not mode then
+		printer:success("Aktualizacja lokacji",
+			"Aktualny tryb: "..self.mode
+		)
+	end
+	if mode == "1" then
+		self.mode = 1
+		printer:success("Aktualizacja lokacji",
+			"Mapper ustawiony na jednostronne polaczenia"
+		)
+	end
+	if mode == "2" then
+		self.mode = 2
+		printer:success("Aktualizacja lokacji",
+			"Mapper ustawiony na obustronne polaczenia (Trakty)"
+		)
 	end
 end
 

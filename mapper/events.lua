@@ -15,8 +15,11 @@ function roomLoadedCallback()
 					}
 					-- dodaj linie
 					mapper:addCustomLine(mapper.draw.from, roomID, mapper.draw.command)
-					-- polacz w druga strone
+					-- polacz w druga strone - w przypadku up/down zawsze wystepuje polaczenie obustronne
 					mapper:connectRooms(roomID, mapper.draw.from, reverse[mapper.draw.command])
+				elseif mapper.mode == 2 then
+					-- ustaw polaczenie obustronne dla traktow
+					mapper:connectRooms(roomID, mapper.draw.from, mapper.shortMirror[mapper.draw.dir])
 				end
 			end
 			mapper.draw = nil

@@ -69,7 +69,7 @@ function mapper:generateRoomUp(dir)
 			self.draw.dir = dir
 			self.draw.command = "up"
 		end
-		send("gora")
+		send("u")
 	end
 end
 
@@ -84,7 +84,7 @@ function mapper:generateRoomDown(dir)
 			self.draw.dir = dir
 			self.draw.command = "down"
 		end
-		send("dol")
+		send("d")
 	end
 end
 
