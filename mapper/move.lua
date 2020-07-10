@@ -43,7 +43,7 @@ function mapper:getRoomViaExit(dir)
 	end
 end
 
-function mapper:gmcpExitExists(exit)
+function mapper:gmcpExitExists(dir)
 	--[[
 		"n",
 		"s",

@@ -2,7 +2,7 @@ mudlet = mudlet or {}
 mudlet.mapper_script = true
 mapper = mapper or {}
 mapper.gmcp = {}
-mapper.step = 2
+mapper.step = 4
 mapper.drawing = false
 mapper.file = "barsawia_mapa.dat"
 mapper.room = {}
@@ -42,7 +42,7 @@ mapper.pl2short = { --> mapper:convertExits
 	["polnocny-wschod"]   = "ne",
 	["poludniowy-zachod"] = "sw",
 	["poludniowy-wschod"] = "se",
-	["gora"] 			  = "u",
+	["gora"]              = "u",
 	["dol"]               = "d",
 }
 
@@ -88,7 +88,7 @@ function mapper:matchRose(dir)
 end
 
 function mapper:matchZ(dir)
-	if dir == "gora" or dir == "dol" then
+	if dir == "u" or dir == "d" then
 		return true
 	end
 end
