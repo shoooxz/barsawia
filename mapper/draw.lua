@@ -6,6 +6,9 @@ function mapper:addRoom(areaID, roomID, x, y, z)
 end
 
 function mapper:connectRooms(from, to, dir)
+	if self.short2en[dir] then
+		dir = self.short2en[dir]
+	end
 	setExit(from, to, dir)
 end
 
@@ -27,13 +30,13 @@ function mapper:generateRoom(from, to, dir, command)
 	local coords = self:convertCoords(dir)
 	local roomID = self:addRoom(self.room.area, to, coords.x, coords.y, coords.z)
 	if command then
-		setExit(from, roomID, command)
+		self:connectRooms(from, roomID, command)
 	end
 	return roomID
 end
 
 function mapper:addSpecialExitAndRoom(dir, command)
-	if self.drawing and self:matchRose(dir) then
+	if self.drawing and (self:matchRose(dir) or self:matchZ(dir)) then
 		roomID = self:getRoomViaCoords(dir)
 		if roomID then
 			self:addSpecialExit(self.room.id, roomID, command)
@@ -85,6 +88,13 @@ function mapper:generateRoomDown(dir)
 	end
 end
 
+function mapper:emptyRoom(dir, roomID)
+	if self.drawing and self:matchRose(dir) then
+		local coords = self:convertCoords(dir)
+		self:addRoom(self.room.area, roomID, coords.x, coords.y, coords.z)
+	end
+end
+
 function mapper:label(dir, text)
 	if self.drawing and self:matchRose(dir) then
 		local fr, fg, fb = 255, 255, 255
@@ -97,7 +107,7 @@ function mapper:label(dir, text)
 			fr, fg, fb,
 			br, bg, bb,
 			0,
-			30,
+			20,
 			true,
 			true
 		)

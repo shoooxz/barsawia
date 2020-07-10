@@ -9,7 +9,7 @@ mapper.room = {}
 mapper.gmcp = {}
 mapper.events = mapper.events or {}
 mapper.draw = nil
-mapper.dirToApiExitNaming = { --> mapper:getRoomViaExit
+mapper.short2en = { --> mapper:getRoomViaExit, mapper:connectRooms
 	["n"]    = "north",
 	["s"]    = "south",
 	["w"]    = "west",
@@ -18,10 +18,22 @@ mapper.dirToApiExitNaming = { --> mapper:getRoomViaExit
 	["nw"]   = "northwest",
 	["se"]   = "southeast",
 	["sw"]   = "southwest",
-	["gora"] = "up",
-	["dol"]  = "down",
+	["u"]    = "up",
+	["d"]    = "down",
 }
-mapper.dirLongToShort = { --> mapper:convertExits
+mapper.en2short = { --> mapper:helperGetExitsForComparison, mapper:getCommandViaDir
+	["north"]     = "n",
+	["south"]     = "s",
+	["west"]      = "w",
+	["east"]      = "e",
+	["northeast"] = "ne",
+	["northwest"] = "nw",
+	["southeast"] = "se",
+	["southwest"] = "sw",
+	["up"]        = "u",
+	["down"]      = "d",
+}
+mapper.pl2short = { --> mapper:convertExits
 	["polnoc"]            = "n",
 	["poludnie"]          = "s",
 	["wschod"]            = "e",
@@ -30,10 +42,8 @@ mapper.dirLongToShort = { --> mapper:convertExits
 	["polnocny-wschod"]   = "ne",
 	["poludniowy-zachod"] = "sw",
 	["poludniowy-wschod"] = "se",
-}
-mapper.dirEngToPl = { --> mapper:getCommandViaDir
-	["down"] = "dol",
-	["up"]   = "gora",
+	["gora"] 			  = "u",
+	["dol"]               = "d",
 }
 
 function mapper:init()
@@ -77,6 +87,12 @@ function mapper:matchRose(dir)
 	end
 end
 
+function mapper:matchZ(dir)
+	if dir == "gora" or dir == "dol" then
+		return true
+	end
+end
+
 function mapper:getRoomInfo()
 	-- TODO rozwinac ta funkcje, zastanowic sie nad exits
 	local info = {}
@@ -94,11 +110,16 @@ function mapper:getRoomInfo()
 end
 
 function mapper:convertExits(arr)
-
+	--[[
+		"polnoc",
+		"poludnie",
+		"gora",
+		"kuznia"
+	]]--
 	local output = {}
 	for i = 1, #arr do
-		if self.dirLongToShort[arr[i]] then
-			output[i] = self.dirLongToShort[arr[i]]
+		if self.pl2short[arr[i]] then
+			output[i] = self.pl2short[arr[i]]
 		else
 			output[i] = arr[i]
 		end

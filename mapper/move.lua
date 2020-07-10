@@ -32,6 +32,39 @@ function mapper:move(dir)
 	send(dir)
 end
 
+function mapper:getRoomViaExit(dir)
+	--[[
+		up = 25362,
+		south = 25386,
+		north = 25363
+	]]--
+	if self.room.exits and self.room.exits[self.short2en[dir]] then
+		return self.room.exits[self.short2en[dir]]
+	end
+end
+
+function mapper:gmcpExitExists(exit)
+	--[[
+		"n",
+		"s",
+		"u",
+		"kuznia"
+	]]--
+	for i = 1, #self.gmcp.exits do
+		if self.gmcp.exits[i] == dir then
+			return true
+		end
+	end
+end
+
+function mapper:getRoomViaCoords(dir)
+	local coords = self:convertCoords(dir)
+	local rooms = getRoomsByPosition(self.room.area, coords.x, coords.y, coords.z)
+	if rooms[0] then
+		return rooms[0]
+	end
+end
+
 function mapper:getCommandViaDir(dir)
 	local spe = getSpecialExitsSwap(self.room.id)
     if spe then
@@ -47,31 +80,9 @@ function mapper:getCommandViaDir(dir)
 		if command == "down" or command == "up" then
 			local x, y, z = getRoomCoordinates(roomID)
 			if self:coordsMatchDirection(dir, x, y, z) then
-				return self.dirEngToPl[command], roomID
+				return self.en2short[command], roomID
 			end
 		end
-	end
-end
-
-function mapper:gmcpExitExists(dir)
-	for i = 1, #self.gmcp.exits do
-		if self.gmcp.exits[i] == dir then
-			return true
-		end
-	end
-end
-
-function mapper:getRoomViaExit(dir)
-	if self.room.exits and self.room.exits[self.dirToApiExitNaming[dir]] then
-		return self.room.exits[self.dirToApiExitNaming[dir]]
-	end
-end
-
-function mapper:getRoomViaCoords(dir)
-	local coords = self:convertCoords(dir)
-	local rooms = getRoomsByPosition(self.room.area, coords.x, coords.y, coords.z)
-	if rooms[0] then
-		return rooms[0]
 	end
 end
 
@@ -86,47 +97,58 @@ function mapper:convertCoords(dir)
 	--(+1, -1) -> SE
 	--(-1, +1) -> NW
 	--(-1, -1) -> SW
-	-- TODO Zrobic dol i gore
+	--( 0,  0, -1) -> D
+	--( 0,  0, +1) -> U
 	local output = {
 		["n"] = {
 			x = self.room.coords.x,
 			y = self.room.coords.y + self.step,
-			z = 0
+			z = self.room.coords.z
 		},
 		["s"] = {
 			x = self.room.coords.x,
 			y = self.room.coords.y - self.step,
-			z = 0
+			z = self.room.coords.z
 		},
 		["w"] = {
 			x = self.room.coords.x - self.step,
 			y = self.room.coords.y,
-			z = 0
+			z = self.room.coords.z
 		},
 		["e"] = {
 			x = self.room.coords.x + self.step,
 			y = self.room.coords.y,
-			z = 0
+			z = self.room.coords.z
 		},
 		["ne"] = {
 			x = self.room.coords.x + self.step,
 			y = self.room.coords.y + self.step,
-			z = 0
+			z = self.room.coords.z
 		},
 		["se"] = {
 			x = self.room.coords.x + self.step,
 			y = self.room.coords.y - self.step,
-			z = 0
+			z = self.room.coords.z
 		},
 		["nw"] = {
 			x = self.room.coords.x - self.step,
 			y = self.room.coords.y + self.step,
-			z = 0
+			z = self.room.coords.z
 		},
 		["sw"] = {
 			x = self.room.coords.x - self.step,
 			y = self.room.coords.y - self.step,
-			z = 0
+			z = self.room.coords.z
+		},
+		["u"] = {
+			x = self.room.coords.x,
+			y = self.room.coords.y,
+			z = self.room.coords.z + 1
+		},
+		["d"] = {
+			x = self.room.coords.x,
+			y = self.room.coords.y,
+			z = self.room.coords.z - 1
 		},
 	}
 	return output[dir]
