@@ -2,6 +2,7 @@ function mapper:move(dir)
 	-- czy istnieje lokacja w tamta strone w exitach
 	local roomID = self:getRoomViaExit(dir)
 	if self.drawing then
+		self.draw = nil
 		-- gdy istnieje wyjscie w gmcp z kolei nie ma takiego wyjscia w exitach
 		if self:gmcpExitExists(dir) and not roomID then
 			-- czy istnieje lokacja w tamta strone po koordynatach

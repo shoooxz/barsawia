@@ -106,21 +106,31 @@ function mapper:matchZ(dir)
 	end
 end
 
+function mapper:setStep(step)
+	step = tonumber(step)
+	if step then
+		self.step = step
+		printer:success("Mapper",
+			"Step ustawiony na "..self.step
+		)
+	end
+end
+
 function mapper:setMode(mode)
 	if not mode then
-		printer:success("Aktualizacja lokacji",
+		printer:success("Mapper",
 			"Aktualny tryb: "..self.mode
 		)
 	end
 	if mode == "1" then
 		self.mode = 1
-		printer:success("Aktualizacja lokacji",
+		printer:success("Mapper",
 			"Mapper ustawiony na jednostronne polaczenia"
 		)
 	end
 	if mode == "2" then
 		self.mode = 2
-		printer:success("Aktualizacja lokacji",
+		printer:success("Mapper",
 			"Mapper ustawiony na obustronne polaczenia (Trakty)"
 		)
 	end

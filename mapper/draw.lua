@@ -25,11 +25,10 @@ function mapper:addCustomLine(from, to, command)
 	addCustomLine(from, to, command, "dot line", {220, 220, 220}, false)
 end
 
-
 function mapper:generateRoom(from, to, dir, command)
 	local coords = self:convertCoords(dir)
 	local roomID = self:addRoom(self.room.area, to, coords.x, coords.y, coords.z)
-	if command then
+	if roomID and command then
 		self:connectRooms(from, roomID, command)
 	end
 	return roomID

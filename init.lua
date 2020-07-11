@@ -1,4 +1,8 @@
-function loadObjects()
+loaded = loaded or false
+function loadObjects(force)
+    if not force and loaded then
+        return
+    end
     local obj = {
         "scripts/printer/core",
         "scripts/printer/help",
@@ -6,6 +10,7 @@ function loadObjects()
         "scripts/utils",
         "scripts/settings",
         "scripts/core",
+        "scripts/wood",
         "mapper/core",
         "mapper/area",
         "mapper/helper",
@@ -17,11 +22,12 @@ function loadObjects()
         package.loaded[obj[i]] = nil
         require(obj[i])
     end
+    loaded = true
     printer:success("Skrypty Barsawii", "Zaladowane!")
 end
 function reloadObjects()
     package.loaded.init = nil
     require("init")
-    loadObjects()
+    loadObjects(true)
 end
-loadObjects()
+loadObjects(false)
