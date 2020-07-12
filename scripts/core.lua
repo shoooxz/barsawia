@@ -15,7 +15,6 @@ end
 
 function scripts:loaded()
 	send('opcje szerokosc 0', false)
-	send('opcje wysokosc 40', false)
 end
 
 scripts:init()

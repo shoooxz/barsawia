@@ -1,6 +1,7 @@
 function mapper:move(dir)
 	-- czy istnieje lokacja w tamta strone w exitach
 	local roomID = self:getRoomViaExit(dir)
+	local command = false
 	if self.drawing then
 		self.draw = nil
 		-- gdy istnieje wyjscie w gmcp z kolei nie ma takiego wyjscia w exitach
@@ -9,10 +10,10 @@ function mapper:move(dir)
 			roomID = self:getRoomViaCoords(dir)
 			if roomID then
 				-- jesli istnieje - polacz lokacje
-				print("connect")
+				printer:one("Mapper", "Lacze lokacje")
 				self:connectRooms(self.room.id, roomID, dir)
 			else
-				print('draw')
+				printer:one("Mapper", "Tworze nowa lokacje")
 				-- jesli nie istnieje - wygeneruj nowa lokacje w evencie roomLoaded
 				self.draw = {}
 				self.draw.from = self.room.id
@@ -25,12 +26,16 @@ function mapper:move(dir)
 	end
 	-- jesli nie ma standardowego wyjscia
 	if not roomID then
-		local command = self:getCommandViaDir(dir)
+		command, roomID = self:getCommandViaDir(dir)
 		if command then
 			dir = command
 		end
 	end
 	send(dir)
+	if not self.drawing and roomID then
+		self:center(roomID)
+		raiseEvent("newLocation", roomID)
+	end
 end
 
 function mapper:getRoomViaExit(dir)
@@ -72,6 +77,7 @@ function mapper:getCommandViaDir(dir)
         for command, roomID in pairs(spe) do
             local x, y, z = getRoomCoordinates(roomID)
 			if self:coordsMatchDirection(dir, x, y, z) then
+				display(command, roomID)
 				return command, roomID
 			end
         end

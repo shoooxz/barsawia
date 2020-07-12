@@ -11,12 +11,15 @@ function loadObjects(force)
         "scripts/settings",
         "scripts/core",
         "scripts/wood",
+        "scripts/keybind/callback",
+        "scripts/keybind/core",
         "mapper/core",
         "mapper/area",
         "mapper/helper",
         "mapper/move",
         "mapper/draw",
         "mapper/events",
+        "mapper/bind",
     }
     for i = 1, #obj do
         package.loaded[obj[i]] = nil

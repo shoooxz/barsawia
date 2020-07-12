@@ -28,14 +28,22 @@ function roomLoadedCallback()
 			end
 			mapper.draw = nil
 		end
+		mapper:centerGMCP(false)
 	end
-	mapper:centerGMCP(false)
 	mapper:helper()
 end
 
-if mapper.events then
-	if mapper.events["roomLoaded"] then
-    	killAnonymousEventHandler(mapper.events["roomLoaded"])
+function newLocationCallback(event, arg)
+	local binded = mapper:roomBinded()
+	if binded then
+		printer:bind("]", binded)
 	end
+end
+
+if mapper.events then
+	mapper:unbindEvents()
+	-- events GMCP
 	mapper.events["roomLoaded"] = registerAnonymousEventHandler("gmcp.Room", roomLoadedCallback)
+	-- custom events
+	mapper.events["newLocation"] = registerAnonymousEventHandler("newLocation", newLocationCallback)
 end

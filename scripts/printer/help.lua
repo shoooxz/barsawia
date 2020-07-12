@@ -22,6 +22,16 @@ function printer:scripts()
     self:bottom()
 end
 
+function printer:binds()
+    self:title("Barsawia Bindy")
+    self:command("/bind (komendy)", "Dodanie binda do aktualnej lokacji")
+    self:info("Komendy powinny byc oddzielone hashem '#'")
+    self:info("np. napij sie wody z fontanny;usmiechnij sie")
+    self:info("Bind uaktywni na lokacji informcje o wcisnieciu klawisza")
+    self:command("/usun_bindy", "Usuniecie z aktualnej lokacji binda")
+    self:bottom()
+end
+
 function printer:mapper()
     self:title("Barsawia Mapper")
     self:section("Obszary:")
@@ -59,6 +69,7 @@ function printer:mapper()
     self:command("/linia (kierunek)", "Polacz przerywana linia z najblizsza lokacja w kierunku")
     self:command("/label (kierunek) (text)", "Etykieta w tym kierunku")
     self:command("/lokacja (kierunek) (id)", "Stworz lokacje w tym kierunku z tym id")
+    self:command("/bindy", "Komendy dla bindow do mapy")
     self:bottom()
 end
 

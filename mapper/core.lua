@@ -244,4 +244,12 @@ function mapper:ui(mapperWidth)
 	}, self.mapperContainer)
 end
 
+function mapper:unbindEvents()
+	for name, id in pairs(self.events) do
+		if id then
+			killAnonymousEventHandler(id)
+		end
+	end
+end
+
 mapper:init()

@@ -11,6 +11,7 @@ printer.sectionColor = "yellow"
 printer.errorColor = "red"
 printer.infoColor = "DeepSkyBlue"
 printer.successColor = "green"
+printer.keyColor = "red"
 
 function printer:title(str)
 	local len = string.len(str)
@@ -18,6 +19,32 @@ function printer:title(str)
 	local right = string.rep("-", self.titleMargin)
 	cecho("\n<"..self.borderColor..">+"..left.."( <"..self.titleColor..">"..str.." <"..self.borderColor..">)"..right.."+\n")
 	self:space()
+end
+
+function printer:one(left, right)
+	local len = self.length-string.len(left)-string.len(right)-self.tabLength-2  -- 2 : i spacja
+	self:top(true)
+	cecho(
+		"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
+		"<"..self.sectionColor..">"..left..": "..
+		"<"..self.textColor..">"..right..string.rep(" ", len)..
+		"<"..self.borderColor..">|\n"
+	)
+	self:bottom(true)
+end
+
+function printer:bind(key, right)
+	local len = self.length-string.len(key)-string.len(right)-self.tabLength-17  -- 17 Bind: Wcisnij ``
+	self:top(true)
+	cecho(
+		"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
+		"<"..self.sectionColor..">BIND: "..
+		"<"..self.textColor..">Wcisnij "..
+		"<"..self.keyColor..">"..key.." "..
+		"<"..self.textColor..">`"..right.."`"..string.rep(" ", len)..
+		"<"..self.borderColor..">|\n"
+	)
+	self:bottom(true)
 end
 
 function printer:section(name)
@@ -63,8 +90,13 @@ function printer:space()
  	cecho("<"..self.borderColor..">|"..string.rep(" ", self.length).."|\n")
 end
 
-function printer:bottom()
-	self:space()
+function printer:top(nospace)
+	cecho("\n<"..self.borderColor..">+"..string.rep("-", self.length).."+\n")
+	if not nospace then self:space() end
+end
+
+function printer:bottom(nospace)
+	if not nospace then self:space() end
 	cecho("<"..self.borderColor..">+"..string.rep("-", self.length).."+\n\n")
 end
 
