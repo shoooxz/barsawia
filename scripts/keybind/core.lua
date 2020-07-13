@@ -1,5 +1,6 @@
 keybind = keybind or {}
 keybind.ids = keybind.ids or {}
+keybind.triggerCommand = nil
 keybind.conf = {
 	{
 		["modifier"] = nil,
@@ -7,9 +8,19 @@ keybind.conf = {
 		["callback"] = "mapperBind",
 	},
 	{
+		["modifier"] = nil,
+		["key"] = "BracketLeft",
+		["callback"] = "triggerBind",
+	},
+	{
 		["modifier"] = "Control",
 		["key"] = "W",
 		["callback"] = "fightSupport",
+	},
+	{
+		["modifier"] = "Control",
+		["key"] = "2",
+		["callback"] = "openGate",
 	},
 }
 

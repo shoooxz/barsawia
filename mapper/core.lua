@@ -10,6 +10,8 @@ mapper.room = {}
 mapper.gmcp = {}
 mapper.events = mapper.events or {}
 mapper.draw = nil
+mapper.lastKnownID = nil
+mapper.gateCommand = nil
 mapper.short2en = { --> mapper:getRoomViaExit, mapper:connectRooms
 	["n"]    = "north",
 	["s"]    = "south",
@@ -85,6 +87,7 @@ end
 
 function mapper:centerGMCP(msg)
 	if self:setGMCP() then
+		self.lastKnownID = self.gmcp.id
 		self:center(self.gmcp.id)
 		if msg then
 			printer:success("Aktualizacja lokacji",

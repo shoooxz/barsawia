@@ -13,6 +13,7 @@ function loadObjects(force)
         "scripts/wood",
         "scripts/keybind/callback",
         "scripts/keybind/core",
+        "scripts/keybind/trigger",
         "mapper/core",
         "mapper/area",
         "mapper/helper",

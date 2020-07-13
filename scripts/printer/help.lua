@@ -19,6 +19,8 @@ function printer:scripts()
     self:title("Barsawia Skrypty")
     self:command("/zetnij_drzewo", "Sciecie drzewa")
     self:command("/ociosaj_drzewo", "Ociosanie drzewa")
+    self:command("/zap", "Zapal lampe")
+    self:info("Do zapalenia lampy potrzebne sa 2 krzemienie i olej")
     self:bottom()
 end
 

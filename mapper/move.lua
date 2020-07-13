@@ -10,10 +10,10 @@ function mapper:move(dir)
 			roomID = self:getRoomViaCoords(dir)
 			if roomID then
 				-- jesli istnieje - polacz lokacje
-				printer:one("Mapper", "Lacze lokacje")
+				--printer:one("Mapper", "Lacze lokacje")
 				self:connectRooms(self.room.id, roomID, dir)
 			else
-				printer:one("Mapper", "Tworze nowa lokacje")
+				--printer:one("Mapper", "Tworze nowa lokacje")
 				-- jesli nie istnieje - wygeneruj nowa lokacje w evencie roomLoaded
 				self.draw = {}
 				self.draw.from = self.room.id
@@ -36,6 +36,24 @@ function mapper:move(dir)
 		self:center(roomID)
 		raiseEvent("newLocation", roomID)
 	end
+end
+
+function mapper:gate(str)
+	local gate2command = {
+		["Wschodnia brama jest zamknieta."] = "zastukaj we wschodnie wrota",
+		["Zachodnia brama jest zamknieta."] = "zastukaj w zachodnie wrota",
+	}
+	local command = "zastukaj we wrota"
+	self:moveBackward()
+	if gate2command[str] then
+		command = gate2command[str]
+	end
+	self.gateCommand = command
+	printer:bind("CTRL + 2", command)
+end
+
+function mapper:moveBackward()
+	self:center(self.lastKnownID)
 end
 
 function mapper:getRoomViaExit(dir)
@@ -77,7 +95,6 @@ function mapper:getCommandViaDir(dir)
         for command, roomID in pairs(spe) do
             local x, y, z = getRoomCoordinates(roomID)
 			if self:coordsMatchDirection(dir, x, y, z) then
-				display(command, roomID)
 				return command, roomID
 			end
         end
