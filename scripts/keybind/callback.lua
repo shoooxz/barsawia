@@ -8,8 +8,10 @@ function mapperBind()
 end
 
 function triggerBind()
-	send(keybind.triggerCommand)
-	keybind.triggerCommand = nil
+	if keybind.triggerCommand then
+		send(keybind.triggerCommand)
+		keybind.triggerCommand = nil
+	end
 end
 
 function fightSupport()

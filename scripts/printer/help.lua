@@ -12,6 +12,8 @@ function printer:settings()
     self:command("/opcje szerokosc "..settings:get("mainWindowWidth"), "Szerokosc glownego okna w Mudlecie")
     self:command("/opcje wysokosc "..settings:get("mainWindowHeight"), "Wysokosc glownego okna w Mudlecie")
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
+    self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
+    self:info("1 - plecak, 2 - sakwa")
     self:bottom()
 end
 

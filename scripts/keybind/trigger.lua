@@ -22,3 +22,8 @@ function keybind:job(who, type)
 		printer:bind("[", self.triggerCommand)
 	end
 end
+
+function keybind:ship()
+	self.triggerCommand = inventory:moneyOut(true).."; kup bilet; wejdz na statek"
+	printer:bind("[", self.triggerCommand)
+end

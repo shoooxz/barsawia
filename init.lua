@@ -14,6 +14,8 @@ function loadObjects(force)
         "scripts/keybind/callback",
         "scripts/keybind/core",
         "scripts/keybind/trigger",
+        "scripts/profile",
+        "scripts/inventory",
         "mapper/core",
         "mapper/area",
         "mapper/helper",
