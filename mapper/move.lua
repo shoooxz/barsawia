@@ -38,20 +38,6 @@ function mapper:move(dir)
 	end
 end
 
-function mapper:gate(str)
-	local gate2command = {
-		["Wschodnia brama jest zamknieta."] = "zastukaj we wschodnie wrota",
-		["Zachodnia brama jest zamknieta."] = "zastukaj w zachodnie wrota",
-	}
-	local command = "zastukaj we wrota"
-	self:moveBackward()
-	if gate2command[str] then
-		command = gate2command[str]
-	end
-	self.gateCommand = command
-	printer:bind("CTRL + 2", command)
-end
-
 function mapper:moveBackward()
 	self:center(self.lastKnownID)
 end

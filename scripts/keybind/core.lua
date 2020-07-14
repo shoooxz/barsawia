@@ -1,33 +1,31 @@
 keybind = keybind or {}
 keybind.ids = keybind.ids or {}
 keybind.triggerCommand = nil
+keybind.roomCommand = nil
+keybind.gateCommand = nil
 keybind.conf = {
-	{
+	["keybindRoom"] = {
 		["modifier"] = nil,
 		["key"] = "BracketRight",
-		["callback"] = "mapperBind",
 	},
-	{
+	["keybindTrigger"] = {
 		["modifier"] = nil,
 		["key"] = "BracketLeft",
-		["callback"] = "triggerBind",
 	},
-	{
+	["keybindSupport"] = {
 		["modifier"] = "Control",
 		["key"] = "W",
-		["callback"] = "fightSupport",
 	},
-	{
+	["keybindGate"] = {
 		["modifier"] = "Control",
 		["key"] = "2",
-		["callback"] = "openGate",
 	},
 }
 
 function keybind:init()
 	self:unbind()
-	for i, bind in pairs(self.conf) do
-		self:create(bind.modifier, bind.key, bind.callback)
+	for callback, bind in pairs(self.conf) do
+		self:create(bind.modifier, bind.key, callback)
 	end
 end
 

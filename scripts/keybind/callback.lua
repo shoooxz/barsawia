@@ -1,24 +1,28 @@
-function mapperBind()
-	local arr = mapper:getBind()
-	if arr then
-		for i, command in pairs(arr) do
-			send(command)
+function keybindRoom()
+	if keybind.roomCommand then
+		local arr = utils:split(keybind.roomCommand, '#')
+		if arr then
+			for i, command in pairs(arr) do
+				send(command)
+			end
 		end
 	end
 end
 
-function triggerBind()
+function keybindTrigger()
 	if keybind.triggerCommand then
 		send(keybind.triggerCommand)
 		keybind.triggerCommand = nil
 	end
 end
 
-function fightSupport()
+function keybindSupport()
 	send("wesprzyj")
 end
 
-function openGate()
-	send(mapper.gateCommand)
-	mapper.gateCommand = nil
+function keybindGate()
+	if keybind.gateCommand then
+		send(keybind.gateCommand)
+		keybind.gateCommand = nil
+	end
 end

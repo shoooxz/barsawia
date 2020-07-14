@@ -35,6 +35,7 @@ function mapper:generateRoom(from, to, dir, command)
 end
 
 function mapper:addSpecialExitAndRoom(dir, command)
+	display(command)
 	if self.drawing and (self:matchRose(dir) or self:matchZ(dir)) then
 		roomID = self:getRoomViaCoords(dir)
 		if roomID then

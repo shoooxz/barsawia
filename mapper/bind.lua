@@ -34,8 +34,7 @@ function mapper:roomBinded()
 	if self.room.id then
 		local data = getRoomUserData(self.room.id, "bind")
 		if data ~= "" then
-			local arr = utils:split(data, '#')
-			return arr[1]
+			return data
 		end
 	end
 end

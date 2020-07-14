@@ -12,7 +12,39 @@ printer.errorColor = "red"
 printer.infoColor = "DeepSkyBlue"
 printer.successColor = "green"
 printer.keyColor = "red"
-
+printer.key2short = {
+	["Control"] = "CTRL",
+	["Alt"] = "ALT",
+	["Shift"] = "SHIFT",
+	["Keypad"] = "Keypad",
+	["GroupSwitch"] = "GroupSwitch",
+	["Equal"] = "=",
+	["Plus"] = "+",
+	["Minus"] = "-",
+	["Asterisk"] = "*",
+	["Ampersand"] = "&",
+	["AsciiCircum"] = "^",
+	["AsciiTilde"] = "~",
+	["BracketLeft"] = "[",
+	["BracketRight"] = "]",
+	["BraceLeft"] = "{",
+	["BraceRight"] = "}",
+	["ParenLeft"] = "(",
+	["ParenRight"] = ")",
+	["QuoteLeft"] = "`",
+	["QuoteDbl"] = "\"",
+	["Apostrophe"] = "'",
+	["Less"] = "<",
+	["Greater"] = ">",
+	["Slash"] = "/",
+	["Backslash"] = "\\",
+	["Underscore"] = "_",
+	["Comma"] = ",",
+	["Period"] = ".",
+	["Colon"] = ":",
+	["Semicolon"] = ";",
+	["Bar"] = "|",
+}
 function printer:title(str)
 	local len = string.len(str)
 	local left = string.rep("-", self.length-len-4-self.titleMargin) -- -4 dwie spacje i nawias
@@ -33,14 +65,21 @@ function printer:one(left, right)
 	self:bottom(true)
 end
 
-function printer:bind(key, right)
-	local len = self.length-string.len(key)-string.len(right)-self.tabLength-17  -- 17 Bind: Wcisnij ``
+function printer:bind(modifier, key, right)
+	local left = self.key2short[key]
+	if not left then
+		left = key
+	end
+	if modifier then
+		left = self.key2short[modifier].." + "..left
+	end
+	local len = self.length-string.len(left)-string.len(right)-self.tabLength-17  -- 17 Bind: Wcisnij ``
 	self:top(true)
 	cecho(
 		"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
 		"<"..self.sectionColor..">BIND: "..
 		"<"..self.textColor..">Wcisnij "..
-		"<"..self.keyColor..">"..key.." "..
+		"<"..self.keyColor..">"..left.." "..
 		"<"..self.textColor..">`"..right.."`"..string.rep(" ", len)..
 		"<"..self.borderColor..">|\n"
 	)

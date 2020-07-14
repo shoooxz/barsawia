@@ -35,7 +35,11 @@ function roomLoadedCallback()
 		mapper.lastKnownID = gmcpID
 		local binded = mapper:roomBinded()
 		if binded then
-			printer:bind("]", binded)
+			keybind:room(binded)
+		end
+		if mapper.gmcpNextLocation then
+			mapper:centerGMCP(false)
+			mapper.gmcpNextLocation = nil
 		end
 		mapper:helper()
 	end
