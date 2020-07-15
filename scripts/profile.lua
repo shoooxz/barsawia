@@ -8,19 +8,37 @@ profile.func = {
 			profile.list.bag = val
 			profile:save()
 		else
-			printer:one("Opcje", "Id pojemnika nie istnieje")
+			printer:one("Opcje", "ID pojemnika nie istnieje")
 		end
+	end,
+	["filtr_bron"] = function(val)
+		if val == "0" then
+			profile.list.filter_weapon = 0
+			profile:save()
+			return
+		end
+		local arr = utils:split2(val, ",")
+		for i=1, #arr do
+			if not inventory.filter:weaponExists(arr[i]) then
+				printer:one("Opcje", "ID "..arr[i].." filtru broni nie istnieje")
+				return
+			end
+		end
+		profile.list.filter_weapon = arr
+		profile:save()
 	end,
 }
 
 function profile:init(name)
 	local msg = name..", profil zostal zaladowany, mozesz go modyfikowac w /opcje"
 	self.file = string.format(self.file, name)
+	self.last = name
 	if io.exists(self.file) then
 		table.load(self.file, self.list)
 	else
 		local default = {
-			["bag"] = 1
+			["bag"] = 1,
+			["filter_weapon"] = 0,
 		}
 		self:save(default)
 		self.list = default
@@ -54,4 +72,8 @@ function profile:save(arr)
 	else
 		table.save(self.file, self.list)
 	end
+end
+
+function profile:loadLast()
+	self:init(self.last)
 end

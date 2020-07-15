@@ -139,15 +139,13 @@ function printer:bottom(nospace)
 	cecho("<"..self.borderColor..">+"..string.rep("-", self.length).."+\n\n")
 end
 
-function printer:dumpArray(arr, firstColLength, header)
+function printer:dumpArray(arr, firstColLength, header, color)
 	if header then
 		self:renderArrayRow(header[1], header[2], firstColLength, "orange")
 		self:hr()
 	end
 	for k, v in pairs(arr) do
-		if k ~= "Default Area" then
-			self:renderArrayRow(k, v, firstColLength)
-		end
+		self:renderArrayRow(v[1], v[2], firstColLength, color)
 	end
 end
 
@@ -159,14 +157,23 @@ function printer:renderArrayRow(left, right, firstColLength, color)
 	if type(right) == "table" then
 		right = table.concat(right, ", ")
 	end
-	local leftLen = firstColLength-string.len(left)-self.tabLength
-	local rightLen = self.length-firstColLength-1-self.tabLength-string.len(right)
+	-- w przypadku tylko lewej strony
+	local fillLeft = self.length-self.tabLength-1-string.len(left) -- -1 for 1 space
+	local rightSide = ""
+	-- w przypadku lewej i prawej strony
+	if right then
+		local fillRight = self.length-self.tabLength-1-firstColLength-string.len(right) -- -1 for | przedzialek
+		fillLeft = firstColLength-self.tabLength-1-string.len(left) -- -1 for 1 space
+		rightSide =
+			"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
+			"<"..textColor..">"..right..string.rep(" ", fillRight)
+	end
+	local leftSide =
+		"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
+		"<"..textColor.."> "..left..string.rep(" ", fillLeft)
+
 	cecho(
-		"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
-		"<"..textColor..">"..left..string.rep(" ", leftLen)..
-		"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
-		"<"..textColor..">"..right..string.rep(" ", rightLen)..
-		"<"..self.borderColor..">|\n"
+		leftSide..rightSide.."<"..self.borderColor..">|\n"
 	)
 end
 

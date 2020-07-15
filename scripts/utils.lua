@@ -17,6 +17,24 @@ function utils:split(inputstr, sep)
     return t
 end
 
+function utils:split2(s, delimiter)
+    result = {};
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match);
+    end
+    return result;
+end
+
+function utils:arrayKeys(tab)
+    local keyset={}
+    local n=0
+    for k,v in pairs(tab) do
+        n=n+1
+        keyset[n]=k
+    end
+    return keyset
+end
+
 function utils:arrayDiff(a, b)
     local aa = {}
     for k,v in pairs(a) do aa[v]=true end

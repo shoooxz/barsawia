@@ -1,5 +1,14 @@
 function mapper:getAreaTable()
-	printer:areas(getAreaTable())
+	local out = {}
+	for name, id in pairs(getAreaTable()) do
+		if id > 0 then
+			table.insert(out, {
+				id,
+				name
+			})
+		end
+	end
+	printer:areas(out)
 end
 function mapper:deleteArea(idname)
 	local res = deleteArea(idname)

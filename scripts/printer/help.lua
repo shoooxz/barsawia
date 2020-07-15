@@ -13,7 +13,11 @@ function printer:settings()
     self:command("/opcje wysokosc "..settings:get("mainWindowHeight"), "Wysokosc glownego okna w Mudlecie")
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
-    self:info("1 - plecak, 2 - sakwa")
+    self:dumpArray({{1, "plecak"}, {2, "sakwa"}}, 4, nil, self.infoColor)
+    self:command("/opcje filtr_bron "..utils:concat(profile:get("filter_weapon"), ","), "Pokazujesz w kufrze tylko konkretny rodzaj broni")
+    self:info("Mozesz laczyc bronie z ',' np /opcje filtr_bron 1,2,6 pokaze w kufrze")
+    self:info("tylko miecze, topory i drzewce")
+    self:dumpArray({{0, "wszystko"}, {1, "miecze"}, {2, "topory"}, {3, "sztylety"}, {4, "mloty"}, {5, "maczugi"}, {6, "drzewce"}}, 4, nil, self.infoColor)
     self:bottom()
 end
 
@@ -77,18 +81,27 @@ function printer:mapper()
     self:bottom()
 end
 
+function printer:roomInfo(arr)
+    self:title("Aktualna lokacja")
+    self:dumpArray(arr, 20, {"Nazwa", "Wartosc"})
+    self:bottom()
+end
+
 function printer:areas(arr)
     self:title("Lista obszarow")
-    if utils:objectLength(arr) == 1 then
-        self:errorLine("Brak obszarow")
+    if utils:objectLength(arr) > 0 then
+        self:dumpArray(arr, 4, {"ID", "Nazwa"})
     else
-        self:dumpArray(arr, 30, {"Nazwa", "ID"})
+        self:errorLine("Brak obszarow")
     end
     self:bottom()
 end
 
-function printer:roomInfo(arr)
-    self:title("Aktualna lokacja")
-    self:dumpArray(arr, 30, {"Nazwa", "Wartosc"})
-    self:bottom()
+function printer:filter(arr)
+    self:title("Kuferek")
+    for type, list in pairs(arr) do
+        self:dumpArray(list, 4, {type, nil})
+        self:space()
+    end
+    self:bottom(true)
 end

@@ -141,14 +141,30 @@ end
 
 function mapper:getRoomInfo()
 	-- TODO rozwinac ta funkcje, zastanowic sie nad exits
-	local info = {}
-	info.id = self.gmcp.id
-	info.short = self.gmcp.short
-	info.exits = self.gmcp.exits
+	local info = {
+		{
+			'ID gmcp',
+			self.gmcp.id
+		},
+		{
+			"Opis gmcp",
+			self.gmcp.short
+		},
+		{
+			"Wyjscia gmcp",
+			self.gmcp.exits
+		}
+	}
 	if next(self.room) then
 		local areaID, areaName = self:getArea(self.room.area)
-		info.area = areaName.."("..areaID..")"
-		info.coords = "("..self.room.coords.x..", "..self.room.coords.y..", "..self.room.coords.z..")"
+		table.insert(info, {
+			'Obszar',
+			areaName.." ("..areaID..")"
+		})
+		table.insert(info, {
+			'Koordynaty',
+			"("..self.room.coords.x..", "..self.room.coords.y..", "..self.room.coords.z..")"
+		})
 	else
 		printer:error("Aktualna lokacja", "Nie mozna odnalezc lokacji na mapie!")
 	end

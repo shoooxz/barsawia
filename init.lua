@@ -15,7 +15,8 @@ function loadObjects(force)
         "scripts/keybind/core",
         "scripts/keybind/trigger",
         "scripts/profile",
-        "scripts/inventory",
+        "scripts/inventory/core",
+        "scripts/inventory/filter",
         "mapper/core",
         "mapper/area",
         "mapper/helper",
@@ -35,5 +36,7 @@ function reloadObjects()
     package.loaded.init = nil
     require("init")
     loadObjects(true)
+    profile:loadLast()
+    mapper:centerGMCP(false)
 end
 loadObjects(false)
