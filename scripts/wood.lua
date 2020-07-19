@@ -41,7 +41,7 @@ function wood:hew(next)
 		if next then
 			self.step = self.step+1
 		end
-		send(self.steps[self.step])
+		tempTimer(math.random(1, 2), function() send(self.steps[self.step]) end)
 	end
 end
 

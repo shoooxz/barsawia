@@ -116,6 +116,7 @@ function mapper:setStep(step)
 		printer:success("Mapper",
 			"Step ustawiony na "..self.step
 		)
+		self:centerGMCP()
 	end
 end
 
@@ -130,12 +131,14 @@ function mapper:setMode(mode)
 		printer:success("Mapper",
 			"Mapper ustawiony na jednostronne polaczenia"
 		)
+		self:centerGMCP()
 	end
 	if mode == "2" then
 		self.mode = 2
 		printer:success("Mapper",
 			"Mapper ustawiony na obustronne polaczenia (Trakty)"
 		)
+		self:centerGMCP()
 	end
 end
 

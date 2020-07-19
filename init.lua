@@ -37,6 +37,6 @@ function reloadObjects()
     require("init")
     loadObjects(true)
     profile:loadLast()
-    mapper:centerGMCP(false)
+    mapper:centerGMCP()
 end
 loadObjects(false)

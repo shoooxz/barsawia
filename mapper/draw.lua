@@ -124,6 +124,7 @@ function mapper:colorRoom(color)
 			["droga"] = 257,
 			["woda"] = 268,
 			["agro"] = 261,
+			["laka"] = 262,
 			["?"] = 270
 		}
 		if arr[color] then

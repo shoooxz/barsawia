@@ -54,6 +54,10 @@ inventory.count2short = {
     ["czterdziesci"] = 40,
 }
 
+function inventory:unique()
+-- Barbarzynska mityczna tunika kolcza 
+end
+
 function inventory:moneyIn(ret)
 	local cmd = "otworz "..self.bag.openWhat[profile:get("bag")]..";wloz monety do "..self.bag.getFrom[profile:get("bag")]
 	if ret then return cmd end

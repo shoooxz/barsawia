@@ -325,7 +325,7 @@ end
 function inventory.filter:getType(name)
 	local out = nil
 	for type, pattern in pairs(self.patterns) do
-		-- pierdyknac to
+
 			for i = 1, #pattern do
 				if string.match(name, ".*"..pattern[i].."$") then
 					return type

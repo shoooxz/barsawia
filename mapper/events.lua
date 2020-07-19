@@ -30,7 +30,7 @@ function roomLoadedCallback()
 				end
 				mapper.draw = nil
 			end
-			mapper:centerGMCP(false)
+			mapper:centerGMCP()
 		end
 		mapper.lastKnownID = gmcpID
 		local binded = mapper:roomBinded()
@@ -38,7 +38,7 @@ function roomLoadedCallback()
 			keybind:room(binded)
 		end
 		if mapper.gmcpNextLocation then
-			mapper:centerGMCP(false)
+			mapper:centerGMCP()
 			mapper.gmcpNextLocation = nil
 		end
 		mapper:helper()

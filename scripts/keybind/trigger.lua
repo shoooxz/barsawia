@@ -16,19 +16,30 @@ function keybind:job(who, type)
 		self.triggerCommand = "zapytaj czlowieka o "..type
 	end
 	if self.triggerCommand then
-		printer:bind(self.conf.keybindTrigger.modifier, self.conf.keybindTrigger.key, self.triggerCommand)
+		self:triggerPrint()
 	end
 end
 
 function keybind:shipEnter()
 	self.triggerCommand = inventory:moneyOut(true)..";kup bilet;wejdz na statek"
-	printer:bind(self.conf.keybindTrigger.modifier, self.conf.keybindTrigger.key, self.triggerCommand)
+	self:triggerPrint()
 end
 
 function keybind:shipLeave()
 	self.triggerCommand = "zejdz ze statku"
 	mapper.gmcpNextLocation = true
-	printer:bind(self.conf.keybindTrigger.modifier, self.conf.keybindTrigger.key, self.triggerCommand)
+	self:triggerPrint()
+end
+
+function keybind:wozLeave()
+	self.triggerCommand = "wyjscie"
+	mapper.gmcpNextLocation = true
+	self:triggerPrint()
+end
+
+function keybind:wozEnter()
+	self.triggerCommand = inventory:moneyOut(true)..";wejdz na woz"
+	self:triggerPrint()
 end
 
 -- ROOM BIND
@@ -42,8 +53,11 @@ function keybind:gate(str)
 	local gate2command = {
 		["Wschodnia brama jest zamknieta."] = "zastukaj we wschodnie wrota",
 		["Zachodnia brama jest zamknieta."] = "zastukaj w zachodnie wrota",
+		["Brama jest zamknieta, wiec nie uda ci sie przez nia przedostac."] = "uderz w brame",
+		["Forsowanie zamknietej bramy nie jest rozsadnym pomyslem..."] = "uderz w dzwoneczek",
+		["Przechodzenie przez zamknieta brame nie jest najlepszym pomyslem."] = "uderz w dzwoneczek",
 	}
-	local command = "zastukaj we wrota;otworz brame"
+	local command = "zastukaj we wrota;uruchom mechanizm"
 	if gate2command[str] then
 		command = gate2command[str]
 	end

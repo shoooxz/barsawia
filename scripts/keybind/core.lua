@@ -44,4 +44,8 @@ function keybind:unbind()
     self.ids = {}
 end
 
+function keybind:triggerPrint()
+	printer:bind(self.conf.keybindTrigger.modifier, self.conf.keybindTrigger.key, self.triggerCommand)
+end
+
 keybind:init()
