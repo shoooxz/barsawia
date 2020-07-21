@@ -8,6 +8,7 @@ function roomLoadedCallback()
 					roomID = mapper:generateRoom(mapper.draw.from, gmcpID, mapper.draw.dir, nil)
 					-- dodaj wyjscie specjalne
 					mapper:addSpecialExit(mapper.draw.from, roomID, mapper.draw.command)
+					mapper:addCustomLine(mapper.draw.from, roomID, mapper.draw.command)
 				else
 					if mapper.draw.from ~= gmcpID then
 						roomID = mapper:generateRoom(mapper.draw.from, gmcpID, mapper.draw.dir, mapper.draw.command)

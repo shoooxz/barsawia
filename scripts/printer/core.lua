@@ -134,9 +134,11 @@ function printer:top(nospace)
 	if not nospace then self:space() end
 end
 
-function printer:bottom(nospace)
+function printer:bottom(nospace, nomargin)
+	local margin = "\n\n"
 	if not nospace then self:space() end
-	cecho("<"..self.borderColor..">+"..string.rep("-", self.length).."+\n\n")
+	if nomargin then margin = "" end
+	cecho("<"..self.borderColor..">+"..string.rep("-", self.length).."+"..margin)
 end
 
 function printer:dumpArray(arr, firstColLength, header, color)
@@ -195,6 +197,9 @@ end
 
 function printer:line(msg, color)
 	local len = self.length-string.len(msg)-self.tabLength
+	if not color then
+		color = self.textColor
+	end
 	cecho(
 		"<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
 		"<"..color..">"..msg..string.rep(" ", len)..

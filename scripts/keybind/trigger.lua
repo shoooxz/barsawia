@@ -42,6 +42,11 @@ function keybind:wozEnter()
 	self:triggerPrint()
 end
 
+function keybind:pass()
+	self.triggerCommand = inventory:moneyOut(true)..";kup przepustke"
+	self:triggerPrint()
+end
+
 -- ROOM BIND
 function keybind:room(command)
 	self.roomCommand = command

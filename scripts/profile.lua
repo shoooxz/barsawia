@@ -39,6 +39,7 @@ function profile:init(name)
 		local default = {
 			["bag"] = 1,
 			["filter_weapon"] = 0,
+			["stats_progress"] = 0
 		}
 		self:save(default)
 		self.list = default
@@ -52,6 +53,13 @@ end
 function profile:get(name)
 	if self.list[name] then
 		return self.list[name]
+	end
+end
+
+function profile:set(name, val)
+	if self.list[name] then
+		self.list[name] = val
+		self:save()
 	end
 end
 

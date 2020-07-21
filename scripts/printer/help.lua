@@ -13,7 +13,7 @@ function printer:settings()
     self:command("/opcje wysokosc "..settings:get("mainWindowHeight"), "Wysokosc glownego okna w Mudlecie")
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
-    self:dumpArray({{1, "plecak"}, {2, "sakwa"}}, 4, nil, self.infoColor)
+    self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
     self:command("/opcje filtr_bron "..utils:concat(profile:get("filter_weapon"), ","), "Pokazujesz w kufrze tylko konkretny rodzaj broni")
     self:info("Mozesz laczyc bronie z ',' np /opcje filtr_bron 1,2,6 pokaze w kufrze")
     self:info("tylko miecze, topory i drzewce")
@@ -27,6 +27,9 @@ function printer:scripts()
     self:command("/ociosaj_drzewo", "Ociosanie drzewa")
     self:command("/zap", "Zapal lampe")
     self:info("Do zapalenia lampy potrzebne sa 2 krzemienie i olej")
+    self:command("/medytuj", "Medytuj w gildii podroznikow, zapisz stan cech")
+    self:info("Przy kazdym uzyciu medytuj progres cech jest zapisywany w profilu")
+    self:info("oraz widoczny po wpisaniu komendy 'cechy'")
     self:bottom()
 end
 
@@ -47,6 +50,7 @@ function printer:mapper()
     self:command("/dodaj_obszar (nazwa)", "Dodanie nowego obszaru oraz lokacji startowej")
     self:info("(Uwaga! Lokacja startowa utworzy sie za pomoca GMCP w miejscu, w ktorym")
     self:info("aktualnie sie znajdujesz)")
+    self:command("/nazwij_obszar (id) (nazwa)", "Nowa nazwa dla obszaru z id")
     self:command("/usun_obszar (nazwa/id)", "Usun obszar")
     self:space()
     self:section("Aktualna lokacja:")
@@ -78,6 +82,10 @@ function printer:mapper()
     self:command("/label (kierunek) (text)", "Etykieta w tym kierunku")
     self:command("/lokacja (kierunek) (id)", "Stworz lokacje w tym kierunku z tym id")
     self:command("/bindy", "Komendy dla bindow do mapy")
+    self:command("/polacz (kierunek)", "Polacz obecna lokacje z lokacja w kierunku")
+    self:space()
+    self:section("Szablony:")
+    self:command("/poi (kierunek)", "Dodaj specjalne przejscie z `wyjscie` i kolorem poi")
     self:bottom()
 end
 
@@ -105,3 +113,18 @@ function printer:filter(arr)
     end
     self:bottom(true)
 end
+
+function printer:stats(improve, arr, line, info)
+    self:title(improve)
+    self:dumpArray(arr, 7, {"Cechy", nil})
+    self:space()
+    if info then
+        self:line(info, self.infoColor)
+    else
+        self:line(line, self.sectionColor)
+    end
+    self:bottom(false, true)
+end
+
+-- srodek bree tajemniczy
+-- ork z kratas - kapitan > rybak > magazyn > karczma > stajenny > krawiec > skup skor > krawiec > stajenny > karczma > o nagrode kapitana

@@ -17,6 +17,8 @@ function loadObjects(force)
         "scripts/profile",
         "scripts/inventory/core",
         "scripts/inventory/filter",
+        "scripts/character/core",
+        "scripts/character/tables",
         "mapper/core",
         "mapper/area",
         "mapper/helper",

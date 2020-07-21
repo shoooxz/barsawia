@@ -34,6 +34,33 @@ function mapper:generateRoom(from, to, dir, command)
 	return roomID
 end
 
+function mapper:connectViaDirection(dir)
+	if self.drawing and (self:matchRose(dir) or self:matchZ(dir)) then
+		roomID = self:getRoomViaCoords(dir)
+		if roomID then
+			self:connectRooms(self.room.id, roomID, dir)
+			printer:success("Polacz lokacje",
+				"Polaczono lokacje za pomoca "..dir.."!"
+			)
+		end
+	end
+end
+
+function mapper:addTemplate(name, dir)
+	if self.drawing and (self:matchRose(dir) or self:matchZ(dir)) then
+		if name == "poi" then
+			roomID = self:getRoomViaCoords(dir)
+			if roomID then
+				self:addSpecialExit(self.room.id, roomID, "wyjscie")
+				self:colorRoom(name)
+				printer:success("Specjalne przejscie",
+					"Polaczono lokacje specjalnym przejsciem 'wyjscie' na "..dir.." (Szablon poi)!"
+				)
+			end
+		end
+	end
+end
+
 function mapper:addSpecialExitAndRoom(dir, command)
 	display(command)
 	if self.drawing and (self:matchRose(dir) or self:matchZ(dir)) then

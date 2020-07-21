@@ -10,6 +10,7 @@ function mapper:getAreaTable()
 	end
 	printer:areas(out)
 end
+
 function mapper:deleteArea(idname)
 	local res = deleteArea(idname)
 	if res then
@@ -25,6 +26,17 @@ function mapper:deleteArea(idname)
 		)
 	end
 end
+
+function mapper:setAreaName(id, name)
+	setAreaName(tonumber(id), name)
+	printer:success("Obszary",
+		{
+			"Zmieniono nazwe dla obszaru "..id,
+			name,
+		}
+	)
+end
+
 function mapper:addAreaName(v)
 	local areaID, err = addAreaName(v)
 	if areaID == nil or areaID < 1 or err then

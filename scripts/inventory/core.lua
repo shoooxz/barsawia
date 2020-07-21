@@ -3,10 +3,12 @@ inventory.bag = {}
 inventory.bag.openWhat = {
     "plecak",
 	"sakwe",
+    "torbe",
 }
 inventory.bag.getFrom = {
     "plecaka",
 	"sakwy",
+    "torby",
 }
 inventory.count2short = {
     ["dwa"] = 2,
@@ -55,7 +57,7 @@ inventory.count2short = {
 }
 
 function inventory:unique()
--- Barbarzynska mityczna tunika kolcza 
+-- Barbarzynska mityczna tunika kolcza
 end
 
 function inventory:moneyIn(ret)

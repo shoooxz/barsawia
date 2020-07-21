@@ -6,6 +6,10 @@ function utils:objectLength(obj)
   return count
 end
 
+function utils:ucfirst(str)
+    return (str:gsub("^%l", string.upper))
+end
+
 function utils:split(inputstr, sep)
     if sep == nil then
         sep = "%s"

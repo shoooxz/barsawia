@@ -10,10 +10,12 @@ function mapper:move(dir)
 			roomID = self:getRoomViaCoords(dir)
 			if roomID then
 				-- jesli istnieje - polacz lokacje
-				--printer:one("Mapper", "Lacze lokacje")
 				self:connectRooms(self.room.id, roomID, dir)
+				-- jesli mapper tryb traktow - polacz obustronnie
+				if self.mode == 2 then
+					self:connectRooms(roomID, self.room.id, self.shortMirror[dir])
+				end
 			else
-				--printer:one("Mapper", "Tworze nowa lokacje")
 				-- jesli nie istnieje - wygeneruj nowa lokacje w evencie roomLoaded
 				self.draw = {}
 				self.draw.from = self.room.id
@@ -31,7 +33,14 @@ function mapper:move(dir)
 			dir = command
 		end
 	end
-	send(dir)
+	-- jesli jestesmy w gorach mglistych, podarzaj tylko za widocznym wyjsciem
+	if self.room.area == 9 then
+		if roomID then
+			send(dir)
+		end
+	else
+		send(dir)
+	end
 	if not self.drawing and roomID then
 		self:center(roomID)
 		raiseEvent("newLocation", roomID)
