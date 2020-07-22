@@ -580,6 +580,27 @@
 						<integer>0</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Kratas przepustka</name>
+					<script>mapper:moveBackward()
+keybind:pass()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Aby wejsc do miasta Kratas musisz kupic przepustke.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
 			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>cofnij</name>
@@ -665,6 +686,69 @@
 					<integer>1</integer>
 				</regexCodePropertyList>
 			</Trigger>
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>Character</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>cechy</name>
+					<script>character:captureStats({
+  matches[2], 
+  matches[3], 
+  matches[4], 
+  matches[5], 
+  matches[6], 
+  matches[7]
+})</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Jestes ([a-z]+), ([a-z]+), ([a-z]+), ([a-z]+), ([a-z]+) i ([a-z]+).</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>ocen</name>
+					<script>character:captureProgress(matches[3], matches[2])</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Wydaje ci sie, ze (.*) ci brakuje, zebys mogl wyzej ocenic swa (.*).</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+			</TriggerGroup>
 		</TriggerGroup>
 		<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>Mapper</name>
@@ -714,11 +798,21 @@
 						<string>Trudny teren gorski okazuje sie zbyt trudny dla ciebie dla przejscia, przynajmniej na razie niemozesz tam podazyc.</string>
 						<string>Nie mozesz tam podazyc, gdyz gory okazuja sie w tym miejscu nie do przejscia dla ciebie!</string>
 						<string>A moze bys najpierw wstal?</string>
+						<string>Czy na pewno chcesz juz opuscic lokacje startowa?.*</string>
+						<string>Lepiej bedzie jesli najpierw nieco odpoczniesz.</string>
+						<string>O tej porze bank jest zamkniety!</string>
+						<string>.*Zanim przejdziesz do innych pomieszczen musisz wczesniejzdeponowac posiadana bron.*</string>
+						<string>Probujesz przeprawic sie na drugi brzeg, cierpliwosci.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
+						<integer>0</integer>
+						<integer>1</integer>
+						<integer>0</integer>
+						<integer>0</integer>
+						<integer>1</integer>
 						<integer>0</integer>
 					</regexCodePropertyList>
 				</Trigger>
@@ -745,8 +839,12 @@ keybind:gate(matches[2])
 						<string>^(Brama jest zamknieta, wiec nie uda ci sie przez nia przedostac.)$</string>
 						<string>^(Forsowanie zamknietej bramy nie jest rozsadnym pomyslem...)$</string>
 						<string>^(Przechodzenie przez zamknieta brame nie jest najlepszym pomyslem.)$</string>
+						<string>Nie zwracajac na nic uwagi ruszasz szybko w strone wrot.*</string>
+						<string>Probujesz przejsc przez zamkniete wrota lecz.*</string>
 					</regexCodeList>
 					<regexCodePropertyList>
+						<integer>1</integer>
+						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
@@ -775,6 +873,28 @@ keybind:gate(matches[2])
 				<string>.*polegl.</string>
 			</regexCodeList>
 			<regexCodePropertyList>
+				<integer>1</integer>
+			</regexCodePropertyList>
+		</Trigger>
+		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>kanal</name>
+			<script></script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>.*klej.*</string>
+				<string>.*kanal.*</string>
+			</regexCodeList>
+			<regexCodePropertyList>
+				<integer>1</integer>
 				<integer>1</integer>
 			</regexCodePropertyList>
 		</Trigger>
@@ -877,6 +997,13 @@ keybind:gate(matches[2])
 						<command></command>
 						<packageName></packageName>
 						<regex>^/usun_obszar (.*)$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/nazwij_obszar ([a-z]+)$</name>
+						<script>mapper:setAreaName(matches[2], matches[3])</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/nazwij_obszar ([0-9]+) ([A-z\s]+)$</regex>
 					</Alias>
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
@@ -1028,6 +1155,20 @@ printer:settings()</script>
 						<regex>^/usun_bindy$</regex>
 					</Alias>
 				</AliasGroup>
+				<Alias isActive="yes" isFolder="no">
+					<name>^/poi ([a-z]+)$</name>
+					<script>mapper:addTemplate("poi", matches[2])</script>
+					<command></command>
+					<packageName></packageName>
+					<regex>^/poi ([a-z]+)$</regex>
+				</Alias>
+				<Alias isActive="yes" isFolder="no">
+					<name>^/polacz ([a-z]+)$</name>
+					<script>mapper:connectViaDirection(matches[2])</script>
+					<command></command>
+					<packageName></packageName>
+					<regex>^/polacz ([a-z]+)$</regex>
+				</Alias>
 			</AliasGroup>
 			<AliasGroup isActive="yes" isFolder="yes">
 				<name>Killerowo</name>
@@ -1151,6 +1292,13 @@ r(f())</script>
 						<regex>^wem$</regex>
 					</Alias>
 				</AliasGroup>
+				<Alias isActive="yes" isFolder="no">
+					<name>^/medytuj$</name>
+					<script>character:prepareCapture()</script>
+					<command></command>
+					<packageName></packageName>
+					<regex>^/medytuj$</regex>
+				</Alias>
 			</AliasGroup>
 		</AliasGroup>
 	</AliasPackage>

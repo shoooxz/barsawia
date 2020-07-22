@@ -25,6 +25,8 @@ character.statsProgress = character.statsProgress or {
 }
 character.capturing = false
 
+-- TODO zrobic porownanie czy cecha wzrosla
+
 function character:prepareCapture()
 	self.capturing = true
 	send("cechy;medytuj;ocen wszystko")
@@ -36,7 +38,7 @@ function character:captureStats(stats)
 	if temp == 0 then
 		stored = false
 	else
-		self.statsProgress = temp 
+		self.statsProgress = temp
 	end
 	local improve = "Postepy "..gmcp.Char.State.improve.."/"..gmcp.Char.Statemax.improve
 	local arr = {}
