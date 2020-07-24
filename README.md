@@ -1,2 +1,2 @@
 # barsawia
-Skrypty i mapper do Barsawii
+Skrypty i mapper do Barsawii (Mudlet) 
