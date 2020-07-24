@@ -126,10 +126,17 @@ function printer:stats(improve, arr, line, info)
     self:bottom(false, true)
 end
 
+function printer:rating(arr, sum, nomargin)
+    self:title(sum, true, nomargin)
+    self:dumpArray(arr, 11, {"Typ", "Ocena"})
+    self:bottom(true)
+end
+
+
 -- Bree
 -- karczma
 -- srodek bree tajemniczy
 -- Kratas
 -- ork z kratas - kapitan > rybak > magazyn > karczma > stajenny > krawiec > skup skor > krawiec > stajenny > karczma > o nagrode kapitana
 -- Vivane
--- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc - 
+-- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc -

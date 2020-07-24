@@ -45,12 +45,14 @@ printer.key2short = {
 	["Semicolon"] = ";",
 	["Bar"] = "|",
 }
-function printer:title(str)
+function printer:title(str, nospace, nomargin)
 	local len = string.len(str)
 	local left = string.rep("-", self.length-len-4-self.titleMargin) -- -4 dwie spacje i nawias
 	local right = string.rep("-", self.titleMargin)
-	cecho("\n<"..self.borderColor..">+"..left.."( <"..self.titleColor..">"..str.." <"..self.borderColor..">)"..right.."+\n")
-	self:space()
+	local margin = "\n"
+	if nomargin then margin = "" end
+	cecho(margin.."<"..self.borderColor..">+"..left.."( <"..self.titleColor..">"..str.." <"..self.borderColor..">)"..right.."+\n")
+	if not nospace then self:space() end
 end
 
 function printer:one(left, right)
