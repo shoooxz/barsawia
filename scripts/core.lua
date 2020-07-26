@@ -17,4 +17,8 @@ function scripts:loaded()
 	send('opcje szerokosc 0', false)
 end
 
+function scripts:beep()
+	playSoundFile(getMudletHomeDir().. [[/barsawia/beep.wav]])
+end
+
 scripts:init()

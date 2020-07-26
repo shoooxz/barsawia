@@ -56,6 +56,40 @@ function inventory.rating:getWeaponBalance(str)
 	end
 end
 
+function inventory.rating:captureBow(e, size)
+	deleteLine()
+    local eff = self:getWeaponEff(e)
+    printer:rating({
+        {
+            "Atak",
+            e.." ["..eff.."/10]"
+        },
+        {
+            "Rozmiar",
+            size
+        },
+        {
+            "Waga",
+            self.weight.." gramow"
+        },
+    }, eff.."/10", true)
+end
+
+function inventory.rating:captureGloves(str)
+	deleteLine()
+    local eff = self:getWeaponEff(str)
+    printer:rating({
+        {
+            "Chwyt",
+            str.." ["..eff.."/10]"
+        },
+        {
+            "Waga",
+            self.weight.." gramow"
+        },
+    }, eff.."/10")
+end
+
 function inventory.rating:captureWounds(str)
 	deleteLine()
 	self.wounds = str
@@ -110,7 +144,7 @@ function inventory.rating:captureShield(str)
 end
 
 function inventory.rating:captureWeight(weight)
-	deleteLine()
+	--deleteLine()
 	self.weight =  weight
 end
 

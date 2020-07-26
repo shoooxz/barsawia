@@ -140,3 +140,5 @@ end
 -- ork z kratas - kapitan > rybak > magazyn > karczma > stajenny > krawiec > skup skor > krawiec > stajenny > karczma > o nagrode kapitana
 -- Vivane
 -- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc -
+-- Jerris
+-- Laboratorium konstruktora - o maszyne/podroz 

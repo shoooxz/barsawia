@@ -285,7 +285,7 @@ function inventory.filter:show(str, last)
 	local list = utils:split2(str..", ", ",%s")
 	table.insert(list, last)
 	deleteLine()
-	self:setSkip()
+	--self:setSkip()
 	for i = 1, #list do
 		local count, name = list[i]:match("(%w+)%s(.*)")
 		if inventory.count2short[count] then
