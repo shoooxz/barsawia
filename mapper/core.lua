@@ -10,6 +10,7 @@ mapper.room = {}
 mapper.gmcp = {}
 mapper.events = mapper.events or {}
 mapper.draw = nil
+mapper.nogmcp = 150000 -- start nogmcp id: las faktoria
 mapper.lastKnownID = nil -- zmeczony, bramy, cofnij
 mapper.gmcpNextLocation = nil -- zsiadz ze statku, wyjdz z dylizansu
 mapper.short2en = { --> mapper:getRoomViaExit, mapper:connectRooms
@@ -139,6 +140,12 @@ function mapper:setMode(mode)
 			"Mapper ustawiony na obustronne polaczenia (Trakty)"
 		)
 		self:centerGMCP()
+	end
+	if mode == "3" then
+		self.mode = 3
+		printer:success("Mapper",
+			"Mapper ustawiony na lokacje bez GMCP"
+		)
 	end
 end
 

@@ -5,16 +5,18 @@ function mapper:move(dir)
 	if self.drawing then
 		self.draw = nil
 		-- gdy istnieje wyjscie w gmcp z kolei nie ma takiego wyjscia w exitach
-		if self:gmcpExitExists(dir) and not roomID then
+		if (self:gmcpExitExists(dir) and not roomID) or self.mode == 3 then
 			-- czy istnieje lokacja w tamta strone po koordynatach
 			roomID = self:getRoomViaCoords(dir)
 			if roomID then
-				-- jesli istnieje - polacz lokacje
-				self:connectRooms(self.room.id, roomID, dir)
-				-- jesli mapper tryb traktow - polacz obustronnie
-				if self.mode == 2 then
-					self:connectRooms(roomID, self.room.id, self.shortMirror[dir])
-				end
+				-- connect
+				self.draw = {}
+				self.draw.connect = true
+				self.draw.from = self.room.id
+				self.draw.to = roomID
+				self.draw.dir = dir
+				send(dir)
+				return
 			else
 				-- jesli nie istnieje - wygeneruj nowa lokacje w evencie roomLoaded
 				self.draw = {}
@@ -41,7 +43,8 @@ function mapper:move(dir)
 	else
 		send(dir)
 	end
-	if not self.drawing and roomID then
+	if (not self.drawing or self.mode == 3) and roomID then
+
 		self:center(roomID)
 		raiseEvent("newLocation", roomID)
 	end

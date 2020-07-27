@@ -1,9 +1,19 @@
 function roomLoadedCallback()
 	local gmcpID = gmcp.Room.Info.id
+	-- connect na wejsciu na lokacje dla wszystkich modow
+	if mapper.drawing and mapper.draw and mapper.draw.connect then
+		mapper:connectRooms(mapper.draw.from, mapper.draw.to, mapper.draw.dir)
+		-- obustronnie
+		if mapper.mode == 2 then
+			mapper:connectRooms(mapper.draw.to, mapper.draw.from, mapper.shortMirror[mapper.draw.dir])
+		end
+		mapper:center(mapper.draw.to)
+		return true
+	end
+	-- wejdz na lokacje i uzyj gmcp
 	if gmcpID ~= 0 then
 		if mapper.drawing then
 			if mapper.draw then
-				--createRoomID(200000)
 				if mapper.draw.special then
 					roomID = mapper:generateRoom(mapper.draw.from, gmcpID, mapper.draw.dir, nil)
 					-- dodaj wyjscie specjalne
@@ -43,6 +53,14 @@ function roomLoadedCallback()
 			mapper.gmcpNextLocation = nil
 		end
 		mapper:helper()
+	else
+		-- wygeneruj room bez gmcp
+		if mapper.drawing and mapper.draw and mapper.mode == 3 then
+			local to = createRoomID(mapper.nogmcp)
+			mapper:generateRoom(mapper.draw.from, to, mapper.draw.dir, mapper.draw.dir)
+			setRoomEnv(to, 262) -- TODO SKOMENTOWAC TO
+			mapper:center(to)
+		end
 	end
 end
 

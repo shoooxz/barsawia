@@ -68,6 +68,7 @@ function printer:mapper()
     self:command("/mode (id)", "Tryb mappera")
     self:info("1 - normalny")
     self:info("2 - lacz lokacje obustronnie (Trakty)")
+    self:info("3 - tworz lokacje bez gmcp")
     self:command("/step (n)", "Odstep pomiedzy dwoma lokacjami, domyslnie 2")
     self:command("/dol (kierunek)", "Stworz lokacje i przejscie na dol w danym kierunku")
     self:command("/gora (kierunek)", "Stworz lokacje i przejscie na gore w danym kierunku")
@@ -83,8 +84,6 @@ function printer:mapper()
     self:command("/lokacja (kierunek) (id)", "Stworz lokacje w tym kierunku z tym id")
     self:command("/bindy", "Komendy dla bindow do mapy")
     self:command("/polacz (kierunek)", "Polacz obecna lokacje z lokacja w kierunku")
-    self:space()
-    self:section("Szablony:")
     self:command("/poi (kierunek)", "Dodaj specjalne przejscie z `wyjscie` i kolorem poi")
     self:bottom()
 end
@@ -141,4 +140,4 @@ end
 -- Vivane
 -- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc -
 -- Jerris
--- Laboratorium konstruktora - o maszyne/podroz 
+-- Laboratorium konstruktora - o maszyne/podroz
