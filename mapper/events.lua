@@ -2,13 +2,21 @@ function roomLoadedCallback()
 	local gmcpID = gmcp.Room.Info.id
 	-- connect na wejsciu na lokacje dla wszystkich modow
 	if mapper.drawing and mapper.draw and mapper.draw.connect then
-		mapper:connectRooms(mapper.draw.from, mapper.draw.to, mapper.draw.dir)
+		local to = nil
+		if mapper.mode == 4 then
+			to = gmcpID
+		else
+			to = mapper.draw.to
+		end
+		mapper:connectRooms(mapper.draw.from, to, mapper.draw.dir)
 		-- obustronnie
 		if mapper.mode == 2 then
-			mapper:connectRooms(mapper.draw.to, mapper.draw.from, mapper.shortMirror[mapper.draw.dir])
+			mapper:connectRooms(to, mapper.draw.from, mapper.shortMirror[mapper.draw.dir])
 		end
-		mapper:center(mapper.draw.to)
-		return true
+		-- centruj bez gmcp
+		if mapper.mode == 3 then
+			mapper:center(mapper.draw.to)
+		end
 	end
 	-- wejdz na lokacje i uzyj gmcp
 	if gmcpID ~= 0 then
@@ -19,7 +27,7 @@ function roomLoadedCallback()
 					-- dodaj wyjscie specjalne
 					mapper:addSpecialExit(mapper.draw.from, roomID, mapper.draw.command)
 					mapper:addCustomLine(mapper.draw.from, roomID, mapper.draw.command)
-				else
+				elseif mapper.draw.new then
 					if mapper.draw.from ~= gmcpID then
 						roomID = mapper:generateRoom(mapper.draw.from, gmcpID, mapper.draw.dir, mapper.draw.command)
 						if roomID then
@@ -55,7 +63,7 @@ function roomLoadedCallback()
 		mapper:helper()
 	else
 		-- wygeneruj room bez gmcp
-		if mapper.drawing and mapper.draw and mapper.mode == 3 then
+		if mapper.drawing and mapper.draw and mapper.draw.new and mapper.mode == 3 then
 			local to = createRoomID(mapper.nogmcp)
 			mapper:generateRoom(mapper.draw.from, to, mapper.draw.dir, mapper.draw.dir)
 			setRoomEnv(to, 262) -- TODO SKOMENTOWAC TO

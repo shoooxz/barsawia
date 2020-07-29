@@ -92,6 +92,7 @@ function mapper:generateRoomUp(dir)
 			self:connectRooms(self.room.id, roomID, "up")
 		else
 			self.draw = {}
+			self.draw.new = true
 			self.draw.from = self.room.id
 			self.draw.dir = dir
 			self.draw.command = "up"
@@ -107,6 +108,7 @@ function mapper:generateRoomDown(dir)
 			self:connectRooms(self.room.id, roomID, "down")
 		else
 			self.draw = {}
+			self.draw.new = true
 			self.draw.from = self.room.id
 			self.draw.dir = dir
 			self.draw.command = "down"
@@ -142,7 +144,7 @@ function mapper:label(dir, text)
 end
 
 function mapper:colorRoom(color)
-	if self.drawing then
+	--if self.drawing then
 		local arr = {
 			["poi"] = 267,
 			["chata"] = 259,
@@ -158,7 +160,7 @@ function mapper:colorRoom(color)
 		if arr[color] then
 			setRoomEnv(self.room.id, arr[color])
 		end
-	end
+	--end
 	--rounded rooms
 	--local r,g,b = unpack(color_table[color])
 	--highlightRoom(self.currentRoomID, r,g,b, r, g, b, 0, 255, 255)

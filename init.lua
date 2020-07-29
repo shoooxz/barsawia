@@ -20,6 +20,7 @@ function loadObjects(force)
         "scripts/inventory/rating",
         "scripts/character/core",
         "scripts/character/tables",
+        "scripts/npc",
         "mapper/core",
         "mapper/area",
         "mapper/helper",
@@ -27,6 +28,7 @@ function loadObjects(force)
         "mapper/draw",
         "mapper/events",
         "mapper/bind",
+        "mapper/walker",
     }
     for i = 1, #obj do
         package.loaded[obj[i]] = nil

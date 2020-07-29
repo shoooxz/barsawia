@@ -33,21 +33,30 @@ function keybind:shipLeave()
 	self:triggerPrint()
 end
 
-function keybind:wozLeave()
+function keybind:cartEnter(type)
+	local type2command = {
+		["woz"] = "wejdz na woz",
+		["dylizans"] = "wejdz do dylizansu",
+	}
+	scripts:beep()
+	self.triggerCommand = inventory:moneyOut(true)..";"..type2command[type]
+	self:triggerPrint()
+end
+
+function keybind:cartLeave()
 	scripts:beep()
 	self.triggerCommand = "wyjscie"
 	mapper.gmcpNextLocation = true
 	self:triggerPrint()
 end
 
-function keybind:wozEnter()
-	scripts:beep()
-	self.triggerCommand = inventory:moneyOut(true)..";wejdz na woz"
+function keybind:pass()
+	self.triggerCommand = inventory:moneyOut(true)..";kup przepustke"
 	self:triggerPrint()
 end
 
-function keybind:pass()
-	self.triggerCommand = inventory:moneyOut(true)..";kup przepustke"
+function keybind:pack()
+	self.triggerCommand = "przeczytaj plakat"
 	self:triggerPrint()
 end
 

@@ -86,8 +86,12 @@ end
 -- polaczenia tabeli bez getN
 function utils:concat(arr, glue)
     local concat = ""
-    for k, v in pairs(arr) do
-        concat = concat .. v .. glue
+    if type(arr) == "table" then
+        for k, v in pairs(arr) do
+            concat = concat .. v .. glue
+        end
+        return utils:rtrim(concat, glue)
+    else
+        return arr
     end
-    return utils:rtrim(concat, glue)
 end

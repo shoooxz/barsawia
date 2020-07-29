@@ -6,25 +6,36 @@ function mapper:move(dir)
 		self.draw = nil
 		-- gdy istnieje wyjscie w gmcp z kolei nie ma takiego wyjscia w exitach
 		if (self:gmcpExitExists(dir) and not roomID) or self.mode == 3 then
-			-- czy istnieje lokacja w tamta strone po koordynatach
-			roomID = self:getRoomViaCoords(dir)
-			if roomID then
-				-- connect
+			if self.mode == 4 then
+				-- connect gmcp, straszne laczenia na lakach 
 				self.draw = {}
 				self.draw.connect = true
 				self.draw.from = self.room.id
-				self.draw.to = roomID
 				self.draw.dir = dir
 				send(dir)
 				return
 			else
-				-- jesli nie istnieje - wygeneruj nowa lokacje w evencie roomLoaded
-				self.draw = {}
-				self.draw.from = self.room.id
-				self.draw.dir = dir
-				self.draw.command = dir
-				send(dir)
-				return
+				-- czy istnieje lokacja w tamta strone po koordynatach
+				roomID = self:getRoomViaCoords(dir)
+				if roomID then
+					-- connect
+					self.draw = {}
+					self.draw.connect = true
+					self.draw.from = self.room.id
+					self.draw.to = roomID
+					self.draw.dir = dir
+					send(dir)
+					return
+				else
+					-- jesli nie istnieje - wygeneruj nowa lokacje w evencie roomLoaded
+					self.draw = {}
+					self.draw.new = true
+					self.draw.from = self.room.id
+					self.draw.dir = dir
+					self.draw.command = dir
+					send(dir)
+					return
+				end
 			end
 		end
 	end

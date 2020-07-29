@@ -14,10 +14,11 @@ function printer:settings()
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
     self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
-    self:command("/opcje filtr_bron "..utils:concat(profile:get("filter_weapon"), ","), "Pokazujesz w kufrze tylko konkretny rodzaj broni")
-    self:info("Mozesz laczyc bronie z ',' np /opcje filtr_bron 1,2,6 pokaze w kufrze")
-    self:info("tylko miecze, topory i drzewce")
-    self:dumpArray({{0, "wszystko"}, {1, "miecze"}, {2, "topory"}, {3, "sztylety"}, {4, "mloty"}, {5, "maczugi"}, {6, "drzewce"}}, 4, nil, self.infoColor)
+    self:command("/opcje chodzik "..profile:get("bag"), "Opoznienie chodzika 1-5")
+    self:command("/opcje filtr_bron "..utils:concat(profile:get("filter_weapon"), ","), "Pokazuje w kufrze tylko konkretny rodzaj broni")
+    self:info("Mozesz laczyc bronie z ',' np /opcje filtr_bron 6,1,2 pokaze w kufrze")
+    self:info("jako ostanie drzewce, miecze i topory (zachowana kolejnosc)")
+    self:dumpArray({{0, "wszystko"}, {1, "miecze"}, {2, "topory"}, {3, "sztylety"}, {4, "mloty"}, {5, "maczugi"}, {6, "drzewce"}, {7, "luki"}}, 4, nil, self.infoColor)
     self:bottom()
 end
 
@@ -37,7 +38,7 @@ function printer:binds()
     self:title("Barsawia Bindy")
     self:command("/bind (komendy)", "Dodanie binda do aktualnej lokacji")
     self:info("Komendy powinny byc oddzielone hashem '#'")
-    self:info("np. napij sie wody z fontanny;usmiechnij sie")
+    self:info("np. napij sie wody z fontanny#usmiechnij sie")
     self:info("Bind uaktywni na lokacji informcje o wcisnieciu klawisza")
     self:command("/usun_bindy", "Usuniecie z aktualnej lokacji binda")
     self:bottom()
@@ -69,6 +70,7 @@ function printer:mapper()
     self:info("1 - normalny")
     self:info("2 - lacz lokacje obustronnie (Trakty)")
     self:info("3 - tworz lokacje bez gmcp")
+    self:info("4 - lacz lokacje przez gmcp (Laki)")
     self:command("/step (n)", "Odstep pomiedzy dwoma lokacjami, domyslnie 2")
     self:command("/dol (kierunek)", "Stworz lokacje i przejscie na dol w danym kierunku")
     self:command("/gora (kierunek)", "Stworz lokacje i przejscie na gore w danym kierunku")
@@ -104,12 +106,13 @@ function printer:areas(arr)
     self:bottom()
 end
 
-function printer:filter(arr)
+function printer:filter(sort, arr)
     self:title("Kuferek")
-    for type, list in pairs(arr) do
-        self:dumpArray(list, 4, {type, nil})
+    for _, type in pairs(sort) do
+        self:dumpArray(arr[type], 4, {type, nil})
         self:space()
     end
+    self:line("Komenda /opcje filtr_bron pozwala na filtrowanie broni", self.sectionColor)
     self:bottom(true)
 end
 
@@ -131,13 +134,20 @@ function printer:rating(arr, sum, nomargin)
     self:bottom(true)
 end
 
-
+-- Srodziemie
 -- Bree
 -- karczma
 -- srodek bree tajemniczy
+-- pracownik na poczcie listy
+
+-- Ustrekt
 -- Kratas
 -- ork z kratas - kapitan > rybak > magazyn > karczma > stajenny > krawiec > skup skor > krawiec > stajenny > karczma > o nagrode kapitana
+-- Dorath
+-- zielarz - skore triplikatna, pudelko do miecznik vivane
+-- wiesniak - przeszukaj siano, wloz slome do otworu, zakrec korba, nakarm kury
 -- Vivane
+-- gubernator - straznik na polnocnym murze,
 -- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc -
 -- Jerris
 -- Laboratorium konstruktora - o maszyne/podroz

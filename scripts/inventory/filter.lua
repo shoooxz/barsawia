@@ -1,6 +1,5 @@
 inventory.filter = inventory.filter or {}
 inventory.filter.unknown = "Nieznany"
-inventory.filter.skip = {}
 inventory.filter.weapons = {
 	["1"] = "Miecze",
 	["2"] = "Topory",
@@ -8,6 +7,32 @@ inventory.filter.weapons = {
 	["4"] = "Mloty",
 	["5"] = "Maczugi",
 	["6"] = "Drzewce",
+	["7"] = "Luki"
+}
+
+inventory.filter.sort = {
+	["Nieznany"] = 1,
+	["Kamienie"] = 2,
+	["Monety"] = 3,
+	["Rekawice"] = 4,
+	["Bizuteria"] = 5,
+	["Plaszcze"] = 6,
+	["Karaceny"] = 7,
+	["Pancerze"] = 8,
+	["Helmy"] = 9,
+	["Naramienniki"] = 10,
+	["Nagolenniki"] = 11,
+	["Napiersniki"] = 12,
+	["Zbroje plytowe"] = 13,
+	["Kolczugi"] = 14,
+	["Tarcze"] = 15,
+	["Drzewce"] = 16,
+	["Maczugi"] = 17,
+	["Mloty"] = 18,
+	["Luki"] = 19,
+	["Topory"] = 20,
+	["Sztylety"] = 21,
+	["Miecze"] = 22,
 }
 inventory.filter.patterns = {
   ["Kamienie"] = {
@@ -77,6 +102,11 @@ inventory.filter.patterns = {
   ["Tarcze"] = {
     "tarcza?e?",
     "paweze?y?",
+	"puklerze?y?",
+  },
+  ["Luki"] = {
+	  "luki?o?w?",
+	  "kusza?e?"
   },
   ["Topory"] = {
 	"siekiery?e?",
@@ -283,9 +313,10 @@ function inventory.filter:show(str, last)
 		[self.unknown] = {}
 	}
 	local list = utils:split2(str..", ", ",%s")
+	local skip = self:getSkip()
+	local sort = {}
 	table.insert(list, last)
 	deleteLine()
-	--self:setSkip()
 	for i = 1, #list do
 		local count, name = list[i]:match("(%w+)%s(.*)")
 		if inventory.count2short[count] then
@@ -295,44 +326,56 @@ function inventory.filter:show(str, last)
 			name = list[i]
 		end
 		local type = self:getType(name)
-		if type then
-			-- skategoryzowane
-			if not out[type] then
-			 	out[type] = {}
-		 	end
-			table.insert(out[type], {
-				count,
-				name
-			})
-		else
-			-- nieznane
-			table.insert(out[self.unknown], {
-				count,
-				name
-			})
+		if not skip[type] then
+			if type then
+				-- skategoryzowane
+				if not out[type] then
+				 	out[type] = {}
+			 	end
+				table.insert(out[type], {
+					count,
+					name
+				})
+			else
+				-- nieznane
+				table.insert(out[self.unknown], {
+					count,
+					name
+				})
+			end
 		end
 	end
-	printer:filter(out)
+	-- sortuj wyniki
+	for k in pairs(out) do table.insert(sort, k) end
+	table.sort(sort, function(a,b) return self.sort[a] < self.sort[b] end)
+	printer:filter(sort, out)
 end
 
-function inventory.filter:setSkip()
-	local arr = utils:arrayDiff(utils:arrayKeys(self.weapons), profile:get("filter_weapon"))
-	for i, id in pairs(arr) do
-		self.skip[self.weapons[id]] = true
+function inventory.filter:getSkip()
+	local opt = profile:get("filter_weapon")
+	local out = {}
+	if type(opt) == "table" then
+		local arr = utils:arrayDiff(utils:arrayKeys(self.weapons), opt)
+		for i, id in pairs(arr) do
+			out[self.weapons[id]] = true
+		end
+		-- przy okazji sort
+		for i, id in ipairs(opt) do
+			self.sort[self.weapons[id]] = 100-i
+		end
 	end
+	return out
 end
 
 function inventory.filter:getType(name)
 	local out = nil
 	for type, pattern in pairs(self.patterns) do
-
-			for i = 1, #pattern do
-				if string.match(name, ".*"..pattern[i].."$") then
-					return type
-				end
+		for i = 1, #pattern do
+			if string.match(name, ".*"..pattern[i].."$") then
+				return type
 			end
+		end
 	end
-
 end
 
 function inventory.filter:weaponExists(idToCheck)

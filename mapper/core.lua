@@ -61,6 +61,11 @@ mapper.shortMirror = { --> events.lua
 	["u"]    = "d",
 	["d"]    = "u",
 }
+mapper.walker = {
+	["step"] = 1,
+	["timer"] = nil,
+	["working"] = false,
+}
 
 function mapper:init()
 	self:ui(settings:get("mapperWidth"))
@@ -145,6 +150,12 @@ function mapper:setMode(mode)
 		self.mode = 3
 		printer:success("Mapper",
 			"Mapper ustawiony na lokacje bez GMCP"
+		)
+	end
+	if mode == "4" then
+		self.mode = 4
+		printer:success("Mapper",
+			"Mapper ustawiony na laczenie lokacji przez GMCP (Laki)"
 		)
 	end
 end
