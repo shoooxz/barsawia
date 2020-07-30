@@ -55,6 +55,11 @@ function keybind:pass()
 	self:triggerPrint()
 end
 
+function keybind:pass2()
+	self.triggerCommand = inventory:moneyOut(true)..";zaplac za przepustke"
+	self:triggerPrint()
+end
+
 function keybind:pack()
 	self.triggerCommand = "przeczytaj plakat"
 	self:triggerPrint()

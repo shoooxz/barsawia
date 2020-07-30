@@ -1,5 +1,13 @@
 utils = utils or {}
 
+function utils:truncate(str, limit)
+    local len = string.len(str)
+    if len > limit then
+        return string.sub(str, 1, limit).."..."
+    end
+    return str
+end
+
 function utils:objectLength(obj)
   local count = 0
   for _ in pairs(obj) do count = count + 1 end

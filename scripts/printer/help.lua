@@ -31,6 +31,7 @@ function printer:scripts()
     self:command("/medytuj", "Medytuj w gildii podroznikow, zapisz stan cech")
     self:info("Przy kazdym uzyciu medytuj progres cech jest zapisywany w profilu")
     self:info("oraz widoczny po wpisaniu komendy 'cechy'")
+    self:command("/npc", "Szukaj NPC w bazie")
     self:bottom()
 end
 
@@ -149,5 +150,8 @@ end
 -- Vivane
 -- gubernator - straznik na polnocnym murze,
 -- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc -
+-- urzednik w ratuszu n - papier kratas sklep, ciastko cukiernia s + sol 
+-- szewc -
+-- poczta - Velrond, Kratas (/npc Velrond)
 -- Jerris
 -- Laboratorium konstruktora - o maszyne/podroz
