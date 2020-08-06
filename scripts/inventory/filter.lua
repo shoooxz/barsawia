@@ -312,7 +312,7 @@ function inventory.filter:show(str, last)
 	local out = {
 		[self.unknown] = {}
 	}
-	local list = utils:split2(str..", ", ",%s")
+	local list = utils:split(str..", ", ",%s")
 	local skip = self:getSkip()
 	local sort = {}
 	table.insert(list, last)

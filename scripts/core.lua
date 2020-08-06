@@ -1,4 +1,5 @@
 scripts = scripts or {}
+scripts.events = scripts.events or {}
 
 function scripts:init()
 	if mudletOlderThan(4, 8) then
@@ -9,7 +10,9 @@ function scripts:init()
 			}
 		)
 	end
+	self:unbindEvents()
 	settings:init()
+	footer:init()
 	setMainWindowSize(settings:get("mainWindowWidth"), settings:get("mainWindowHeight"))
 end
 
@@ -19,6 +22,14 @@ end
 
 function scripts:beep()
 	playSoundFile(getMudletHomeDir().. [[/barsawia/beep.wav]])
+end
+
+function scripts:unbindEvents()
+	for name, id in pairs(self.events) do
+		if id then
+			killAnonymousEventHandler(id)
+		end
+	end
 end
 
 scripts:init()

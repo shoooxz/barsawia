@@ -72,8 +72,8 @@ function printer:bind(modifier, key, right)
 	if not left then
 		left = key
 	end
-	if modifier then
-		left = self.key2short[modifier].." + "..left
+	if modifier[1] then
+		left = self.key2short[modifier[1]].." + "..left
 	end
 	local len = self.length-string.len(left)-string.len(right)-self.tabLength-17  -- 17 Bind: Wcisnij ``
 	self:top(true)

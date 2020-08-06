@@ -12,6 +12,7 @@ function printer:settings()
     self:command("/opcje szerokosc "..settings:get("mainWindowWidth"), "Szerokosc glownego okna w Mudlecie")
     self:command("/opcje wysokosc "..settings:get("mainWindowHeight"), "Wysokosc glownego okna w Mudlecie")
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
+    self:command("/opcje lucznik "..profile:get("bow"), "Wlacz/wylacz (1/0) pomocnik lucznika")
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
     self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
     self:command("/opcje chodzik "..profile:get("bag"), "Opoznienie chodzika 1-5")
@@ -24,14 +25,18 @@ end
 
 function printer:scripts()
     self:title("Barsawia Skrypty")
-    self:command("/zetnij_drzewo", "Sciecie drzewa")
-    self:command("/ociosaj_drzewo", "Ociosanie drzewa")
+    self:command("/drwal", "Tryb drwala")
+    self:info("Podczas trybu drwala CTRL + klawiatura numeryczna scina drzewa w kolejnosci")
+    self:info("0 - to scinanie drzew po kolei")
     self:command("/zap", "Zapal lampe")
     self:info("Do zapalenia lampy potrzebne sa 2 krzemienie i olej")
     self:command("/medytuj", "Medytuj w gildii podroznikow, zapisz stan cech")
     self:info("Przy kazdym uzyciu medytuj progres cech jest zapisywany w profilu")
     self:info("oraz widoczny po wpisaniu komendy 'cechy'")
-    self:command("/npc", "Szukaj NPC w bazie")
+    self:command("/npc (imie)", "Szukaj NPC w bazie")
+    self:command("/napraw", "Napraw bron i zbroje")
+    self:command("/celuj w (cel)", "Ustaw cel dla luku")
+    self:info("Za pomoca kombinacji ctrl+kierunek ustal kierunek ataku")
     self:bottom()
 end
 
@@ -85,6 +90,7 @@ function printer:mapper()
     self:command("/linia (kierunek)", "Polacz przerywana linia z najblizsza lokacja w kierunku")
     self:command("/label (kierunek) (text)", "Etykieta w tym kierunku")
     self:command("/lokacja (kierunek) (id)", "Stworz lokacje w tym kierunku z tym id")
+    self:info("(Id 0 wygeneruje losowy numer pomieszczenia)")
     self:command("/bindy", "Komendy dla bindow do mapy")
     self:command("/polacz (kierunek)", "Polacz obecna lokacje z lokacja w kierunku")
     self:command("/poi (kierunek)", "Dodaj specjalne przejscie z `wyjscie` i kolorem poi")
@@ -135,11 +141,29 @@ function printer:rating(arr, sum, nomargin)
     self:bottom(true)
 end
 
+function printer:wood(arr, sum)
+    self:title(sum)
+    if next(arr) then
+        self:dumpArray(arr, 5, {"Id", "Nazwa"})
+    else
+        self:line("Brak drzew", self.errorColor)
+    end
+    self:bottom(false, true)
+end
+
 -- Srodziemie
 -- Bree
 -- karczma
 -- srodek bree tajemniczy
--- pracownik na poczcie listy
+-- pracownik na poczcie listy Paralon Bargins - Igielniczka
+-- Rivendell
+-- niespokojny elf -
+-- Hobbiton
+-- sheryf - zabic moba w swierkowym - wziac sakiewke
+-- Perin - tukon <> hobbiton
+-- zielarz -
+-- Michel Delving
+-- Colin Manelio - "dwie godziny" - sylaby w slowach 'pustelniku' 'kobiecie' 'mlocie' 'niesmiertelnosci' bez odmiany
 
 -- Ustrekt
 -- Kratas
@@ -148,9 +172,9 @@ end
 -- zielarz - skore triplikatna, pudelko do miecznik vivane
 -- wiesniak - przeszukaj siano, wloz slome do otworu, zakrec korba, nakarm kury
 -- Vivane
--- gubernator - straznik na polnocnym murze,
+-- gubernator - straznik na polnocnym murze, do celi w wiezieniu z inicjalami sprawcy na scianie, przeszukac prycze, do kanalow przeszukac dziure
 -- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc -
--- urzednik w ratuszu n - papier kratas sklep, ciastko cukiernia s + sol 
+-- urzednik w ratuszu n - papier kratas sklep, okragle ciastko z s cukierni + sol (wyglada jak cukier) z karczmy n (przeszukaj pudeleczka) "posyp ciastko"
 -- szewc -
 -- poczta - Velrond, Kratas (/npc Velrond)
 -- Jerris

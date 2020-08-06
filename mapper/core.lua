@@ -1,6 +1,7 @@
 mudlet = mudlet or {}
 mudlet.mapper_script = true
 mapper = mapper or {}
+mapper.events = mapper.events or {}
 mapper.gmcp = {}
 mapper.step = 2
 mapper.mode = 1
@@ -8,7 +9,6 @@ mapper.drawing = false
 mapper.file = "barsawia_mapa.dat"
 mapper.room = {}
 mapper.gmcp = {}
-mapper.events = mapper.events or {}
 mapper.draw = nil
 mapper.nogmcp = 150000 -- start nogmcp id: las faktoria
 mapper.lastKnownID = nil -- zmeczony, bramy, cofnij
@@ -68,6 +68,7 @@ mapper.walker = {
 }
 
 function mapper:init()
+	self:unbindEvents()
 	self:ui(settings:get("mapperWidth"))
 end
 
@@ -280,7 +281,7 @@ function mapper:ui(mapperWidth)
 		x = 0,
 		y = 0,
 		width = "100%",
-		height = "100%"
+		height = -footer.height
 	}, self.mapperContainer)
 end
 

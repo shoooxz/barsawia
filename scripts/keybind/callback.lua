@@ -26,3 +26,36 @@ function keybindGate()
 		keybind.gateCommand = nil
 	end
 end
+
+
+function keybindN()
+	raiseEvent("modMove", "n")
+end
+
+function keybindS()
+	raiseEvent("modMove", "s")
+end
+
+function keybindW()
+	raiseEvent("modMove", "w")
+end
+
+function keybindE()
+	raiseEvent("modMove", "e")
+end
+
+function keybindSE()
+	raiseEvent("modMove", "se")
+end
+
+function keybindNE()
+	raiseEvent("modMove", "ne")
+end
+
+function keybindSW()
+	raiseEvent("modMove", "sw")
+end
+
+function keybindNW()
+	raiseEvent("modMove", "nw")
+end

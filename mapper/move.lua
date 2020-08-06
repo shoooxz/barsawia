@@ -7,7 +7,7 @@ function mapper:move(dir)
 		-- gdy istnieje wyjscie w gmcp z kolei nie ma takiego wyjscia w exitach
 		if (self:gmcpExitExists(dir) and not roomID) or self.mode == 3 then
 			if self.mode == 4 then
-				-- connect gmcp, straszne laczenia na lakach 
+				-- connect gmcp, straszne laczenia na lakach
 				self.draw = {}
 				self.draw.connect = true
 				self.draw.from = self.room.id
@@ -55,9 +55,7 @@ function mapper:move(dir)
 		send(dir)
 	end
 	if (not self.drawing or self.mode == 3) and roomID then
-
 		self:center(roomID)
-		raiseEvent("newLocation", roomID)
 	end
 end
 

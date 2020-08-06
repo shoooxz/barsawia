@@ -1,5 +1,5 @@
 profile = profile or {}
-profile.file = getMudletHomeDir().."/%s.lua"
+profile.file = nil
 profile.list = profile.list or {}
 profile.func = {
 	["pojemnik"] = function(val)
@@ -11,13 +11,22 @@ profile.func = {
 			printer:one("Opcje", "ID pojemnika nie istnieje")
 		end
 	end,
+	["lucznik"] = function(val)
+		val = tonumber(val)
+		if val == 0 or val == 1 then
+			profile.list.bow = val
+			profile:save()
+		else
+			printer:one("Opcje", "Dostepne wybory to 0 i 1")
+		end
+	end,
 	["filtr_bron"] = function(val)
 		if val == "0" then
 			profile.list.filter_weapon = 0
 			profile:save()
 			return
 		end
-		local arr = utils:split2(val, ",")
+		local arr = utils:split(val, ",")
 		for i=1, #arr do
 			if not inventory.filter:weaponExists(arr[i]) then
 				printer:one("Opcje", "ID "..arr[i].." filtru broni nie istnieje")
@@ -31,7 +40,7 @@ profile.func = {
 
 function profile:init(name)
 	local msg = name..", profil zostal zaladowany, mozesz go modyfikowac w /opcje"
-	self.file = string.format(self.file, name)
+	self.file = getMudletHomeDir().."/"..name..".lua"
 	self.last = name
 	if io.exists(self.file) then
 		table.load(self.file, self.list)
@@ -39,7 +48,8 @@ function profile:init(name)
 		local default = {
 			["bag"] = 1,
 			["filter_weapon"] = 0,
-			["stats_progress"] = 0
+			["stats_progress"] = 0,
+			["bow"] = 0
 		}
 		self:save(default)
 		self.list = default

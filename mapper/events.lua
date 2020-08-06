@@ -62,6 +62,7 @@ function roomLoadedCallback()
 		end
 		mapper:helper()
 	else
+		mapper.lastKnownID = mapper.room.id
 		-- wygeneruj room bez gmcp
 		if mapper.drawing and mapper.draw and mapper.draw.new and mapper.mode == 3 then
 			local to = createRoomID(mapper.nogmcp)
@@ -72,14 +73,4 @@ function roomLoadedCallback()
 	end
 end
 
-function newLocationCallback(event, arg)
-	-- new loc
-end
-
-if mapper.events then
-	mapper:unbindEvents()
-	-- events GMCP
-	mapper.events["roomLoaded"] = registerAnonymousEventHandler("gmcp.Room", roomLoadedCallback)
-	-- custom events
-	mapper.events["newLocation"] = registerAnonymousEventHandler("newLocation", newLocationCallback)
-end
+mapper.events["roomLoaded"] = registerAnonymousEventHandler("gmcp.Room", roomLoadedCallback)

@@ -120,6 +120,9 @@ end
 function mapper:emptyRoom(dir, roomID)
 	if self.drawing and self:matchRose(dir) then
 		local coords = self:convertCoords(dir)
+		if roomID == "0" then
+			roomID = createRoomID(self.nogmcp)
+		end
 		self:addRoom(self.room.area, roomID, coords.x, coords.y, coords.z)
 	end
 end

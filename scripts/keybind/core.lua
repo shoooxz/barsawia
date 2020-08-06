@@ -5,20 +5,52 @@ keybind.roomCommand = nil
 keybind.gateCommand = nil
 keybind.conf = {
 	["keybindRoom"] = {
-		["modifier"] = nil,
+		["modifier"] = {},
 		["key"] = "BracketRight",
 	},
 	["keybindTrigger"] = {
-		["modifier"] = nil,
+		["modifier"] = {},
 		["key"] = "BracketLeft",
 	},
 	["keybindSupport"] = {
-		["modifier"] = "Control",
+		["modifier"] = {"Control"},
 		["key"] = "W",
 	},
 	["keybindGate"] = {
-		["modifier"] = "Control",
+		["modifier"] = {"Control"},
 		["key"] = "2",
+	},
+	["keybindN"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "8",
+	},
+	["keybindS"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "2",
+	},
+	["keybindW"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "4",
+	},
+	["keybindE"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "6",
+	},
+	["keybindNE"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "9",
+	},
+	["keybindSE"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "3",
+	},
+	["keybindSW"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "1",
+	},
+	["keybindNW"] = {
+		["modifier"] = {"Control", "Keypad"},
+		["key"] = "7",
 	},
 }
 
@@ -30,10 +62,15 @@ function keybind:init()
 end
 
 function keybind:create(modifier, key, callback)
-	modifier = mudlet.keymodifier[modifier]
+	local mod = 0
+	if next(modifier) then
+		for i=1, #modifier do
+			mod = mod + mudlet.keymodifier[modifier[i]]
+		end
+	end
 	key = mudlet.key[key]
 	if key and _G[callback] then
-        table.insert(self.ids, tempKey(modifier, key, callback .. "()")) -- heh?
+        table.insert(self.ids, tempKey(mod, key, callback .. "()")) -- heh?
     end
 end
 

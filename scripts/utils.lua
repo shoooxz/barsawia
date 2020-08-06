@@ -18,23 +18,25 @@ function utils:ucfirst(str)
     return (str:gsub("^%l", string.upper))
 end
 
-function utils:split(inputstr, sep)
-    if sep == nil then
-        sep = "%s"
-    end
-    local t = {}
-    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-        table.insert(t, str)
-    end
-    return t
-end
-
-function utils:split2(s, delimiter)
+function utils:split(s, delimiter)
     result = {};
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
         table.insert(result, match);
     end
     return result;
+end
+
+-- split z `,` `i`
+function utils:splitcommai(str)
+    local s = self:split(str, ", ")
+    local last = nil
+    if string.find(s[#s], " i ") then
+        last = self:split(s[#s], " i ")
+        table.remove(s)
+        table.insert(s, last[1])
+        table.insert(s, last[2])
+    end
+    return s
 end
 
 function utils:arrayKeys(tab)
