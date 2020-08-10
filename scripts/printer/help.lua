@@ -12,7 +12,8 @@ function printer:settings()
     self:command("/opcje szerokosc "..settings:get("mainWindowWidth"), "Szerokosc glownego okna w Mudlecie")
     self:command("/opcje wysokosc "..settings:get("mainWindowHeight"), "Wysokosc glownego okna w Mudlecie")
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
-    self:command("/opcje lucznik "..profile:get("bow"), "Wlacz/wylacz (1/0) pomocnik lucznika")
+    self:command("/opcje tryb "..profile:get("mode"), "Wlacz tryb przy ladowaniu profilu")
+    self:dumpArray({{1, "lucznik"}, {2, "drwal"}}, 4, nil, self.infoColor)
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
     self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
     self:command("/opcje chodzik "..profile:get("bag"), "Opoznienie chodzika 1-5")
@@ -25,9 +26,6 @@ end
 
 function printer:scripts()
     self:title("Barsawia Skrypty")
-    self:command("/drwal", "Tryb drwala")
-    self:info("Podczas trybu drwala CTRL + klawiatura numeryczna scina drzewa w kolejnosci")
-    self:info("0 - to scinanie drzew po kolei")
     self:command("/zap", "Zapal lampe")
     self:info("Do zapalenia lampy potrzebne sa 2 krzemienie i olej")
     self:command("/medytuj", "Medytuj w gildii podroznikow, zapisz stan cech")
@@ -141,10 +139,14 @@ function printer:rating(arr, sum, nomargin)
     self:bottom(true)
 end
 
-function printer:wood(arr, sum)
+function printer:wood(arr, sum, quest)
     self:title(sum)
+    if quest then
+        self:line(quest, self.successColor)
+        self:space()
+    end
     if next(arr) then
-        self:dumpArray(arr, 5, {"Id", "Nazwa"})
+        self:dumpArrayLink(arr, 10, {"Nazwa", "Zetnij"})
     else
         self:line("Brak drzew", self.errorColor)
     end

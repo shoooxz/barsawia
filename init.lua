@@ -10,6 +10,7 @@ function loadObjects(force)
         "scripts/utils",
         "scripts/settings",
         "scripts/footer",
+        "scripts/mode",
         "scripts/core",
         "scripts/wood",
         "scripts/keybind/callback",

@@ -27,6 +27,9 @@ function keybindGate()
 	end
 end
 
+function keybindNum5()
+	raiseEvent("num5")
+end
 
 function keybindN()
 	raiseEvent("modMove", "n")

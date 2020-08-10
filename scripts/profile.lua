@@ -11,13 +11,16 @@ profile.func = {
 			printer:one("Opcje", "ID pojemnika nie istnieje")
 		end
 	end,
-	["lucznik"] = function(val)
+	["tryb"] = function(val)
 		val = tonumber(val)
-		if val == 0 or val == 1 then
-			profile.list.bow = val
+		if val == 0 then
+			profile.list.mode = 0
+			profile:save()
+		elseif mode.order[val] then
+			profile.list.mode = val
 			profile:save()
 		else
-			printer:one("Opcje", "Dostepne wybory to 0 i 1")
+			printer:one("Opcje", "Podany tryb nie istnieje")
 		end
 	end,
 	["filtr_bron"] = function(val)
@@ -49,7 +52,7 @@ function profile:init(name)
 			["bag"] = 1,
 			["filter_weapon"] = 0,
 			["stats_progress"] = 0,
-			["bow"] = 0
+			["mode"] = 0,
 		}
 		self:save(default)
 		self.list = default
@@ -57,6 +60,9 @@ function profile:init(name)
 	end
 	tempTimer(.3, function ()
 		printer:one("Profil", msg)
+		if self.list.mode > 0 then
+			mode.exec[mode.order[self.list.mode]].func()
+		end
 	end)
 end
 

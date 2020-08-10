@@ -13,11 +13,16 @@ function scripts:init()
 	self:unbindEvents()
 	settings:init()
 	footer:init()
+	mode:init()
 	setMainWindowSize(settings:get("mainWindowWidth"), settings:get("mainWindowHeight"))
 end
 
 function scripts:loaded()
 	send('opcje szerokosc 0', false)
+end
+
+function scripts:dead()
+	send("ob cialo")
 end
 
 function scripts:beep()

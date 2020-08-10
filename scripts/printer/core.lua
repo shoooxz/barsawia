@@ -55,7 +55,7 @@ function printer:title(str, nospace, nomargin)
 	if not nospace then self:space() end
 end
 
-function printer:one(left, right)
+function printer:one(left, right, nomargin)
 	local len = self.length-string.len(left)-string.len(right)-self.tabLength-2  -- 2 : i spacja
 	self:top(true)
 	cecho(
@@ -64,7 +64,7 @@ function printer:one(left, right)
 		"<"..self.textColor..">"..right..string.rep(" ", len)..
 		"<"..self.borderColor..">|\n"
 	)
-	self:bottom(true)
+	self:bottom(true, nomargin)
 end
 
 function printer:bind(modifier, key, right)
@@ -153,6 +153,36 @@ function printer:dumpArray(arr, firstColLength, header, color)
 	end
 end
 
+function printer:dumpArrayLink(arr, lastColLength, header, color)
+	if header then
+		self:renderArrayRow(header[1], header[2], self.length-lastColLength, "orange")
+		self:hr()
+	end
+	for k, v in pairs(arr) do
+		self:renderArrayRowLink(v[1], v[2], self.length-lastColLength, color)
+	end
+end
+
+function printer:renderArrayRowLink(left, right, firstColLength, color)
+	local textColor = self.textColor
+	if color then
+		textColor = color
+	end
+	local fillLeft = firstColLength-self.tabLength-1-string.len(left)
+	local fillRight = 0
+	if next(right) then
+		fillRight = self.length-self.tabLength-1-firstColLength-string.len(right.label)
+	else
+		fillRight = self.length-self.tabLength-1-firstColLength
+	end
+	cecho("<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
+			"<"..textColor.."> "..left..string.rep(" ", fillLeft).."| ")
+	if next(right) then
+		cechoLink("<red>"..right.label, right.command, right.tooltip, true)
+	end
+	cecho(string.rep(" ", fillRight).."<"..self.borderColor..">|\n")
+end
+
 function printer:renderArrayRow(left, right, firstColLength, color)
 	local textColor = self.textColor
 	if color then
@@ -207,4 +237,10 @@ function printer:line(msg, color)
 		"<"..color..">"..msg..string.rep(" ", len)..
 		"<"..self.borderColor..">|\n"
 	)
+end
+
+function printer:progress(msg, val, max)
+	local total = string.rep(".", max-val)
+	local progress = string.rep("#", val)
+ 	self:one(msg, "["..progress..total.."]", true)
 end

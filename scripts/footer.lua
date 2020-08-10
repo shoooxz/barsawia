@@ -37,7 +37,7 @@ footer.gaugeData = {
 	["improve"] = {
 		["name"] = "Postepy",
 		["max"] = 24,
-		["range"] = {"g", "g", "g", "g", "g", "g", "g", "g", "y", "y", "y", "y", "y", "y", "y", "y", "r", "r", "r", "r", "r", "r", "r", "r"},
+		["range"] = {"g", "g", "g", "g", "g", "g", "g", "g", "g", "g", "y", "y", "y", "y", "y", "y", "y", "y", "r", "r", "r", "r", "r", "r"},
 	},
 	["stuffed"] = {
 		["name"] = "Glod",
@@ -90,21 +90,22 @@ footer.gaugeColor = {
 	]]
 }
 
-function gmcpCharStateCallback()
-	for k, v in pairs(gmcp.Char.State) do
-		footer:set(k, v)
+function footer:gmcpCharState()
+	return function()
+		for k, v in pairs(gmcp.Char.State) do
+			self:set(k, v)
+		end
 	end
 end
 
 function footer:init()
 	self:createUI()
 	-- event rejestrowany w tym miejscu ze wzgledu na odpalenie klasy przed skryptami
-	scripts.events["gmcpCharState"] = registerAnonymousEventHandler("gmcp.Char.State", gmcpCharStateCallback)
+	scripts.events["gmcpCharState"] = registerAnonymousEventHandler("gmcp.Char.State", self:gmcpCharState())
 end
 
 function footer:createUI()
 	setBorderBottom(self.height)
-
 	self.container = Geyser.Label:new({
 		name = "footer.container",
 		x = 0, y = -self.height,
@@ -112,21 +113,17 @@ function footer:createUI()
 		fgColor = "black",
 		color = self.color
 	})
-
 	self.rail = Geyser.HBox:new({
 		name = "footer.rail",
 		x = 0, y = self.railMargin,
 		width = "50%", height = self.height-self.railMargin
 	}, self.container)
-
 	for i=1, 5 do
 		self.col[i] = Geyser.VBox:new({
 			name = "footer.rail.col."..i
 		}, self.rail)
 	end
-
 	local col = 1
-
 	for i=1, #self.gaugeOrder do
 		self:createGauge(self.gaugeOrder[i], self.col[col])
 		if i % 2 == 0 then

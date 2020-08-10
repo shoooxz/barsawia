@@ -1,22 +1,23 @@
 wood = wood or {}
-wood.going = false
-wood.cutting = false
+wood.active = false
+wood.roomID = false
 wood.hewing = false
 wood.capture = false
-wood.count = 1
+wood.quest = false
+wood.count = 1 -- count dla scinania
+wood.step = 1 -- step dla ciosania
 wood.int2str = {
-	[1] = "pierwsze",
-    [2] = "drugie",
-    [3] = "trzecie",
-    [4] = "czwarte",
-    [5] = "piate",
-    [6] = "szoste",
-    [7] = "siodme",
-    [8] = "osme",
-    [9] = "dziewiate",
-    [10] = "dziesiate",
+	"pierwsze",
+    "drugie",
+    "trzecie",
+    "czwarte",
+    "piate",
+    "szoste",
+    "siodme",
+    "osme",
+    "dziewiate",
+    "dziesiate",
 }
-wood.step = 1
 wood.steps = {
 	"odrab konary drzewa",
 	"odetnij galezie drzewa",
@@ -52,68 +53,103 @@ wood.list = {
 --Otaczajace cie drzewa sa mlode i watle, wroc, gdy urosna.
 --W tej czesci lasu zadne z drzew nie nadaje sie do scinki.
 
-function wood:detect(str)
-	if self.capture then
-		local rows = utils:splitcommai(str)
-		local out = {}
-		local sum = 0
-		for i = 1, #rows do
-			local name = string.lower(rows[i])
-			if self.list[name] then
-				sum = sum + self.list[name]
-				name = name.." ~ "..self.list[name].." zlotych monet"
-			else
-				name = name.." (Brak umiejetnosci)"
-			end
-			table.insert(out, {
-				i,
-				name
-			})
-		end
-		printer:wood(out, sum.." zlotych monet")
-		self.capture = false
-	end
-end
-
-function wood:cut(next)
-	if not self.cutting then
-		send("zbadaj wyreb")
-		self.cutting = true
-	else
-		if not self.hewing then
-			if next then
-				self.count = self.count+1
-			end
-			send("zetnij "..self.int2str[self.count].." drzewo")
-		end
-	end
-end
-
-function wood:hew(next)
-	if self.cutting then
-		self.hewing = true
-		if next then
-			self.step = self.step+1
-		end
-		tempTimer(math.random(1, 2), function() send(self.steps[self.step]) end)
-	end
-end
-
-function wood:done()
-	display('DONE')
-	self.cutting = false
-	self.hewing = false
-	self.step = 1
-	self.count = 1
-end
-
-
 --[[
-
 DRZEWO
 monumentalne drzewo o poteznym pniu
 piaskowokore drzewo o gestym igliwiu
 Wlochatolistne drzewo o czarnej korze
 trojkatnolistne drzewo o blekitnej korze
-
 ]]--
+
+function wood:detect(str)
+	if self.capture then
+
+		local rows = utils:splitcommai(str)
+		local out = {}
+		local sum = 0
+		if next(rows) then
+	 		for i = 1, #rows do
+				local name = string.lower(rows[i])
+				local link = {}
+				if self.list[name] then
+					sum = sum + self.list[name]
+					name = name.." ~ "..self.list[name].." zl"
+					link = {
+						["label"] = "Click",
+						["command"] = "wood:cutViaID("..i..")",
+						["tooltip"] = "Zetnij "..name,
+					}
+				else
+					name = name.." (Brak umiejetnosci)"
+				end
+				table.insert(out, {
+					name,
+					link
+				})
+			end
+			self.roomID = mapper.room.id
+		end
+		printer:wood(out, sum.." zlotych monet", self.quest)
+		self.capture = false
+		self.hewing = false
+	end
+end
+
+function wood:cutViaID(id)
+	self.count = id
+	send("zetnij "..self.int2str[self.count].." drzewo")
+end
+
+function wood:cut(next)
+	if next then
+		self.count = self.count+1
+	end
+	send("zetnij "..self.int2str[self.count].." drzewo")
+end
+
+function wood:hew(next)
+	self.hewing = true
+	if next then
+		self.step = self.step+1
+	end
+	printer:progress("Drwal", self.step*5, 25)
+	tempTimer(math.random(1, 2), function() send(self.steps[self.step]) end)
+end
+
+function wood:num5()
+	return function()
+		if self.active then
+			if self.roomID and self.roomID == mapper.room.id then
+				if not self.hewing then
+					self:cut()
+				else
+					self:hew()
+				end
+			else
+				send("zbadaj wyreb")
+			end
+		end
+	end
+end
+
+function wood:get()
+	scripts:beep()
+	self.hewing = false
+	self.step = 1
+	self.count = 1
+	send("wez klody")
+end
+
+function wood:done()
+	printer:progress("Drwal", 25, 25)
+	scripts:beep()
+	self.hewing = false
+	self.step = 1
+	self.count = 1
+end
+
+function wood:setQuest(str)
+	self.quest = str
+end
+
+scripts.events["woodNum5"] = registerAnonymousEventHandler("num5", wood:num5())

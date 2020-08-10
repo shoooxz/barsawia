@@ -18,7 +18,7 @@
 			<regexCodeList />
 			<regexCodePropertyList />
 			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-				<name>Drwal</name>
+				<name>Wood</name>
 				<script></script>
 				<triggerType>0</triggerType>
 				<conditonLineDelta>0</conditonLineDelta>
@@ -47,7 +47,7 @@
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList />
 					<regexCodePropertyList />
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>koniec</name>
 						<script>wood:done()</script>
 						<triggerType>0</triggerType>
@@ -73,7 +73,7 @@
 							<integer>0</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>kora</name>
 						<script>wood:hew(true)</script>
 						<triggerType>0</triggerType>
@@ -99,7 +99,7 @@
 							<integer>0</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>galezie</name>
 						<script>wood:hew(true)</script>
 						<triggerType>0</triggerType>
@@ -127,7 +127,7 @@
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>konary</name>
 						<script>wood:hew(true)</script>
 						<triggerType>0</triggerType>
@@ -153,7 +153,7 @@
 							<integer>0</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>scinanie</name>
 						<script>wood:hew()</script>
 						<triggerType>0</triggerType>
@@ -195,7 +195,7 @@
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList />
 					<regexCodePropertyList />
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>scinanie</name>
 						<script>wood:cut()</script>
 						<triggerType>0</triggerType>
@@ -221,7 +221,7 @@
 							<integer>0</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>galezie</name>
 						<script>wood:hew()</script>
 						<triggerType>0</triggerType>
@@ -253,7 +253,7 @@
 							<integer>0</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>kora</name>
 						<script>wood:hew()</script>
 						<triggerType>0</triggerType>
@@ -279,7 +279,7 @@
 							<integer>1</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>doczyszczanie</name>
 						<script>wood:hew()</script>
 						<triggerType>0</triggerType>
@@ -305,7 +305,7 @@
 							<integer>0</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>konary</name>
 						<script>wood:hew()</script>
 						<triggerType>0</triggerType>
@@ -329,7 +329,7 @@
 							<integer>0</integer>
 						</regexCodePropertyList>
 					</Trigger>
-					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 						<name>fail</name>
 						<script>wood:hew()</script>
 						<triggerType>0</triggerType>
@@ -350,30 +350,6 @@
 						</regexCodePropertyList>
 					</Trigger>
 				</TriggerGroup>
-				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>zauwazasz</name>
-					<script>wood:cut()</script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#21ff06</mFgColor>
-					<mBgColor>#000000</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList>
-						<string>W tej czesci lasu dostrzegasz nastepujace nadajace sie do scinki drzewa:</string>
-						<string>Oto drzewa, rosnace na tym wyrebie, ktora nadaja sie do scinki:</string>
-						<string>Sposrod otaczajacych cie drzew, nastepujace nadaja sie do scinki:</string>
-					</regexCodeList>
-					<regexCodePropertyList>
-						<integer>0</integer>
-						<integer>0</integer>
-						<integer>0</integer>
-					</regexCodePropertyList>
-				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>brak uma</name>
 					<script>wood:cut(true)</script>
@@ -396,7 +372,7 @@
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>brak drzew</name>
-					<script>wood:done()</script>
+					<script>wood:get()</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -416,7 +392,7 @@
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>zbadane</name>
-					<script></script>
+					<script>send("sp")</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -436,7 +412,7 @@
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>brak drzew</name>
-					<script>wood:done()</script>
+					<script>wood:get()</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -452,6 +428,86 @@
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>detect</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>init</name>
+						<script>wood.capture = true</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#21ff06</mFgColor>
+						<mBgColor>#000000</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>W tej czesci lasu dostrzegasz nastepujace nadajace sie do scinki drzewa:</string>
+							<string>Oto drzewa, rosnace na tym wyrebie, ktora nadaja sie do scinki:</string>
+							<string>Sposrod otaczajacych cie drzew, nastepujace nadaja sie do scinki:</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>detect</name>
+						<script>wood:detect(matches[2])</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^(.*(topola|klon|jarzab|jodla|jesion|grab|dab|wierzba|olsza|magnolia|buk|wiaz|osika|brzoza|sosna|tuja|kalopanaks|kasztan|cis|modrzew|swierk|lipa|drzewo).*)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>zlecenie</name>
+					<script>wood:setQuest(matches[2])</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>.*(Aktualnie potrzebuje jedna klode [a-z.]+).*</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
 			</TriggerGroup>
@@ -771,7 +827,7 @@ keybind:pass2()</script>
 					<colorTriggerFgColor>#000000</colorTriggerFgColor>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
-						<string>Jestes ([a-z]+), ([a-z]+), ([a-z]+), ([a-z]+), ([a-z]+) i ([a-z]+).</string>
+						<string>Jestes ([a-z\s]+), ([a-z\s]+), ([a-z\s]+), ([a-z\s]+), ([a-z\s]+) i ([a-z\s]+).</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
@@ -1041,6 +1097,92 @@ keybind:pass2()</script>
 						</regexCodePropertyList>
 					</Trigger>
 				</TriggerGroup>
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Repair</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>next</name>
+						<script>inventory.repair:next()</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>.* nie potrzebuje ostrzenia.</string>
+							<string>.* nie potrzebuja naprawy.</string>
+							<string>.* konczy prace.</string>
+							<string>.* nie potrzebuje naprawy.</string>
+							<string>.* nie potrzebuja ostrzenia.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+							<integer>1</integer>
+							<integer>1</integer>
+							<integer>1</integer>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>change</name>
+						<script>inventory.repair:armor()</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>Naostrz co?</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>0</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>shield</name>
+						<script>inventory.repair:stop()</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>Napraw co?</string>
+							<string>Nie starczy ci pieniedzy zeby zaplacic.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>0</integer>
+							<integer>0</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
 			</TriggerGroup>
 			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Color</name>
@@ -1097,6 +1239,85 @@ keybind:pass2()</script>
 				</regexCodeList>
 				<regexCodePropertyList>
 					<integer>1</integer>
+					<integer>1</integer>
+				</regexCodePropertyList>
+			</Trigger>
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>Bow</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>dobadz</name>
+					<script>bow:wield()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Wpierw dobadz .* luku.</string>
+						<string>Wpierw dobadz .* kuszy.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>chybienie</name>
+					<script>bow:miss()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Puszczasz napieta cieciwe wystrzeliwujac .* w kierunku .*, lecz chybiasz.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+			</TriggerGroup>
+			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>DEAD</name>
+				<script>scripts:dead()
+bow:arrows()</script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList>
+					<string>Zabiles .*</string>
+				</regexCodeList>
+				<regexCodePropertyList>
 					<integer>1</integer>
 				</regexCodePropertyList>
 			</Trigger>
@@ -1164,6 +1385,7 @@ keybind:pass2()</script>
 						<string>Barczysty masywny straznik mowi do ciebie: Zanim przejdziesz do innych pomieszczen musisz wczesniej zdeponowac posiadana bron. Zostanie ona zwrocona po powrocie.</string>
 						<string>Nie jestes w stanie sie ruszyc.</string>
 						<string>Szarpiesz za klamke, lecz ta ani drgie. Widocznie na czas nocy przybytek ow jest zamykany, a klienci sa pozostawieni samym sobie na ten stosunkowo krotki okres.</string>
+						<string>Stukasz kolatka do drzwi, ale nikt ci nie odpowiada.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>0</integer>
@@ -1174,6 +1396,7 @@ keybind:pass2()</script>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>1</integer>
+						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
@@ -1287,32 +1510,18 @@ mapper:moveBackward()</script>
 				<colorTriggerBgColor>#000000</colorTriggerBgColor>
 				<regexCodeList>
 					<string>.: Przy powietrznej windzie :.</string>
+					<string>.: Przy Wschodnim Filarze :.</string>
+					<string>.: Przy Poludniowym Filarze :.</string>
+					<string>.: Przy Polnocnym Filarze :.</string>
 				</regexCodeList>
 				<regexCodePropertyList>
+					<integer>0</integer>
+					<integer>0</integer>
+					<integer>0</integer>
 					<integer>0</integer>
 				</regexCodePropertyList>
 			</Trigger>
 		</TriggerGroup>
-		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-			<name>polegl</name>
-			<script>send("ob cialo;wez monety z ciala")</script>
-			<triggerType>0</triggerType>
-			<conditonLineDelta>0</conditonLineDelta>
-			<mStayOpen>0</mStayOpen>
-			<mCommand></mCommand>
-			<packageName></packageName>
-			<mFgColor>#ff0000</mFgColor>
-			<mBgColor>#ffff00</mBgColor>
-			<mSoundFile></mSoundFile>
-			<colorTriggerFgColor>#000000</colorTriggerFgColor>
-			<colorTriggerBgColor>#000000</colorTriggerBgColor>
-			<regexCodeList>
-				<string>Zabiles .*</string>
-			</regexCodeList>
-			<regexCodePropertyList>
-				<integer>1</integer>
-			</regexCodePropertyList>
-		</Trigger>
 		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>kanal</name>
 			<script></script>
@@ -1327,10 +1536,16 @@ mapper:moveBackward()</script>
 			<colorTriggerFgColor>#000000</colorTriggerFgColor>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
-				<string>.*klej.*</string>
 				<string>.*kanal.*</string>
+				<string>.*klapa.*</string>
+				<string>.*otwor.*</string>
+				<string>.*plyt.*</string>
+				<string>.*akweduk.*</string>
 			</regexCodeList>
 			<regexCodePropertyList>
+				<integer>1</integer>
+				<integer>1</integer>
+				<integer>1</integer>
 				<integer>1</integer>
 				<integer>1</integer>
 			</regexCodePropertyList>
@@ -1355,7 +1570,14 @@ mapper:moveBackward()</script>
 				<script>send("stan")</script>
 				<command></command>
 				<packageName></packageName>
-				<time>00:00:30.000</time>
+				<time>00:00:20.000</time>
+			</Timer>
+			<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<name>kon</name>
+				<script>send("kondycja wszystkich")</script>
+				<command></command>
+				<packageName></packageName>
+				<time>00:00:20.000</time>
 			</Timer>
 		</TimerGroup>
 	</TimerPackage>
@@ -1448,43 +1670,6 @@ mapper:moveBackward()</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^/nazwij_obszar ([0-9]+) ([A-z\s]+)$</regex>
-					</Alias>
-				</AliasGroup>
-				<AliasGroup isActive="yes" isFolder="yes">
-					<name>Help</name>
-					<script></script>
-					<command></command>
-					<packageName></packageName>
-					<regex></regex>
-					<Alias isActive="yes" isFolder="no">
-						<name>^/mapper$</name>
-						<script>printer:mapper()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^/mapper$</regex>
-					</Alias>
-					<Alias isActive="yes" isFolder="no">
-						<name>^/pomoc$</name>
-						<script>printer:help()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^/pomoc$</regex>
-					</Alias>
-					<Alias isActive="yes" isFolder="no">
-						<name>^/opcje\s?([a-z_]+)?\s?([a-z0-9]+)?$</name>
-						<script>settings:change(matches)
-profile:change(matches)
-printer:settings()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^/opcje\s?([a-z_]+)?\s?([a-z0-9,]+)?$</regex>
-					</Alias>
-					<Alias isActive="yes" isFolder="no">
-						<name>^/skrypty$</name>
-						<script>printer:scripts()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^/skrypty$</regex>
 					</Alias>
 				</AliasGroup>
 				<AliasGroup isActive="yes" isFolder="yes">
@@ -1613,6 +1798,83 @@ printer:settings()</script>
 					<packageName></packageName>
 					<regex>^/polacz ([a-z]+)$</regex>
 				</Alias>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>Move</name>
+					<script></script>
+					<command></command>
+					<packageName></packageName>
+					<regex></regex>
+					<Alias isActive="yes" isFolder="no">
+						<name>^w$</name>
+						<script>mapper:move("w")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^w$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^e$</name>
+						<script>mapper:move("e")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^e$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^n$</name>
+						<script>mapper:move("n")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^n$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^s$</name>
+						<script>mapper:move("s")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^s$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^nw$</name>
+						<script>mapper:move("nw")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^nw$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^se$</name>
+						<script>mapper:move("se")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^se$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^ne$</name>
+						<script>mapper:move("ne")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^ne$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^sw$</name>
+						<script>mapper:move("sw")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^sw$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^u$</name>
+						<script>mapper:move("u")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^u$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^d$</name>
+						<script>mapper:move("d")</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^d$</regex>
+					</Alias>
+				</AliasGroup>
 			</AliasGroup>
 			<AliasGroup isActive="yes" isFolder="yes">
 				<name>Killerowo</name>
@@ -1687,27 +1949,6 @@ r(f())</script>
 				<command></command>
 				<packageName></packageName>
 				<regex></regex>
-				<AliasGroup isActive="yes" isFolder="yes">
-					<name>Drwal</name>
-					<script></script>
-					<command></command>
-					<packageName></packageName>
-					<regex></regex>
-					<Alias isActive="yes" isFolder="no">
-						<name>^/zetnij$</name>
-						<script>wood:cut()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^/zetnij$</regex>
-					</Alias>
-					<Alias isActive="yes" isFolder="no">
-						<name>^/ociosaj$</name>
-						<script>wood:hew()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^/ociosaj$</regex>
-					</Alias>
-				</AliasGroup>
 				<Alias isActive="yes" isFolder="no">
 					<name>^/zap$</name>
 					<script>send("napelnij lampe olejem; krzesaj iskry kamieniem o drugi kamien na lampe;")</script>
@@ -1735,6 +1976,13 @@ r(f())</script>
 						<packageName></packageName>
 						<regex>^wem$</regex>
 					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/napraw$</name>
+						<script>inventory.repair:go()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/napraw$</regex>
+					</Alias>
 				</AliasGroup>
 				<Alias isActive="yes" isFolder="no">
 					<name>^/medytuj$</name>
@@ -1755,6 +2003,57 @@ r(f())</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^/npc (.*)?$</regex>
+					</Alias>
+				</AliasGroup>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>Bow</name>
+					<script></script>
+					<command></command>
+					<packageName></packageName>
+					<regex></regex>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/celuj w (.*)$</name>
+						<script>bow:set(matches[2])</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/celuj w (.*)$</regex>
+					</Alias>
+				</AliasGroup>
+				<Alias isActive="yes" isFolder="no">
+					<name>^/opcje\s?([a-z_]+)?\s?([a-z0-9]+)?$</name>
+					<script>settings:change(matches)
+profile:change(matches)
+printer:settings()</script>
+					<command></command>
+					<packageName></packageName>
+					<regex>^/opcje\s?([a-z_]+)?\s?([a-z0-9,]+)?$</regex>
+				</Alias>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>Help</name>
+					<script></script>
+					<command></command>
+					<packageName></packageName>
+					<regex></regex>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/mapper$</name>
+						<script>printer:mapper()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/mapper$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/pomoc$</name>
+						<script>printer:help()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/pomoc$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/skrypty$</name>
+						<script>printer:scripts()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/skrypty$</regex>
 					</Alias>
 				</AliasGroup>
 			</AliasGroup>
@@ -1829,14 +2128,6 @@ require("init")
 				<keyModifier>536870912</keyModifier>
 			</Key>
 			<Key isActive="yes" isFolder="no">
-				<name>Look</name>
-				<packageName></packageName>
-				<script></script>
-				<command></command>
-				<keyCode>53</keyCode>
-				<keyModifier>536870912</keyModifier>
-			</Key>
-			<Key isActive="yes" isFolder="no">
 				<name>East</name>
 				<packageName></packageName>
 				<script>mapper:move("e")</script>
@@ -1901,14 +2192,6 @@ require("init")
 				<keyModifier>536870912</keyModifier>
 			</Key>
 		</KeyGroup>
-		<Key isActive="yes" isFolder="no">
-			<name>New key</name>
-			<packageName></packageName>
-			<script>echo("test tet test test")</script>
-			<command></command>
-			<keyCode>78</keyCode>
-			<keyModifier>67108864</keyModifier>
-		</Key>
 	</KeyPackage>
 	<VariablePackage>
 		<HiddenVariables />
