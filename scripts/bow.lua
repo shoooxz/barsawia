@@ -12,7 +12,8 @@ end
 
 function bow:miss()
 	if self.active then
-		mapper:move(self.dir)
+		scripts:beep()
+		--mapper:move(self.dir)
 	end
 end
 
