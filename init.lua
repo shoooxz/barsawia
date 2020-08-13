@@ -26,6 +26,7 @@ function loadObjects(force)
         "scripts/bow",
         "scripts/npc",
         "mapper/core",
+        "mapper/liaj",
         "mapper/area",
         "mapper/helper",
         "mapper/move",
@@ -33,6 +34,7 @@ function loadObjects(force)
         "mapper/events",
         "mapper/bind",
         "mapper/walker",
+
     }
     for i = 1, #obj do
         package.loaded[obj[i]] = nil

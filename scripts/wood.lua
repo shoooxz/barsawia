@@ -47,23 +47,13 @@ wood.list = {
 	['garbaty grab o jasnobrazowej korze'] = 30,
 	['dlugolistna magnolia o spekanej korowinie'] = 30,
 	['wzorzystoskory tepoigly cis'] = 37,
+	['piaskowokory cedr o gestym igliwiu'] = 66,
+	['trojkatnolistny xylech o blekitnej korze'] = 75,
+	['monumentalna sekwoja o poteznym pniu'] = 87,
 }
-
---Niestety, zadne z widocznych tu drzew nie jest godne twojej uwagi.
---Otaczajace cie drzewa sa mlode i watle, wroc, gdy urosna.
---W tej czesci lasu zadne z drzew nie nadaje sie do scinki.
-
---[[
-DRZEWO
-monumentalne drzewo o poteznym pniu
-piaskowokore drzewo o gestym igliwiu
-Wlochatolistne drzewo o czarnej korze
-trojkatnolistne drzewo o blekitnej korze
-]]--
 
 function wood:detect(str)
 	if self.capture then
-
 		local rows = utils:splitcommai(str)
 		local out = {}
 		local sum = 0

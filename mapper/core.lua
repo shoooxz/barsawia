@@ -70,6 +70,7 @@ mapper.walker = {
 function mapper:init()
 	self:unbindEvents()
 	self:ui(settings:get("mapperWidth"))
+	self:centerGMCP()
 end
 
 function mapper:setGMCP()
