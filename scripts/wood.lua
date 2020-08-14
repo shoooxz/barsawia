@@ -47,6 +47,7 @@ wood.list = {
 	['garbaty grab o jasnobrazowej korze'] = 30,
 	['dlugolistna magnolia o spekanej korowinie'] = 30,
 	['wzorzystoskory tepoigly cis'] = 37,
+	['wlochatolistny hebanowiec o czarnej korze'] = 65,
 	['piaskowokory cedr o gestym igliwiu'] = 66,
 	['trojkatnolistny xylech o blekitnej korze'] = 75,
 	['monumentalna sekwoja o poteznym pniu'] = 87,
