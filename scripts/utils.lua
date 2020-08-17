@@ -1,5 +1,14 @@
 utils = utils or {}
 
+function utils:inArray(val, tab)
+    for _, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+    return false
+end
+
 function utils:truncate(str, limit)
     local len = string.len(str)
     if len > limit then

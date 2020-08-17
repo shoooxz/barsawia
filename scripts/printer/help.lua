@@ -26,6 +26,9 @@ end
 
 function printer:scripts()
     self:title("Barsawia Skrypty")
+    self:command("/liaj_wyczysc", "Wyczysc mape Liaj (zmienia sie co apokalipse)")
+    self:info("W przypadku poruszania sie na terenie puszczy Liaj wyjscia")
+    self:info("generowane sa automatycznie")
     self:command("/zap", "Zapal lampe")
     self:info("Do zapalenia lampy potrzebne sa 2 krzemienie i olej")
     self:command("/medytuj", "Medytuj w gildii podroznikow, zapisz stan cech")

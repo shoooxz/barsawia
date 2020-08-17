@@ -1,13 +1,21 @@
 function mapper:helper()
-	if self.drawing then
+	local isLiaj = self:isLiajLocation()
+	if self.drawing or isLiaj then
 		-- porownaj wyjscia z gmcp z wyjsciami z mappera
+		if isLiaj then
+			self:centerGMCP()
+		end
 		local diff = utils:arrayDiff(self.gmcp.exits, self:helperGetExitsForComparison())
 		if next(diff) then
-			tempTimer(0.5, function()
-				printer:error("Mapper Pomocnik",
-					"Nie zmapowano wyjsc: "..table.concat(diff, ", ")
-				)
-			end)
+			if isLiaj  then
+				self:connectAutoViaDir(diff)
+			else
+				tempTimer(0.5, function()
+					printer:error("Mapper Pomocnik",
+						"Nie zmapowano wyjsc: "..table.concat(diff, ", ")
+					)
+				end)
+			end
 		end
 	end
 end

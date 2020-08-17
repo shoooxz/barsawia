@@ -12,6 +12,19 @@ function mapper:connectRooms(from, to, dir)
 	setExit(from, to, dir)
 end
 
+function mapper:connectAutoViaDir(dir)
+	if dir and next(dir) then
+		local roomID = nil
+		for i=1, #dir do
+			roomID = self:getRoomViaCoords(dir[i])
+			if roomID then
+				setExit(self.room.id, roomID, dir[i])
+				setExit(roomID, self.room.id, self.shortMirror[dir[i]])
+			end
+		end
+	end
+end
+
 function mapper:addLine(dir)
 	if self.drawing and self:matchRose(dir) then
 		local command, roomID = self:getCommandViaDir(dir)

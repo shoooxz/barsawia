@@ -1,3 +1,77 @@
+
+-- 1 platek 6241 - 7484     blue 6666 7092        labirynt 7035  7154
+-- 2 platek 7486 - 8727     blue 7837       diably 8004
+-- 3 platek 8750 - 9536
+-- 4 platek 9545 - 9982
+
+function mapper:clearLiajPart(current, max, skip)
+    while current <= max do
+        local exits = getRoomExits(current)
+        if exits ~= nil and next(exits) then
+            if skip[current] then
+                for dir, _ in pairs(exits) do
+                    if not utils:inArray(self.en2short[dir], skip[current]) then
+                        setExit(current, -1, dir)
+                    end
+                end
+            else
+                for dir, id in pairs(exits) do
+                    setExit(current, -1, dir)
+                end
+            end
+        end
+        ---------------------
+        current = current + 1
+    end
+end
+
+function mapper:isLiajLocation()
+    if self.room.id >= 6241 and self.room.id <= 7484 then
+        return true
+    end
+    if self.room.id >= 7486 and self.room.id <= 8727 then
+        return true
+    end
+    if self.room.id >= 8750 and self.room.id <= 9536 then
+        return true
+    end
+    if self.room.id >= 9545 and self.room.id <= 9982 then
+        return true
+    end
+    return false
+end
+
+function mapper:clearLiaj()
+    -- 1
+    mapper:clearLiajPart(6241, 7484, {
+        [6247] = {"sw"},
+        [6248] = {"w"},
+        [6249] = {"nw"},
+    })
+
+    -- 2
+    mapper:clearLiajPart(7486, 8727, {
+        [8004] = {"e"},
+    })
+
+    -- 3
+    mapper:clearLiajPart(8750, 9536, {
+        [9883] = {"w"},
+    })
+
+    -- 4
+    mapper:clearLiajPart(9545, 9982, {
+        [9867] = {"se"},
+        [9886] = {"s", "e", "ne"},
+        [9885] = {"e", "se"},
+        [9884] = {"se"},
+        [9903] = {"e", "s"},
+        [9902] = {"se"},
+        [9918] = {"s", "se"},
+        [9932] = {"sw", "s", "e"},
+    })
+end
+
 -- gorny platek
 function mapper:fillCol(curr, x, y, limit)
   local out = {}
@@ -32,9 +106,82 @@ function mapper:fillCol2(from, x, to)
     end
 end
 
--- poludniowy PLATEK
-mapper:fillCol(8774, -206, 100, 11)
+-- poludniowy przedostatni
+function mapper:fillCol3(from, x, to)
+    y = 108
+    while from < to do
+        local roomExists = self:getRoomByCoords(x, y, 0)
+        if not roomExists then
+            print("create "..from)
+            mapper:addRoom(self.room.area, from, x, y, 0)
+        end
+        y = y-2
+        from = from + 1
+    end
+end
 
+-- poludniowy przedostatni PLATEK
+--mapper:fillCol(8857, -196, 104, 18)
+--mapper:fillCol(8875, -194, 108, 20)
+--mapper:fillCol3(8895, -192, 8915)
+--mapper:fillCol3(8915, -190, 8935)
+--mapper:fillCol3(8935, -188, 8955)
+--mapper:fillCol3(8955, -186, 8975)
+--mapper:fillCol3(8975, -184, 8995)
+--mapper:fillCol3(8995, -182, 9015)
+--mapper:fillCol3(9015, -180, 9035)
+--mapper:fillCol(9050, -178, 108, 20)
+--mapper:fillCol3(9070, -176, 9090)
+--mapper:fillCol3(9090, -174, 9110)
+--mapper:fillCol3(9110, -172, 9130)
+--mapper:fillCol3(9130, -170, 9150)
+--mapper:fillCol3(9150, -168, 9170)
+--mapper:fillCol3(9170, -166, 9190)
+--mapper:fillCol3(9190, -164, 9210)
+--mapper:fillCol3(9210, -162, 9230)
+--mapper:fillCol3(9230, -160, 9250)
+--mapper:fillCol3(9250, -158, 9270)
+--mapper:fillCol3(9270, -156, 9290)
+--mapper:fillCol3(9290, -154, 9310)
+--mapper:fillCol3(9310, -152, 9330)
+--mapper:fillCol3(9330, -150, 9350)
+--mapper:fillCol3(9350, -148, 9370)
+--mapper:fillCol3(9370, -146, 9390)
+--mapper:fillCol3(9390, -144, 9410)
+--mapper:fillCol3(9410, -142, 9430)
+--mapper:fillCol3(9430, -140, 9450)
+--mapper:fillCol3(9450, -138, 9470)
+--mapper:fillCol3(9470, -136, 9490)
+--mapper:fillCol3(9490, -134, 9510)
+--mapper:fillCol(9510, -132, 106, 15)
+
+-- OSTATNI PLATEK
+--mapper:fillCol(9579, -182, 68, 11)
+--mapper:fillCol(9590, -180, 68, 12)
+--mapper:fillCol(9602, -178, 68, 13)
+--mapper:fillCol(9615, -176, 68, 14)
+--mapper:fillCol(9629, -174, 68, 14)
+--mapper:fillCol(9643, -172, 68, 15)
+--mapper:fillCol(9658, -170, 68, 16)
+--mapper:fillCol(9674, -168, 68, 16)
+--mapper:fillCol(9690, -166, 68, 16)
+--mapper:fillCol(9706, -164, 68, 16)
+--mapper:fillCol(9722, -162, 68, 17)
+--mapper:fillCol(9739, -160, 68, 18)
+--mapper:fillCol(9757, -158, 68, 18)
+--mapper:fillCol(9775, -156, 68, 18)
+--mapper:fillCol(9793, -154, 68, 18)
+--mapper:fillCol(9811, -152, 68, 19)
+--mapper:fillCol(9830, -150, 68, 19)
+--mapper:fillCol(9849, -148, 68, 19)
+--mapper:fillCol(9868, -146, 68, 19)
+--mapper:fillCol(9887, -144, 68, 17)
+--mapper:fillCol(9904, -142, 68, 14)
+--mapper:fillCol(9919, -140, 68, 13)
+--mapper:fillCol(9933, -138, 68, 12)
+--mapper:fillCol(9945, -136, 68, 11)
+--mapper:fillCol(9956, -134, 68, 10)
+--mapper:fillCol(9976, -130, 68, 7)
 
 -- srodkowy platek
 
