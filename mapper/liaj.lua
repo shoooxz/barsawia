@@ -26,17 +26,19 @@ function mapper:clearLiajPart(current, max, skip)
 end
 
 function mapper:isLiajLocation()
-    if self.room.id >= 6241 and self.room.id <= 7484 then
-        return true
-    end
-    if self.room.id >= 7486 and self.room.id <= 8727 then
-        return true
-    end
-    if self.room.id >= 8750 and self.room.id <= 9536 then
-        return true
-    end
-    if self.room.id >= 9545 and self.room.id <= 9982 then
-        return true
+    if self.room.id then
+        if self.room.id >= 6241 and self.room.id <= 7484 then
+            return true
+        end
+        if self.room.id >= 7486 and self.room.id <= 8727 then
+            return true
+        end
+        if self.room.id >= 8750 and self.room.id <= 9536 then
+            return true
+        end
+        if self.room.id >= 9545 and self.room.id <= 9982 then
+            return true
+        end
     end
     return false
 end

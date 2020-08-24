@@ -1,7 +1,8 @@
 bow = bow or {}
 bow.active = false
-bow.target = "jaszczura"
+bow.target = "pajaka"
 bow.dir = nil
+bow.switch = true
 
 function bow:wield()
 	if self.active then
@@ -19,7 +20,7 @@ end
 
 function bow:arrows()
 	if self.active then
-		send("wyrwij strzaly z ciala; odloz zlamane strzaly; wloz strzaly do kolczanu")
+		send("wez strzaly;wyrwij strzaly z ciala; odloz zlamane strzaly; wloz strzaly do kolczanu")
 	end
 end
 
@@ -39,4 +40,20 @@ function bow:move()
 	end
 end
 
+function bow:num5()
+	return function()
+		if self.active then
+			if self.switch then
+				send("opusc luk;"..inventory:weaponOut(true))
+				self.switch = false
+			else
+				send(inventory:weaponIn(true)..";dobadz luku")
+				self.switch = true
+			end
+		end
+	end
+end
+
+
 scripts.events["modMoveBow"] = registerAnonymousEventHandler("modMove", bow:move())
+scripts.events["bowNum5"] = registerAnonymousEventHandler("num5", bow:num5())

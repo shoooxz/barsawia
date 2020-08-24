@@ -11,6 +11,15 @@ profile.func = {
 			printer:one("Opcje", "ID pojemnika nie istnieje")
 		end
 	end,
+	["pokrowiec"] = function(val)
+		val = tonumber(val)
+		if inventory:caseExists(val) then
+			profile.list.case = val
+			profile:save()
+		else
+			printer:one("Opcje", "ID pokrowca nie istnieje")
+		end
+	end,
 	["tryb"] = function(val)
 		val = tonumber(val)
 		if val == 0 then
@@ -50,6 +59,7 @@ function profile:init(name)
 	else
 		local default = {
 			["bag"] = 1,
+			["case"] = 1,
 			["filter_weapon"] = 0,
 			["stats_progress"] = 0,
 			["mode"] = 0,

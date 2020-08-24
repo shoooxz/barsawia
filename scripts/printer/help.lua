@@ -16,7 +16,9 @@ function printer:settings()
     self:dumpArray({{1, "lucznik"}, {2, "drwal"}}, 4, nil, self.infoColor)
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
     self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
-    self:command("/opcje chodzik "..profile:get("bag"), "Opoznienie chodzika 1-5")
+    self:command("/opcje pokrowiec "..profile:get("case"), "Pokrowiec na bron")
+    self:dumpArray({{1, "pochwa"}, {2, "temblak"}, {3, "uprzaz"}}, 4, nil, self.infoColor)
+    self:command("/opcje chodzik "..profile:get("bag"), "Opoznienie chodzika 1-5") -- TODO
     self:command("/opcje filtr_bron "..utils:concat(profile:get("filter_weapon"), ","), "Pokazuje w kufrze tylko konkretny rodzaj broni")
     self:info("Mozesz laczyc bronie z ',' np /opcje filtr_bron 6,1,2 pokaze w kufrze")
     self:info("jako ostanie drzewce, miecze i topory (zachowana kolejnosc)")
@@ -29,6 +31,7 @@ function printer:scripts()
     self:command("/liaj_wyczysc", "Wyczysc mape Liaj (zmienia sie co apokalipse)")
     self:info("W przypadku poruszania sie na terenie puszczy Liaj wyjscia")
     self:info("generowane sa automatycznie")
+    self:command("/aliasy", "Szybkie aliasy bez slash'a")
     self:command("/zap", "Zapal lampe")
     self:info("Do zapalenia lampy potrzebne sa 2 krzemienie i olej")
     self:command("/medytuj", "Medytuj w gildii podroznikow, zapisz stan cech")
@@ -48,6 +51,16 @@ function printer:binds()
     self:info("np. napij sie wody z fontanny#usmiechnij sie")
     self:info("Bind uaktywni na lokacji informcje o wcisnieciu klawisza")
     self:command("/usun_bindy", "Usuniecie z aktualnej lokacji binda")
+    self:bottom()
+end
+
+function printer:aliases()
+    self:title("Barsawia Aliasy")
+    self:command("do", "dobadz bron z pokrowca")
+    self:command("op", "opusc bron do pokrowca")
+    self:command("wem", "wez monety z kontenera")
+    self:command("wlm", "wloz monety do kontenera")
+    self:info("/opcje aby ustalic pokrowce i kontenery")
     self:bottom()
 end
 
@@ -158,17 +171,20 @@ end
 
 -- Srodziemie
 -- Bree
--- karczma
--- srodek bree tajemniczy
--- pracownik na poczcie listy Paralon Bargins - Igielniczka
+--  karczma usciskac
+--  srodek bree tajemniczy - mapa u bossa szczurolazow, cmentarz ???
+--  pracownik na poczcie listy Paralon Bargins - Igielniczka
 -- Rivendell
--- niespokojny elf -
+--  niespokojny elf - Mandork, hobbit. Bystry Brod, norka w hobbitonie - wilczy leb
 -- Hobbiton
--- sheryf - zabic moba w swierkowym - wziac sakiewke
--- Perin - tukon <> hobbiton
--- zielarz -
+--  sheryf - zabic moba w swierkowym - wziac sakiewk
+--  Perin - tukon <> hobbiton
+--  zielarz - stary las ziele ???
 -- Michel Delving
--- Colin Manelio - "dwie godziny" - sylaby w slowach 'pustelniku' 'kobiecie' 'mlocie' 'niesmiertelnosci' bez odmiany
+--  Colin Manelio - "dwie godziny" - sylaby w slowach 'pustelniku' 'kobiecie' 'mlocie' 'niesmiertelnosci' bez odmiany
+--  Pryszczaty pulchny hobbit - wiezienie > kowal > ratusz > sklepik (zapytaj o noz/burmistrza/czlowieka) > karczma (postaw piwo rainabowi) > Wiesz juz wystarczajo duzo. Opowiedz o tym burmistrzowi.
+-- Mithlond
+--  Wrak - Lond Daer > biblioteka (przeszukaj rupiecie) > 
 
 -- Ustrekt
 -- Kratas

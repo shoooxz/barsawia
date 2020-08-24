@@ -1,5 +1,6 @@
 inventory = inventory or {}
 inventory.bag = {}
+inventory.case = {}
 inventory.bag.openWhat = {
     "plecak",
 	"sakwe",
@@ -9,6 +10,11 @@ inventory.bag.getFrom = {
     "plecaka",
 	"sakwy",
     "torby",
+}
+inventory.case.getPut = {
+    "pochwy",
+    "temblaka",
+    "uprzezy",
 }
 inventory.count2short = {
     ["dwa"] = 2,
@@ -72,6 +78,22 @@ function inventory:moneyOut(ret)
 	send(cmd)
 end
 
+function inventory:weaponIn(ret)
+	local cmd = "wloz bron do pokrowca"
+	if ret then return cmd end
+	send(cmd)
+end
+
+function inventory:weaponOut(ret)
+	local cmd = "dobadz broni z pokrowca"
+	if ret then return cmd end
+	send(cmd)
+end
+
 function inventory:bagExists(id)
 	return (self.bag.openWhat[id] and self.bag.getFrom[id])
+end
+
+function inventory:caseExists(id)
+	return (self.case.getPut[id])
 end

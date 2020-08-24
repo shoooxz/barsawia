@@ -80,7 +80,7 @@ function keybind:gate(str)
 		["Forsowanie zamknietej bramy nie jest rozsadnym pomyslem..."] = "uderz w brame;uderz w dzwoneczek",
 		["Przechodzenie przez zamknieta brame nie jest najlepszym pomyslem."] = "uderz w dzwoneczek",
 	}
-	local command = "zastukaj we wrota;uruchom mechanizm;otworz brame"
+	local command = "zastukaj we wrota;uruchom mechanizm;zastukaj"
 	if gate2command[str] then
 		command = gate2command[str]
 	end

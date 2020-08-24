@@ -1315,12 +1315,106 @@ bow:arrows()</script>
 				<colorTriggerFgColor>#000000</colorTriggerFgColor>
 				<colorTriggerBgColor>#000000</colorTriggerBgColor>
 				<regexCodeList>
-					<string>Zabiles .*</string>
+					<string>.*polegl.*</string>
 				</regexCodeList>
 				<regexCodePropertyList>
 					<integer>1</integer>
 				</regexCodePropertyList>
 			</Trigger>
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>Gag</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>Bow</name>
+					<script></script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList />
+					<regexCodePropertyList />
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>aim</name>
+						<script>gag:bowAim(matches[2], matches[3])</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#20ffff</mFgColor>
+						<mBgColor>#000000</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>^.*Kladziesz .* na cieciwe .* i naciagasz ja, mierzac starannie w (.*) na (.*)\.$</string>
+							<string>^.*Kladziesz .* na cieciwe .* i naciagasz ja, mierzac starannie w (.*)\.$</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>miss</name>
+						<script>gag:bowMiss(matches[2])</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>.*Puszczasz napieta cieciwe wystrzeliwujac .* w kierunku (.*), lecz chybiasz\.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+					<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+						<name>hit</name>
+						<script>gag:bowHit(matches[2], matches[3], matches[4])</script>
+						<triggerType>0</triggerType>
+						<conditonLineDelta>0</conditonLineDelta>
+						<mStayOpen>0</mStayOpen>
+						<mCommand></mCommand>
+						<packageName></packageName>
+						<mFgColor>#ff0000</mFgColor>
+						<mBgColor>#ffff00</mBgColor>
+						<mSoundFile></mSoundFile>
+						<colorTriggerFgColor>#000000</colorTriggerFgColor>
+						<colorTriggerBgColor>#000000</colorTriggerBgColor>
+						<regexCodeList>
+							<string>.*Puszczasz napieta cieciwe wystrzeliwujac .* w kierunku (.*)\. Strzala (.*) w?o? (.*)\.</string>
+						</regexCodeList>
+						<regexCodePropertyList>
+							<integer>1</integer>
+						</regexCodePropertyList>
+					</Trigger>
+				</TriggerGroup>
+			</TriggerGroup>
 		</TriggerGroup>
 		<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>Mapper</name>
@@ -1386,6 +1480,7 @@ bow:arrows()</script>
 						<string>Nie jestes w stanie sie ruszyc.</string>
 						<string>Szarpiesz za klamke, lecz ta ani drgie. Widocznie na czas nocy przybytek ow jest zamykany, a klienci sa pozostawieni samym sobie na ten stosunkowo krotki okres.</string>
 						<string>Stukasz kolatka do drzwi, ale nikt ci nie odpowiada.</string>
+						<string>Czy aby na pewno chcesz wejsc na Hobbitonskie pola? Przecietny podroznik latwo moze sie tam pogubic! Potwierdz przez ponowne wybranie kierunku.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>0</integer>
@@ -1396,6 +1491,7 @@ bow:arrows()</script>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>1</integer>
+						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
@@ -1536,17 +1632,35 @@ mapper:moveBackward()</script>
 			<colorTriggerFgColor>#000000</colorTriggerFgColor>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
-				<string>.*kanal.*</string>
-				<string>.*klapa.*</string>
-				<string>.*otwor.*</string>
-				<string>.*plyt.*</string>
-				<string>.*akweduk.*</string>
+				<string>.*(grob).*</string>
+				<string>.*(kamien).*</string>
+				<string>.*(elf).*</string>
+				<string>.*(kopiec).*</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>1</integer>
 				<integer>1</integer>
 				<integer>1</integer>
 				<integer>1</integer>
+			</regexCodePropertyList>
+		</Trigger>
+		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<name>lock</name>
+			<script>send("wesprzyj")</script>
+			<triggerType>0</triggerType>
+			<conditonLineDelta>0</conditonLineDelta>
+			<mStayOpen>0</mStayOpen>
+			<mCommand></mCommand>
+			<packageName></packageName>
+			<mFgColor>#ff0000</mFgColor>
+			<mBgColor>#ffff00</mBgColor>
+			<mSoundFile></mSoundFile>
+			<colorTriggerFgColor>#000000</colorTriggerFgColor>
+			<colorTriggerBgColor>#000000</colorTriggerBgColor>
+			<regexCodeList>
+				<string>.*skupia sie.*</string>
+			</regexCodeList>
+			<regexCodePropertyList>
 				<integer>1</integer>
 			</regexCodePropertyList>
 		</Trigger>
@@ -1963,20 +2077,6 @@ r(f())</script>
 					<packageName></packageName>
 					<regex></regex>
 					<Alias isActive="yes" isFolder="no">
-						<name>^wlm$</name>
-						<script>inventory:moneyIn()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^wlm$</regex>
-					</Alias>
-					<Alias isActive="yes" isFolder="no">
-						<name>^wem$</name>
-						<script>inventory:moneyOut()</script>
-						<command></command>
-						<packageName></packageName>
-						<regex>^wem$</regex>
-					</Alias>
-					<Alias isActive="yes" isFolder="no">
 						<name>^/napraw$</name>
 						<script>inventory.repair:go()</script>
 						<command></command>
@@ -2055,6 +2155,55 @@ printer:settings()</script>
 						<packageName></packageName>
 						<regex>^/skrypty$</regex>
 					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/aliasy$</name>
+						<script>printer:aliases()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/aliasy$</regex>
+					</Alias>
+				</AliasGroup>
+				<Alias isActive="yes" isFolder="no">
+					<name>^/liaj_wyczysc$</name>
+					<script>mapper:clearLiaj()</script>
+					<command></command>
+					<packageName></packageName>
+					<regex>^/liaj_wyczysc$</regex>
+				</Alias>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>Alias</name>
+					<script></script>
+					<command></command>
+					<packageName></packageName>
+					<regex></regex>
+					<Alias isActive="yes" isFolder="no">
+						<name>^wlm$</name>
+						<script>inventory:moneyIn()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^wlm$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^wem$</name>
+						<script>inventory:moneyOut()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^wem$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^do$</name>
+						<script>inventory:weaponOut()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^do$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^op$</name>
+						<script>inventory:weaponIn()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^op$</regex>
+					</Alias>
 				</AliasGroup>
 			</AliasGroup>
 		</AliasGroup>
@@ -2066,6 +2215,13 @@ send("zapytaj kobiete o pomoc;zapytaj trolla o pomoc; zapytaj orka o pomoc;zapyt
 			<command></command>
 			<packageName></packageName>
 			<regex>^za$</regex>
+		</Alias>
+		<Alias isActive="yes" isFolder="no">
+			<name>^we$</name>
+			<script>send("wespnij sie;wejdz;przeczolgaj sie;wdrap;zejdz;przecisnij sie")</script>
+			<command></command>
+			<packageName></packageName>
+			<regex>^we$</regex>
 		</Alias>
 	</AliasPackage>
 	<ActionPackage />
