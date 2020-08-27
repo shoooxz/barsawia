@@ -25,13 +25,13 @@ mode.exec = {
 	["bow"] = {
 		["name"] = "Lucznik",
 		["func"] = function()
-			mode:active("bow", "Lucznik, celowanie do wrogow CTRL + NUM1-9")
+			mode:active("bow", "Opis i dostepne komendy /lucznik")
 		end,
 	},
 	["wood"] = {
 		["name"] = "Drwal",
 		["func"] = function()
-			mode:active("wood", "Drwal, Num5 aby sciac i ociosac drzewa po kolei")
+			mode:active("wood", "Opis i dostepne komendy /drwal")
 		end,
 	},
 }

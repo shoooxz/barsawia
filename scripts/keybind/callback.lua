@@ -27,6 +27,10 @@ function keybindGate()
 	end
 end
 
+function keybindSlash()
+	raiseEvent("slash")
+end
+
 function keybindNum5()
 	raiseEvent("num5")
 end

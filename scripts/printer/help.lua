@@ -13,11 +13,13 @@ function printer:settings()
     self:command("/opcje wysokosc "..settings:get("mainWindowHeight"), "Wysokosc glownego okna w Mudlecie")
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
     self:command("/opcje tryb "..profile:get("mode"), "Wlacz tryb przy ladowaniu profilu")
-    self:dumpArray({{1, "lucznik"}, {2, "drwal"}}, 4, nil, self.infoColor)
+    self:dumpArray({{0, "brak"}, {1, "lucznik"}, {2, "drwal"}}, 4, nil, self.infoColor)
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
     self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
-    self:command("/opcje pokrowiec "..profile:get("case"), "Pokrowiec na bron")
-    self:dumpArray({{1, "pochwa"}, {2, "temblak"}, {3, "uprzaz"}}, 4, nil, self.infoColor)
+    self:command("/opcje styl "..profile:get("style"), "Uzyte m.in. przy dobywaniu i opuszczaniu broni")
+    self:dumpArray({{1, "bron dwureczna"}, {2, "dwie bronie jednoreczne"}, {3, "bron jednoreczna i tarcza"}}, 4, nil, self.infoColor)
+    self:command("/opcje bron "..utils:concat(profile:get("weapon"), ","), "Uzyte m.in. przy dobywaniu i opuszczaniu broni")
+    self:dumpArray({{1, "miecze"}, {2, "topory"}, {3, "sztylety"}, {4, "mloty"}, {5, "maczugi"}, {6, "drzewce"}}, 4, nil, self.infoColor)
     self:command("/opcje chodzik "..profile:get("bag"), "Opoznienie chodzika 1-5") -- TODO
     self:command("/opcje filtr_bron "..utils:concat(profile:get("filter_weapon"), ","), "Pokazuje w kufrze tylko konkretny rodzaj broni")
     self:info("Mozesz laczyc bronie z ',' np /opcje filtr_bron 6,1,2 pokaze w kufrze")
@@ -39,8 +41,29 @@ function printer:scripts()
     self:info("oraz widoczny po wpisaniu komendy 'cechy'")
     self:command("/npc (imie)", "Szukaj NPC w bazie")
     self:command("/napraw", "Napraw bron i zbroje")
-    self:command("/celuj w (cel)", "Ustaw cel dla luku")
-    self:info("Za pomoca kombinacji ctrl+kierunek ustal kierunek ataku")
+    self:command("/lucznik", "Pomocnik lucznika")
+    self:bottom()
+end
+
+function printer:bowHelp()
+    self:title("Barsawia Lucznik")
+    self:info("Lucznik to jeden z trybow dostepny w skryptach. Mozna go wlaczyc")
+    self:info("przez szybkie menu oraz ustawic w /opcje aby aktywowal sie na starcie.")
+    self:info("W momencie gdy tryb jest aktywny kombinacja klawiszy CTRL + (kierunek)")
+    self:info("pozwala na oddanie strzalu w danym kierunku.")
+    self:info("'/' na klawiaturze numerycznej wyrywa strzaly ze wszystkich cial")
+    self:info("natomiast 'NUM5' zmienia bronie.")
+    self:space()
+    self:command("/celuj w (cel)", "Ustaw cel")
+    self:bottom()
+end
+
+function printer:woodHelp()
+    self:title("Barsawia Drwal")
+    self:info("Drwal to jeden z trybow dostepny w skryptach. Mozna go wlaczyc")
+    self:info("przez szybkie menu oraz ustawic w /opcje aby aktywowal sie na starcie.")
+    self:info("W momencie gdy tryb jest aktywny '/' na klawiaturze numerycznej")
+    self:info("zmienia bronie natomiast 'NUM5' scina drzewa po kolei.")
     self:bottom()
 end
 
@@ -60,7 +83,7 @@ function printer:aliases()
     self:command("op", "opusc bron do pokrowca")
     self:command("wem", "wez monety z kontenera")
     self:command("wlm", "wloz monety do kontenera")
-    self:info("/opcje aby ustalic pokrowce i kontenery")
+    self:info("/opcje aby ustalic styl walki i kontenery")
     self:bottom()
 end
 
@@ -184,7 +207,7 @@ end
 --  Colin Manelio - "dwie godziny" - sylaby w slowach 'pustelniku' 'kobiecie' 'mlocie' 'niesmiertelnosci' bez odmiany
 --  Pryszczaty pulchny hobbit - wiezienie > kowal > ratusz > sklepik (zapytaj o noz/burmistrza/czlowieka) > karczma (postaw piwo rainabowi) > Wiesz juz wystarczajo duzo. Opowiedz o tym burmistrzowi.
 -- Mithlond
---  Wrak - Lond Daer > biblioteka (przeszukaj rupiecie) > 
+--  Wrak - Lond Daer > biblioteka (przeszukaj rupiecie) >
 
 -- Ustrekt
 -- Kratas
@@ -198,5 +221,3 @@ end
 -- urzednik w ratuszu n - papier kratas sklep, okragle ciastko z s cukierni + sol (wyglada jak cukier) z karczmy n (przeszukaj pudeleczka) "posyp ciastko"
 -- szewc -
 -- poczta - Velrond, Kratas (/npc Velrond)
--- Jerris
--- Laboratorium konstruktora - o maszyne/podroz

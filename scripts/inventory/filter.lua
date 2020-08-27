@@ -9,7 +9,6 @@ inventory.filter.weapons = {
 	["6"] = "Drzewce",
 	["7"] = "Luki"
 }
-
 inventory.filter.sort = {
 	["Nieznany"] = 1,
 	["Kamienie"] = 2,

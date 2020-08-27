@@ -11,13 +11,22 @@ profile.func = {
 			printer:one("Opcje", "ID pojemnika nie istnieje")
 		end
 	end,
-	["pokrowiec"] = function(val)
+	["styl"] = function(val)
 		val = tonumber(val)
-		if inventory:caseExists(val) then
-			profile.list.case = val
+		if inventory:styleExists(val) then
+			profile.list.style = val
 			profile:save()
 		else
-			printer:one("Opcje", "ID pokrowca nie istnieje")
+			printer:one("Opcje", "ID stylu nie istnieje")
+		end
+	end,
+	["bron"] = function(val)
+		val = tonumber(val)
+		if inventory:weaponExists(val) then
+			profile.list.weapon = val
+			profile:save()
+		else
+			printer:one("Opcje", "ID broni nie istnieje")
 		end
 	end,
 	["tryb"] = function(val)
@@ -59,7 +68,8 @@ function profile:init(name)
 	else
 		local default = {
 			["bag"] = 1,
-			["case"] = 1,
+			["style"] = 1,
+			["weapon"] = 1,
 			["filter_weapon"] = 0,
 			["stats_progress"] = 0,
 			["mode"] = 0,

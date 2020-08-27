@@ -20,6 +20,10 @@ keybind.conf = {
 		["modifier"] = {"Control"},
 		["key"] = "2",
 	},
+	["keybindSlash"] = {
+		["modifier"] = {"Keypad"},
+		["key"] = "Slash",
+	},
 	["keybindNum5"] = {
 		["modifier"] = {"Keypad"},
 		["key"] = "5",

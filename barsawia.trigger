@@ -17,7 +17,7 @@
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList />
 			<regexCodePropertyList />
-			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+			<TriggerGroup isActive="no" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>Wood</name>
 				<script></script>
 				<triggerType>0</triggerType>
@@ -1258,28 +1258,6 @@ keybind:pass2()</script>
 				<regexCodeList />
 				<regexCodePropertyList />
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-					<name>dobadz</name>
-					<script>bow:wield()</script>
-					<triggerType>0</triggerType>
-					<conditonLineDelta>0</conditonLineDelta>
-					<mStayOpen>0</mStayOpen>
-					<mCommand></mCommand>
-					<packageName></packageName>
-					<mFgColor>#ff0000</mFgColor>
-					<mBgColor>#ffff00</mBgColor>
-					<mSoundFile></mSoundFile>
-					<colorTriggerFgColor>#000000</colorTriggerFgColor>
-					<colorTriggerBgColor>#000000</colorTriggerBgColor>
-					<regexCodeList>
-						<string>Wpierw dobadz .* luku.</string>
-						<string>Wpierw dobadz .* kuszy.</string>
-					</regexCodeList>
-					<regexCodePropertyList>
-						<integer>1</integer>
-						<integer>1</integer>
-					</regexCodePropertyList>
-				</Trigger>
-				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>chybienie</name>
 					<script>bow:miss()</script>
 					<triggerType>0</triggerType>
@@ -1302,8 +1280,7 @@ keybind:pass2()</script>
 			</TriggerGroup>
 			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>DEAD</name>
-				<script>scripts:dead()
-bow:arrows()</script>
+				<script>scripts:dead()</script>
 				<triggerType>0</triggerType>
 				<conditonLineDelta>0</conditonLineDelta>
 				<mStayOpen>0</mStayOpen>
@@ -1316,8 +1293,10 @@ bow:arrows()</script>
 				<colorTriggerBgColor>#000000</colorTriggerBgColor>
 				<regexCodeList>
 					<string>.*polegl.*</string>
+					<string>.*Zabiles.*</string>
 				</regexCodeList>
 				<regexCodePropertyList>
+					<integer>1</integer>
 					<integer>1</integer>
 				</regexCodePropertyList>
 			</Trigger>
@@ -1476,7 +1455,7 @@ bow:arrows()</script>
 						<string>W momencie gdy mijasz wejscie na teren sadow zatrzymuje cie straznik i wymownie wskazuje tablice zawieszona tuz przy wejsciu.</string>
 						<string>Drzwi od sklepu sa zamkniete. Musisz poczekac do switu.</string>
 						<string>Gdy spogladasz w tamtym kierunku dostrzegasz przerazajaco wygladajace jaszczury. Na pewno chcesz tam isc? Potwierdz przez ponowne wybranie kierunku.</string>
-						<string>Barczysty masywny straznik mowi do ciebie: Zanim przejdziesz do innych pomieszczen musisz wczesniej zdeponowac posiadana bron. Zostanie ona zwrocona po powrocie.</string>
+						<string>.*straznik mowi do ciebie: Zanim przejdziesz do innych pomieszczen musisz wczesniej zdeponowac posiadana bron. Zostanie ona zwrocona po powrocie.</string>
 						<string>Nie jestes w stanie sie ruszyc.</string>
 						<string>Szarpiesz za klamke, lecz ta ani drgie. Widocznie na czas nocy przybytek ow jest zamykany, a klienci sa pozostawieni samym sobie na ten stosunkowo krotki okres.</string>
 						<string>Stukasz kolatka do drzwi, ale nikt ci nie odpowiada.</string>
@@ -1499,7 +1478,7 @@ bow:arrows()</script>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
-						<integer>0</integer>
+						<integer>1</integer>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
@@ -1617,6 +1596,44 @@ mapper:moveBackward()</script>
 					<integer>0</integer>
 				</regexCodePropertyList>
 			</Trigger>
+			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+				<name>GPS</name>
+				<script></script>
+				<triggerType>0</triggerType>
+				<conditonLineDelta>0</conditonLineDelta>
+				<mStayOpen>0</mStayOpen>
+				<mCommand></mCommand>
+				<packageName></packageName>
+				<mFgColor>#ff0000</mFgColor>
+				<mBgColor>#ffff00</mBgColor>
+				<mSoundFile></mSoundFile>
+				<colorTriggerFgColor>#000000</colorTriggerFgColor>
+				<colorTriggerBgColor>#000000</colorTriggerBgColor>
+				<regexCodeList />
+				<regexCodePropertyList />
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>kieruj</name>
+					<script>mapper:centerGMCP()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Nie jestes pewny, gdzie teraz isc.</string>
+						<string>Droga sie tutaj konczy.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
+			</TriggerGroup>
 		</TriggerGroup>
 		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>kanal</name>
@@ -1691,7 +1708,7 @@ mapper:moveBackward()</script>
 				<script>send("kondycja wszystkich")</script>
 				<command></command>
 				<packageName></packageName>
-				<time>00:00:20.000</time>
+				<time>00:00:10.000</time>
 			</Timer>
 		</TimerGroup>
 	</TimerPackage>
@@ -2162,6 +2179,20 @@ printer:settings()</script>
 						<packageName></packageName>
 						<regex>^/aliasy$</regex>
 					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/lucznik$</name>
+						<script>printer:bowHelp()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/lucznik$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/drwal$</name>
+						<script>printer:woodHelp()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/drwal$</regex>
+					</Alias>
 				</AliasGroup>
 				<Alias isActive="yes" isFolder="no">
 					<name>^/liaj_wyczysc$</name>
@@ -2178,28 +2209,28 @@ printer:settings()</script>
 					<regex></regex>
 					<Alias isActive="yes" isFolder="no">
 						<name>^wlm$</name>
-						<script>inventory:moneyIn()</script>
+						<script>inventory:moneyPut()</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^wlm$</regex>
 					</Alias>
 					<Alias isActive="yes" isFolder="no">
 						<name>^wem$</name>
-						<script>inventory:moneyOut()</script>
+						<script>inventory:moneyGet()</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^wem$</regex>
 					</Alias>
 					<Alias isActive="yes" isFolder="no">
 						<name>^do$</name>
-						<script>inventory:weaponOut()</script>
+						<script>inventory:weaponGet()</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^do$</regex>
 					</Alias>
 					<Alias isActive="yes" isFolder="no">
 						<name>^op$</name>
-						<script>inventory:weaponIn()</script>
+						<script>inventory:weaponPut()</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^op$</regex>
@@ -2313,14 +2344,6 @@ require("init")
 				<script>mapper:move("ne")</script>
 				<command></command>
 				<keyCode>57</keyCode>
-				<keyModifier>536870912</keyModifier>
-			</Key>
-			<Key isActive="yes" isFolder="no">
-				<name>In</name>
-				<packageName></packageName>
-				<script></script>
-				<command>in</command>
-				<keyCode>47</keyCode>
 				<keyModifier>536870912</keyModifier>
 			</Key>
 			<Key isActive="yes" isFolder="no">

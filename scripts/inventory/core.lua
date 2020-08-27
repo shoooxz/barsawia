@@ -1,6 +1,22 @@
 inventory = inventory or {}
 inventory.bag = {}
 inventory.case = {}
+inventory.weapon = {
+    "miecz",
+    "topor",
+    "sztylet",
+    "mlot",
+    "maczuge",
+    "bron drzewcowa",
+}
+inventory.wieldWhat = {
+    "miecza",
+    "topora",
+    "sztyletu",
+    "mlota",
+    "maczugi",
+    "broni drzewcowej",
+}
 inventory.bag.openWhat = {
     "plecak",
 	"sakwe",
@@ -11,10 +27,15 @@ inventory.bag.getFrom = {
 	"sakwy",
     "torby",
 }
-inventory.case.getPut = {
-    "pochwy",
-    "temblaka",
-    "uprzezy",
+inventory.case.put = {
+    "wloz %s do pokrowca",
+    "wloz %s do drugiego pokrowca",
+    "otworz %s;wloz tarcze do %s",
+}
+inventory.case.get = {
+    "dobadz %s z pokrowca",
+    "dobadz %s z drugiego pokrowca",
+    "otworz %s;wez tarcze z %s;zaloz tarcze",
 }
 inventory.count2short = {
     ["dwa"] = 2,
@@ -66,26 +87,52 @@ function inventory:unique()
 -- Barbarzynska mityczna tunika kolcza
 end
 
-function inventory:moneyIn(ret)
+function inventory:moneyPut(ret)
 	local cmd = "otworz "..self.bag.openWhat[profile:get("bag")]..";wloz monety do "..self.bag.getFrom[profile:get("bag")]
 	if ret then return cmd end
 	send(cmd)
 end
 
-function inventory:moneyOut(ret)
+function inventory:moneyGet(ret)
 	local cmd = "otworz "..self.bag.openWhat[profile:get("bag")]..";wez monety z "..self.bag.getFrom[profile:get("bag")]
 	if ret then return cmd end
 	send(cmd)
 end
 
-function inventory:weaponIn(ret)
-	local cmd = "wloz bron do pokrowca"
+function inventory:getWeaponsFromProfile(type)
+    local weapon = inventory.weapon[profile:get("weapon")]
+    if type == "get" then
+        weapon = inventory.wieldWhat[profile:get("weapon")]
+    end
+    return {
+        string.format(self.case[type][1], weapon),
+        string.format(self.case[type][2], weapon),
+        string.format(self.case[type][3], inventory.bag.openWhat[profile:get("bag")], inventory.bag.getFrom[profile:get("bag")]),
+    }
+end
+
+function inventory:weaponPut(ret)
+    local arr = self:getWeaponsFromProfile("put")
+    local cmd = ""
+    local style = profile:get("style")
+    for i=1, style do
+        if i == 2 and style == 3 then else -- jesli tarcza, pomin opuszczanie drugiej broni
+            cmd = cmd .. arr[i] .. ";"
+        end
+    end
 	if ret then return cmd end
 	send(cmd)
 end
 
-function inventory:weaponOut(ret)
-	local cmd = "dobadz broni z pokrowca"
+function inventory:weaponGet(ret)
+    local arr = self:getWeaponsFromProfile("get")
+    local cmd = ""
+    local style = profile:get("style")
+    for i=1, style do
+        if i == 2 and style == 3 then else -- jesli tarcza, pomin dobywanie drugiej broni
+            cmd = cmd .. arr[i] .. ";"
+        end
+    end
 	if ret then return cmd end
 	send(cmd)
 end
@@ -94,6 +141,10 @@ function inventory:bagExists(id)
 	return (self.bag.openWhat[id] and self.bag.getFrom[id])
 end
 
-function inventory:caseExists(id)
-	return (self.case.getPut[id])
+function inventory:styleExists(id)
+	return (self.case.put[id])
+end
+
+function inventory:weaponExists(id)
+	return (self.weapon[id])
 end

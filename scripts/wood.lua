@@ -6,6 +6,7 @@ wood.capture = false
 wood.quest = false
 wood.count = 1 -- count dla scinania
 wood.step = 1 -- step dla ciosania
+wood.switch = true
 wood.int2str = {
 	"pierwsze",
     "drugie",
@@ -107,22 +108,6 @@ function wood:hew(next)
 	tempTimer(math.random(1, 2), function() send(self.steps[self.step]) end)
 end
 
-function wood:num5()
-	return function()
-		if self.active then
-			if self.roomID and self.roomID == mapper.room.id then
-				if not self.hewing then
-					self:cut()
-				else
-					self:hew()
-				end
-			else
-				send("zbadaj wyreb")
-			end
-		end
-	end
-end
-
 function wood:get()
 	scripts:beep()
 	self.hewing = false
@@ -143,4 +128,35 @@ function wood:setQuest(str)
 	self.quest = str
 end
 
+function wood:num5()
+	return function()
+		if self.active then
+			if self.roomID and self.roomID == mapper.room.id then
+				if not self.hewing then
+					self:cut()
+				else
+					self:hew()
+				end
+			else
+				send("zbadaj wyreb")
+			end
+		end
+	end
+end
+
+function wood:slash()
+	return function()
+		if self.active then
+			if self.switch then
+				send("opusc siekiere;"..inventory:weaponOut(true))
+				self.switch = false
+			else
+				send(inventory:weaponIn(true).."dobadz siekiery")
+				self.switch = true
+			end
+		end
+	end
+end
+
 scripts.events["woodNum5"] = registerAnonymousEventHandler("num5", wood:num5())
+scripts.events["woodSlash"] = registerAnonymousEventHandler("slash", wood:slash())

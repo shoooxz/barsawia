@@ -21,6 +21,16 @@ gag.bowColorRange = {
 	"red",
 	"red",
 }
+--[[
+
+Nieskoordynowanym pchnieciem swojego czarnego zdobionego kordu ledwie nakluwasz groznego strasznego
+upiora, trafiajac go w lewa reke.
+
+Mizernym pchnieciem swojego czarnego zdobionego kordu zadajesz lekkie obrazenia groznemu strasznemu
+upiorowi, trafiajac go w glowe.
+
+]]--
+
 
 function gag:bowAim(who, where)
 	local str = "Celujesz w " .. who
