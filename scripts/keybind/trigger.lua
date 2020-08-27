@@ -22,7 +22,7 @@ end
 
 function keybind:shipEnter()
 	scripts:beep()
-	self.triggerCommand = inventory:moneyOut(true)..";kup bilet;wejdz na statek"
+	self.triggerCommand = inventory:moneyGet(true)..";kup bilet;wejdz na statek"
 	self:triggerPrint()
 end
 
@@ -39,7 +39,7 @@ function keybind:cartEnter(type)
 		["dylizans"] = "wejdz do dylizansu",
 	}
 	scripts:beep()
-	self.triggerCommand = inventory:moneyOut(true)..";"..type2command[type]
+	self.triggerCommand = inventory:moneyGet(true)..";"..type2command[type]
 	self:triggerPrint()
 end
 
@@ -51,12 +51,12 @@ function keybind:cartLeave()
 end
 
 function keybind:pass()
-	self.triggerCommand = inventory:moneyOut(true)..";kup przepustke"
+	self.triggerCommand = inventory:moneyGet(true)..";kup przepustke"
 	self:triggerPrint()
 end
 
 function keybind:pass2()
-	self.triggerCommand = inventory:moneyOut(true)..";zaplac za przepustke"
+	self.triggerCommand = inventory:moneyGet(true)..";zaplac za przepustke"
 	self:triggerPrint()
 end
 

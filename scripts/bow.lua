@@ -39,10 +39,10 @@ function bow:num5()
 	return function()
 		if self.active then
 			if self.switch then
-				send("przestan celowac;opusc luk;"..inventory:weaponOut(true))
+				send("przestan celowac;opusc luk;"..inventory:weaponGet(true))
 				self.switch = false
 			else
-				send(inventory:weaponIn(true).."dobadz luku")
+				send(inventory:weaponPut(true).."dobadz luku")
 				self.switch = true
 			end
 		end

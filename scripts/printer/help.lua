@@ -42,6 +42,7 @@ function printer:scripts()
     self:command("/npc (imie)", "Szukaj NPC w bazie")
     self:command("/napraw", "Napraw bron i zbroje")
     self:command("/lucznik", "Pomocnik lucznika")
+    self:command("/drwal", "Pomocnik drwala")
     self:bottom()
 end
 
