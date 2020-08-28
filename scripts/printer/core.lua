@@ -75,6 +75,7 @@ function printer:bind(modifier, key, right)
 	if modifier[1] then
 		left = self.key2short[modifier[1]].." + "..left
 	end
+	right = utils:truncate(right, 50)
 	local len = self.length-string.len(left)-string.len(right)-self.tabLength-17  -- 17 Bind: Wcisnij ``
 	self:top(true)
 	cecho(

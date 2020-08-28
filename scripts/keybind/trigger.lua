@@ -80,10 +80,11 @@ function keybind:gate(str)
 		["Forsowanie zamknietej bramy nie jest rozsadnym pomyslem..."] = "uderz w brame;uderz w dzwoneczek",
 		["Przechodzenie przez zamknieta brame nie jest najlepszym pomyslem."] = "uderz w dzwoneczek",
 	}
-	local command = "zastukaj we wrota;uruchom mechanizm;zastukaj"
+	local command = "zastukaj we wrota;uruchom mechanizm;zastukaj;otworz brame"
 	if gate2command[str] then
 		command = gate2command[str]
 	end
 	self.gateCommand = command
+	mapper:walkerInterrupted(command)
 	printer:bind(self.conf.keybindGate.modifier, self.conf.keybindGate.key, command)
 end

@@ -63,8 +63,9 @@ mapper.shortMirror = { --> events.lua
 }
 mapper.walker = {
 	["step"] = 1,
-	["timer"] = nil,
-	["working"] = false,
+	["going"] = false,
+	["delay"] = 1,
+	["path"] = {},
 }
 
 function mapper:init()
@@ -214,6 +215,7 @@ end
 
 function mapper:start()
 	if self.drawing == false then
+		self.walker.going = false
 		self.drawing = true
 		printer:success("Mapowanie", "Maper wlaczony, pomocnik wlaczony")
 	end
