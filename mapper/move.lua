@@ -98,21 +98,23 @@ function mapper:getRoomViaCoords(dir)
 end
 
 function mapper:getCommandViaDir(dir)
-	local spe = getSpecialExitsSwap(self.room.id)
-    if spe then
-        for command, roomID in pairs(spe) do
-            local x, y, z = getRoomCoordinates(roomID)
-			if self:coordsMatchDirection(dir, x, y, z) then
-				return command, roomID
-			end
-        end
-    end
-	local exits = self.room.exits
-	for command, roomID in pairs(exits) do
-		if command == "down" or command == "up" then
-			local x, y, z = getRoomCoordinates(roomID)
-			if self:coordsMatchDirection(dir, x, y, z) then
-				return self.en2short[command], roomID
+	if self.room.id then
+		local spe = getSpecialExitsSwap(self.room.id)
+	    if spe then
+	        for command, roomID in pairs(spe) do
+	            local x, y, z = getRoomCoordinates(roomID)
+				if self:coordsMatchDirection(dir, x, y, z) then
+					return command, roomID
+				end
+	        end
+	    end
+		local exits = self.room.exits
+		for command, roomID in pairs(exits) do
+			if command == "down" or command == "up" then
+				local x, y, z = getRoomCoordinates(roomID)
+				if self:coordsMatchDirection(dir, x, y, z) then
+					return self.en2short[command], roomID
+				end
 			end
 		end
 	end

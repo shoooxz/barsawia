@@ -26,6 +26,8 @@ function loadObjects(force)
         "scripts/bow",
         "scripts/npc",
         "scripts/gag",
+        "scripts/box",
+        "scripts/miner",
         "mapper/core",
         "mapper/liaj",
         "mapper/area",

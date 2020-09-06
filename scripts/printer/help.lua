@@ -13,7 +13,7 @@ function printer:settings()
     self:command("/opcje wysokosc "..settings:get("mainWindowHeight"), "Wysokosc glownego okna w Mudlecie")
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
     self:command("/opcje tryb "..profile:get("mode"), "Wlacz tryb przy ladowaniu profilu")
-    self:dumpArray({{0, "brak"}, {1, "lucznik"}, {2, "drwal"}}, 4, nil, self.infoColor)
+    self:dumpArray({{0, "brak"}, {1, "lucznik"}, {2, "drwal"}, {3, "gornik"}}, 4, nil, self.infoColor)
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
     self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
     self:command("/opcje styl "..profile:get("style"), "Uzyte m.in. przy dobywaniu i opuszczaniu broni")
@@ -74,6 +74,7 @@ function printer:binds()
     self:info("Komendy powinny byc oddzielone hashem '#'")
     self:info("np. napij sie wody z fontanny#usmiechnij sie")
     self:info("Bind uaktywni na lokacji informcje o wcisnieciu klawisza")
+    self:command("/paczki", "Dodaj na lokacji bind paczkarza 'przeczytaj plakat'")
     self:command("/usun_bindy", "Usuniecie z aktualnej lokacji binda")
     self:bottom()
 end
@@ -181,23 +182,36 @@ end
 
 function printer:wood(arr, sum, quest)
     self:title(sum)
+    self:line("Kliknij na drzewo aby je sciac!", self.sectionColor)
+    self:space()
     if quest then
         self:line(quest, self.successColor)
         self:space()
     end
     if next(arr) then
-        self:dumpArrayLink(arr, 10, {"Nazwa", "Zetnij"})
+        self:dumpArrayLink(arr, "Nazwa")
     else
         self:line("Brak drzew", self.errorColor)
     end
     self:bottom(false, true)
 end
 
+function printer:box(arr)
+    self:title("Paczki")
+    self:line("Kliknij na paczke aby ja pobrac!", self.sectionColor)
+    self:space()
+    if next(arr) then
+        self:dumpArrayLink(arr, "Nazwa")
+    end
+    self:bottom(false, true)
+end
+
 -- Srodziemie
 -- Bree
---  karczma usciskac
+--  karczma usciskac +
 --  srodek bree tajemniczy - mapa u bossa szczurolazow, cmentarz ???
---  pracownik na poczcie listy Paralon Bargins - Igielniczka
+--  pracownik na poczcie listy Paralon Bargins - Igielniczka  +
+--  pracownik na poczcie Dunwig - po calym swiecie lata zamglone oczy ?????? skrang ???
 -- Rivendell
 --  niespokojny elf - Mandork, hobbit. Bystry Brod, norka w hobbitonie - wilczy leb
 -- Hobbiton
@@ -205,10 +219,10 @@ end
 --  Perin - tukon <> hobbiton
 --  zielarz - stary las ziele ???
 -- Michel Delving
---  Colin Manelio - "dwie godziny" - sylaby w slowach 'pustelniku' 'kobiecie' 'mlocie' 'niesmiertelnosci' bez odmiany
+--  Colin Manelio - "dwie godziny" - sylaby w slowach 'pustelniku' 'kobiecie' 'mlocie' 'niesmiertelnosci' bez odmiany +
 --  Pryszczaty pulchny hobbit - wiezienie > kowal > ratusz > sklepik (zapytaj o noz/burmistrza/czlowieka) > karczma (postaw piwo rainabowi) > Wiesz juz wystarczajo duzo. Opowiedz o tym burmistrzowi.
 -- Mithlond
---  Wrak - Lond Daer > biblioteka (przeszukaj rupiecie) >
+--  Wrak - Lond Daer > zapytaj karczmarza o statki > biblioteka (przeszukaj rupiecie) > magazyn (przeszukaj papiery) > opowiedz o <nazwa statku>
 
 -- Ustrekt
 -- Kratas

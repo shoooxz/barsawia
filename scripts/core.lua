@@ -19,6 +19,7 @@ end
 
 function scripts:loaded()
 	send('opcje szerokosc 0', false)
+	mapper:centerGMCP()
 end
 
 function scripts:dead()

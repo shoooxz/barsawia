@@ -67,17 +67,14 @@ function wood:detect(str)
 					sum = sum + self.list[name]
 					name = name.." ~ "..self.list[name].." zl"
 					link = {
-						["label"] = "Click",
+						["label"] = name,
 						["command"] = "wood:cutViaID("..i..")",
 						["tooltip"] = "Zetnij "..name,
 					}
 				else
-					name = name.." (Brak umiejetnosci)"
+					link = name.." (Brak umiejetnosci)"
 				end
-				table.insert(out, {
-					name,
-					link
-				})
+				table.insert(out, link)
 			end
 			self.roomID = mapper.room.id
 		end

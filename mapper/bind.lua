@@ -1,3 +1,12 @@
+function mapper:setBoxBind()
+	if self.room.id then
+		setRoomUserData(self.room.id, "box", 1)
+		printer:success("Mapper Bindy",
+			"Bind `przeczytaj plakat` dodany do lokacji!"
+		)
+	end
+end
+
 function mapper:setBind(str)
 	if self.room.id and str then
 		setRoomUserData(self.room.id, "bind", str)
@@ -23,7 +32,7 @@ end
 
 function mapper:removeBinds()
 	if self.room.id then
-		setRoomUserData(self.room.id, "bind", "")
+		clearRoomUserData(self.room.id)
 		printer:success("Mapper Bindy",
 			"Bindy usuniete z lokacji!"
 		)
@@ -32,9 +41,17 @@ end
 
 function mapper:roomBinded()
 	if self.room.id then
-		local data = getRoomUserData(self.room.id, "bind")
-		if data ~= "" then
-			return data
+		local data = getAllRoomUserData(self.room.id)
+		local out = ""
+		if next(data) then
+			for key, val in pairs(data) do
+				if key == "box" then val = "przeczytaj plakat" end
+				out = out .. val .. ";"
+			end
+			if out then
+				return out
+			end
 		end
+		return false
 	end
 end

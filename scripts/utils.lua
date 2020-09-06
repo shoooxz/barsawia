@@ -1,5 +1,9 @@
 utils = utils or {}
 
+function utils:trim(s)
+    return s:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
 function utils:inArray(val, tab)
     for _, value in ipairs(tab) do
         if value == val then

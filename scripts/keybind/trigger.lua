@@ -60,11 +60,6 @@ function keybind:pass2()
 	self:triggerPrint()
 end
 
-function keybind:pack()
-	self.triggerCommand = "przeczytaj plakat"
-	self:triggerPrint()
-end
-
 -- ROOM BIND
 function keybind:room(command)
 	self.roomCommand = command

@@ -1,3 +1,4 @@
+--  https://github.com/Mudlet/Mudlet/pull/4043
 mode = mode or {}
 mode.trigger = {}
 mode.triggerStyle = {
@@ -20,6 +21,7 @@ mode.buttonStyleActive = [[
 mode.order = {
 	"bow",
 	"wood",
+	"miner",
 }
 mode.exec = {
 	["bow"] = {
@@ -32,6 +34,12 @@ mode.exec = {
 		["name"] = "Drwal",
 		["func"] = function()
 			mode:active("wood", "Opis i dostepne komendy /drwal")
+		end,
+	},
+	["miner"] = {
+		["name"] = "Gornik",
+		["func"] = function()
+			mode:active("miner", "Opis i dostepne komendy /gornik")
 		end,
 	},
 }
@@ -63,10 +71,10 @@ function mode:createUI()
 	self.trigger = Geyser.Label:new({
 		name = "mode.trigger",
 		x = -settings:get("mapperWidth")-self.triggerStyle.width-15, -- -15 for scroll
-		y = -footer.height-self.triggerStyle.height, -- TODO moze w profilu footer.height ???
+		y = -footer.height-self.triggerStyle.height, -- TODO profile footer.height ???
 		width = self.triggerStyle.width,
 		height = self.triggerStyle.height,
-		nestable = true,
+		--nestable = true,
 		fgColor = "#ffffff",
 		color = self.triggerStyle.color,
 		nestflyout = true,

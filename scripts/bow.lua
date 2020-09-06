@@ -1,7 +1,6 @@
 bow = bow or {}
 bow.active = false
 bow.target = "pajaka"
-bow.dir = nil
 bow.switch = true
 bow.trigger = nil
 
@@ -15,7 +14,6 @@ end
 function bow:miss()
 	if self.active then
 		scripts:beep()
-		--mapper:move(self.dir)
 	end
 end
 
@@ -29,7 +27,6 @@ end
 function bow:move()
 	return function(e, dir)
 		if self.active then
-			self.dir = dir
 			send("strzel w "..self.target.." na "..dir)
 		end
 	end
@@ -64,6 +61,6 @@ function bow:slash()
 	end
 end
 
-scripts.events["modMoveBow"] = registerAnonymousEventHandler("modMove", bow:move())
+scripts.events["bowModMove"] = registerAnonymousEventHandler("modMove", bow:move())
 scripts.events["bowNum5"] = registerAnonymousEventHandler("num5", bow:num5())
 scripts.events["bowSlash"] = registerAnonymousEventHandler("slash", bow:slash())

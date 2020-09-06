@@ -31,7 +31,7 @@ function mapper:walkerInterrupted(command)
     if self.walker.going then
         self.walker.going = false
         send(command)
-        tempTimer(3, function()
+        tempTimer(5, function()
             self.walker.step = self.walker.step - 1
             self.walker.going = true
             mapper:speedwalk()
@@ -54,6 +54,7 @@ function mapper:walkerMove(dir)
         send(dir)
         self:center(roomID)
     else
-        printer:error("Walker", "Krytyczny blad chodzika!")
+        printer:error("Walker", "Chodzik wstrzymany!")
+        self:walkerStop()
     end
 end

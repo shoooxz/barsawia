@@ -3,7 +3,7 @@ footer.container = {}
 footer.rail = {}
 footer.gauge = {}
 footer.col = {}
-footer.railMargin = 10
+footer.railMargin = 5
 footer.height = 90
 footer.color = "#1D1D1D"
 footer.gaugeOrder = {
@@ -139,13 +139,13 @@ function footer:createGauge(name, parent)
 		width = "100%",
         h_policy = Geyser.Fixed,
 	}, parent)
-	self.gauge[name].front:echo([[<font color="black">]]..self.gaugeData[name].name..[[</font>]])
-	self.gauge[name].front:setFontSize(14)
-	self.gauge[name].back:echo([[<font color="black">]]..self.gaugeData[name].name..[[</font>]])
-	self.gauge[name].back:setFontSize(14)
+	self.gauge[name]:echo([[<center><font color="black">]]..self.gaugeData[name].name..[[</font></center>]])
+
+	self.gauge[name]:setFontSize(13)
 	self.gauge[name].front:setStyleSheet(self.gaugeColor.g)
 	self.gauge[name].back:setStyleSheet(self.gaugeColor.background)
 	self.gauge[name]:setValue(0, self.gaugeData[name].max)
+
 end
 
 function footer:set(name, value)

@@ -154,34 +154,35 @@ function printer:dumpArray(arr, firstColLength, header, color)
 	end
 end
 
-function printer:dumpArrayLink(arr, lastColLength, header, color)
+function printer:dumpArrayLink(arr, header, color)
 	if header then
-		self:renderArrayRow(header[1], header[2], self.length-lastColLength, "orange")
+		self:renderArrayRow(header, nil, nil, "orange")
 		self:hr()
 	end
-	for k, v in pairs(arr) do
-		self:renderArrayRowLink(v[1], v[2], self.length-lastColLength, color)
+	for k, v in ipairs(arr) do
+		self:space()
+		self:renderArrayRowLink(v, color)
 	end
 end
 
-function printer:renderArrayRowLink(left, right, firstColLength, color)
+function printer:renderArrayRowLink(left, color)
 	local textColor = self.textColor
 	if color then
 		textColor = color
 	end
-	local fillLeft = firstColLength-self.tabLength-1-string.len(left)
-	local fillRight = 0
-	if next(right) then
-		fillRight = self.length-self.tabLength-1-firstColLength-string.len(right.label)
+	if type(left) == "table" then
+		label = left.label
 	else
-		fillRight = self.length-self.tabLength-1-firstColLength
+		label = left
 	end
-	cecho("<"..self.borderColor..">|"..string.rep(" ", self.tabLength)..
-			"<"..textColor.."> "..left..string.rep(" ", fillLeft).."| ")
-	if next(right) then
-		cechoLink("<red>"..right.label, right.command, right.tooltip, true)
+	local fillLeft = self.length-self.tabLength-1-string.len(label)
+	cecho("<"..self.borderColor..">|"..string.rep(" ", self.tabLength))
+	if type(left) == "table" then
+		cechoLink("<"..textColor.."> "..label, left.command, left.tooltip, true)
+	else
+		cecho("<grey> "..label)
 	end
-	cecho(string.rep(" ", fillRight).."<"..self.borderColor..">|\n")
+	cecho(string.rep(" ", fillLeft).."<"..self.borderColor..">|\n")
 end
 
 function printer:renderArrayRow(left, right, firstColLength, color)
