@@ -20,11 +20,27 @@ function keybindSupport()
 	send("wesprzyj")
 end
 
+function keybindLamp()
+	send("napelnij lampe olejem")
+end
+
+function keybindZero()
+	send("popros o wydanie schowka")
+end
+
 function keybindGate()
 	if keybind.gateCommand then
 		send(keybind.gateCommand)
 		keybind.gateCommand = nil
 	end
+end
+
+function keybindUp()
+	raiseEvent("pageUp")
+end
+
+function keybindDown()
+	raiseEvent("pageDown")
 end
 
 function keybindSlash()

@@ -53,15 +53,6 @@ function gag:bowHit(who, hit, where)
 	end
 end
 
-function gag:prefix()
-	selectCurrentLine()
-    local str_replace = "[1/6] "
-    prefix(str_replace)
-    selectString(str_replace, 1)
-    fg(scripts.gag_colors["moje_ciosy"])
-    resetFormat()
-end
-
 function gag:replace(str, color)
 	selectCurrentLine()
     deleteLine()

@@ -1,5 +1,6 @@
 function mapper:move(dir)
 	self:walkerStop()
+	wood.capture = false
 	-- czy istnieje lokacja w tamta strone w exitach
 	local roomID = self:getRoomViaExit(dir)
 	local command = false

@@ -22,6 +22,18 @@ function scripts:loaded()
 	mapper:centerGMCP()
 end
 
+function scripts:prefix(str, color)
+	if not color then
+		color = "white"
+	end
+	selectCurrentLine()
+    str = str.." "
+    prefix(str)
+    selectString(str, 1)
+    fg(color)
+    resetFormat()
+end
+
 function scripts:dead()
 	send("ob cialo")
 end

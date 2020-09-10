@@ -7,6 +7,16 @@ function mapper:setBoxBind()
 	end
 end
 
+function mapper:setDepositBind()
+	if self.room.id then
+		setRoomUserData(self.room.id, "deposit", 1)
+		printer:success("Mapper Bindy",
+			"Bind `popros o wydanie schowka` dodany do lokacji!"
+		)
+	end
+end
+
+
 function mapper:setBind(str)
 	if self.room.id and str then
 		setRoomUserData(self.room.id, "bind", str)
@@ -42,16 +52,21 @@ end
 function mapper:roomBinded()
 	if self.room.id then
 		local data = getAllRoomUserData(self.room.id)
-		local out = ""
 		if next(data) then
-			for key, val in pairs(data) do
-				if key == "box" then val = "przeczytaj plakat" end
-				out = out .. val .. ";"
+			--display(mudlet.key)
+			local room = ""
+			if data.bind then
+				room = room..data.bind..";"
 			end
-			if out then
-				return out
+			if data.box then
+				room = room.."przeczytaj plakat"..";"
+			end
+			if room ~= "" then
+				keybind:room(room)
+			end
+			if data.deposit then
+				keybind:deposit()
 			end
 		end
-		return false
 	end
 end

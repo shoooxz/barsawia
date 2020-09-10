@@ -4,6 +4,14 @@ keybind.triggerCommand = nil
 keybind.roomCommand = nil
 keybind.gateCommand = nil
 keybind.conf = {
+	["keybindUp"] = {
+		["modifier"] = {},
+		["key"] = "PageUp",
+	},
+	["keybindDown"] = {
+		["modifier"] = {},
+		["key"] = "PageDown",
+	},
 	["keybindRoom"] = {
 		["modifier"] = {},
 		["key"] = "BracketRight",
@@ -16,6 +24,10 @@ keybind.conf = {
 		["modifier"] = {"Control"},
 		["key"] = "W",
 	},
+	["keybindLamp"] = {
+		["modifier"] = {"Control"},
+		["key"] = "4",
+	},
 	["keybindGate"] = {
 		["modifier"] = {"Control"},
 		["key"] = "2",
@@ -27,6 +39,10 @@ keybind.conf = {
 	["keybindNum5"] = {
 		["modifier"] = {"Keypad"},
 		["key"] = "5",
+	},
+	["keybindZero"] = {
+		["modifier"] = {"Keypad"},
+		["key"] = "0",
 	},
 	["keybindN"] = {
 		["modifier"] = {"Control", "Keypad"},

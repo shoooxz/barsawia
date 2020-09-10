@@ -1,13 +1,18 @@
+-- ZROBIC W BACKWARD -1 step do walkera WIESZ O CO BEBE
+
 function doSpeedWalk()
     --speedWalkDir
     --speedWalkPath
+    --display(speedWalkDir)
+
     if not mapper.walker.going then
         mapper.walker.path = speedWalkDir
         mapper.walker.going = true
         mapper:speedwalk()
     end
-end
 
+
+end
 function mapper:speedwalk()
     if self.walker.path[self.walker.step] then
         tempTimer(self.walker.delay, function()

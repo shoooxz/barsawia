@@ -75,6 +75,7 @@ function printer:binds()
     self:info("np. napij sie wody z fontanny#usmiechnij sie")
     self:info("Bind uaktywni na lokacji informcje o wcisnieciu klawisza")
     self:command("/paczki", "Dodaj na lokacji bind paczkarza 'przeczytaj plakat'")
+    self:command("/schowek", "Popros o wydanie schowka na lokacji")
     self:command("/usun_bindy", "Usuniecie z aktualnej lokacji binda")
     self:bottom()
 end
@@ -206,12 +207,16 @@ function printer:box(arr)
     self:bottom(false, true)
 end
 
+-- profesje (adept) autojoin od 4. Podrozni pytani na trakcie o twoje imie niemalze zawsze kreca przeczaco glowa.
+
 -- Srodziemie
 -- Bree
 --  karczma usciskac +
 --  srodek bree tajemniczy - mapa u bossa szczurolazow, cmentarz ???
 --  pracownik na poczcie listy Paralon Bargins - Igielniczka  +
 --  pracownik na poczcie Dunwig - po calym swiecie lata zamglone oczy ?????? skrang ???
+-- Stary rumiany olbrzym przedstawia sie jako: Dunwig, olbrzym. lsniace szczyty
+-- Dunwig podaza przed siebie i znika ci z pola widzenia.  -- znika kompletnie i spawn gdzie indziej ?
 -- Rivendell
 --  niespokojny elf - Mandork, hobbit. Bystry Brod, norka w hobbitonie - wilczy leb
 -- Hobbiton
@@ -223,6 +228,8 @@ end
 --  Pryszczaty pulchny hobbit - wiezienie > kowal > ratusz > sklepik (zapytaj o noz/burmistrza/czlowieka) > karczma (postaw piwo rainabowi) > Wiesz juz wystarczajo duzo. Opowiedz o tym burmistrzowi.
 -- Mithlond
 --  Wrak - Lond Daer > zapytaj karczmarza o statki > biblioteka (przeszukaj rupiecie) > magazyn (przeszukaj papiery) > opowiedz o <nazwa statku>
+-- Twierdza Olbrzymow
+-- zatroskany olbrzym ???
 
 -- Ustrekt
 -- Kratas

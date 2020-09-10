@@ -137,6 +137,10 @@ function inventory:weaponGet(ret)
 	send(cmd)
 end
 
+function inventory:deposit(what)
+    send("otworz "..what.."; ob "..what)
+end
+
 function inventory:bagExists(id)
 	return (self.bag.openWhat[id] and self.bag.getFrom[id])
 end

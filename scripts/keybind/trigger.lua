@@ -1,6 +1,10 @@
 -- TRIGER BIND
 function keybind:job(who, type)
-	if string.match(who, "krasnoludka") then
+	if string.match(who, "olbrzymka") then
+		self.triggerCommand = "zapytaj olbrzymke o "..type
+	elseif string.match(who, "olbrzym") then
+		self.triggerCommand = "zapytaj olbrzyma o "..type
+	elseif string.match(who, "krasnoludka") then
 		self.triggerCommand = "zapytaj krasnoludke o "..type
 	elseif string.match(who, "krasnolud") then
 		self.triggerCommand = "zapytaj krasnoluda o "..type
@@ -66,6 +70,11 @@ function keybind:room(command)
 	printer:bind(self.conf.keybindRoom.modifier, self.conf.keybindRoom.key, command)
 end
 
+-- DEPOSIT BIND
+function keybind:deposit()
+	printer:bind(self.conf.keybindZero.modifier, self.conf.keybindZero.key, "popros o wydanie depozytu")
+end
+
 -- GATE BIND
 function keybind:gate(str)
 	local gate2command = {
@@ -74,6 +83,7 @@ function keybind:gate(str)
 		["Brama jest zamknieta, wiec nie uda ci sie przez nia przedostac."] = "uderz w brame",
 		["Forsowanie zamknietej bramy nie jest rozsadnym pomyslem..."] = "uderz w brame;uderz w dzwoneczek",
 		["Przechodzenie przez zamknieta brame nie jest najlepszym pomyslem."] = "uderz w dzwoneczek",
+		["Alez most nie jest opuszczony"] = "uderz w dzwon",
 	}
 	local command = "zastukaj we wrota;uruchom mechanizm;zastukaj;otworz brame"
 	if gate2command[str] then

@@ -1,3 +1,4 @@
+-- wytnij deski z klody
 wood = wood or {}
 wood.active = false
 wood.roomID = false
@@ -155,5 +156,19 @@ function wood:slash()
 	end
 end
 
+function wood:pageUp()
+	return function()
+		display('op')
+	end
+end
+
+function wood:pageDown()
+	return function()
+		display('down')
+	end
+end
+
+scripts.events["woodPageUp"] = registerAnonymousEventHandler("pageUp", wood:pageUp())
+scripts.events["woodPageDown"] = registerAnonymousEventHandler("pageDown", wood:pageDown())
 scripts.events["woodNum5"] = registerAnonymousEventHandler("num5", wood:num5())
 scripts.events["woodSlash"] = registerAnonymousEventHandler("slash", wood:slash())

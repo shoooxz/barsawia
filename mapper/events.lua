@@ -53,10 +53,7 @@ function mapper:roomLoaded()
 				self:centerGMCP()
 			end
 			self.lastKnownID = gmcpID
-			local binded = self:roomBinded()
-			if binded then
-				keybind:room(binded)
-			end
+			self:roomBinded()
 			if self.gmcpNextLocation then
 				self:centerGMCP()
 				self.gmcpNextLocation = nil
