@@ -1,6 +1,14 @@
 -- TRIGER BIND
 function keybind:job(who, type)
-	if string.match(who, "olbrzymka") then
+	if string.match(who, "ork") then
+		self.triggerCommand = "zapytaj orka o "..type
+	elseif string.match(who, "obsydianin") then
+		self.triggerCommand = "zapytaj obdsydianina o "..type
+	elseif string.match(who, "wietrzniaczka") then
+		self.triggerCommand = "zapytaj wietrzniaczke o "..type
+	elseif string.match(who, "wietrzniak") then
+		self.triggerCommand = "zapytaj wietrzniaka o "..type
+	elseif string.match(who, "olbrzymka") then
 		self.triggerCommand = "zapytaj olbrzymke o "..type
 	elseif string.match(who, "olbrzym") then
 		self.triggerCommand = "zapytaj olbrzyma o "..type
@@ -16,7 +24,11 @@ function keybind:job(who, type)
 		self.triggerCommand = "zapytaj hobbitke o "..type
 	elseif string.match(who, "hobbit") then
 		self.triggerCommand = "zapytaj hobbita o "..type
-	elseif string.match(who, "mezczyzna") or string.match(who, "kobieta") or string.match(who, "czlowiek") then
+	elseif string.match(who, "mezczyzna") then
+		self.triggerCommand = "zapytaj mezczyzne o "..type
+	elseif string.match(who, "kobieta") then
+		self.triggerCommand = "zapytaj kobiete o "..type
+	elseif string.match(who, "czlowiek") then
 		self.triggerCommand = "zapytaj czlowieka o "..type
 	end
 	if self.triggerCommand then

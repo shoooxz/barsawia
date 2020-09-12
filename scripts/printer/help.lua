@@ -213,6 +213,8 @@ end
 -- Bree
 --  karczma usciskac +
 --  srodek bree tajemniczy - mapa u bossa szczurolazow, cmentarz ???
+--Tajemniczy podstarzaly mezczyzna mowi do ciebie: Konkretnie chodzi mi o biblioteke, muzeum, ratusz i
+--zielarnie.
 --  pracownik na poczcie listy Paralon Bargins - Igielniczka  +
 --  pracownik na poczcie Dunwig - po calym swiecie lata zamglone oczy ?????? skrang ???
 -- Stary rumiany olbrzym przedstawia sie jako: Dunwig, olbrzym. lsniace szczyty
@@ -220,16 +222,19 @@ end
 -- Rivendell
 --  niespokojny elf - Mandork, hobbit. Bystry Brod, norka w hobbitonie - wilczy leb
 -- Hobbiton
---  sheryf - zabic moba w swierkowym - wziac sakiewk
---  Perin - tukon <> hobbiton
+--  sheryf - zaatakowac moba i prowadzic go do robina (obrywajac w plecy) +
+--  Perin - tukon <> hobbiton +
 --  zielarz - stary las ziele ???
 -- Michel Delving
 --  Colin Manelio - "dwie godziny" - sylaby w slowach 'pustelniku' 'kobiecie' 'mlocie' 'niesmiertelnosci' bez odmiany +
---  Pryszczaty pulchny hobbit - wiezienie > kowal > ratusz > sklepik (zapytaj o noz/burmistrza/czlowieka) > karczma (postaw piwo rainabowi) > Wiesz juz wystarczajo duzo. Opowiedz o tym burmistrzowi.
+--  Pryszczaty pulchny hobbit - wiezienie > kowal > ratusz > sklepik (zapytaj o noz/burmistrza/czlowieka) > karczma (postaw piwo rainabowi) > Wiesz juz wystarczajo duzo. Opowiedz o tym burmistrzowi. +
 -- Mithlond
---  Wrak - Lond Daer > zapytaj karczmarza o statki > biblioteka (przeszukaj rupiecie) > magazyn (przeszukaj papiery) > opowiedz o <nazwa statku>
+--  Wrak - Lond Daer > zapytaj karczmarza o statki > biblioteka (przeszukaj rupiecie) > magazyn (przeszukaj papiery) > opowiedz o <nazwa statku> +
 -- Twierdza Olbrzymow
 -- zatroskany olbrzym ???
+
+
+
 
 -- Ustrekt
 -- Kratas
