@@ -3,7 +3,7 @@ function keybind:job(who, type)
 	if string.match(who, "ork") then
 		self.triggerCommand = "zapytaj orka o "..type
 	elseif string.match(who, "obsydianin") then
-		self.triggerCommand = "zapytaj obdsydianina o "..type
+		self.triggerCommand = "zapytaj obsydianina o "..type
 	elseif string.match(who, "wietrzniaczka") then
 		self.triggerCommand = "zapytaj wietrzniaczke o "..type
 	elseif string.match(who, "wietrzniak") then
@@ -63,6 +63,17 @@ function keybind:cartLeave()
 	scripts:beep()
 	self.triggerCommand = "wyjscie"
 	mapper.gmcpNextLocation = true
+	self:triggerPrint()
+end
+
+
+function keybind:lift(str)
+	if str == "zatrzymala" then
+		self.triggerCommand = "wyjscie"
+		mapper.gmcpNextLocation = true
+	else
+		self.triggerCommand = "skrzynia"
+	end
 	self:triggerPrint()
 end
 

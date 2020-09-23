@@ -25,7 +25,7 @@ function settings:init()
 	else
 		local default = {
 			["mainWindowWidth"] = 1920,
-			["mainWindowHeight"] = 1080,
+			["mainWindowHeight"] = 980,
 			["mapperWidth"] = 700
 		}
 		self:save(default)

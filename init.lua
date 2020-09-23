@@ -37,7 +37,7 @@ function loadObjects(force)
         "mapper/events",
         "mapper/bind",
         "mapper/walker",
-
+        "mapper/gps",
     }
     for i = 1, #obj do
         package.loaded[obj[i]] = nil

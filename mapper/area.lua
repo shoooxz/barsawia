@@ -48,15 +48,11 @@ function mapper:addAreaName(v)
 			}
 		)
 	else
-		local roomID = self:addRoom(areaID, self.gmcp.id, 0, 0, 0)
 		printer:success("Dodanie obszaru",
 			{
 				"Dodano obszar o nazwie "..v.." (ID: "..areaID..")",
-				"Dodano startowa lokacje z ID "..roomID.." z GMCP",
-				"Wycentrowano mape dla lokacji "..roomID
 			}
 		)
-		centerview(roomID)
 	end
 end
 

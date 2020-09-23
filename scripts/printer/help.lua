@@ -39,10 +39,20 @@ function printer:scripts()
     self:command("/medytuj", "Medytuj w gildii podroznikow, zapisz stan cech")
     self:info("Przy kazdym uzyciu medytuj progres cech jest zapisywany w profilu")
     self:info("oraz widoczny po wpisaniu komendy 'cechy'")
-    self:command("/npc (imie)", "Szukaj NPC w bazie")
     self:command("/napraw", "Napraw bron i zbroje")
-    self:command("/lucznik", "Pomocnik lucznika")
-    self:command("/drwal", "Pomocnik drwala")
+    self:space()
+    self:section("GPS:")
+    self:command("/npc (imie)", "Kieruj sie w strone NPC")
+    self:info("Wyszukiwanie dziala na bazie skrotow np: /npc barli /npc elro")
+    self:command("/gps", "Lista dostepnych lokacji w GPS dla domeny")
+    self:command("/gps (nazwa)", "Kieruj sie w strone lokacji z GPS")
+    self:info("Wyszukiwanie dziala na bazie skrotow np: /gps ered /gps mith")
+    self:command("/gps_dodaj (nazwa)", "Dodaj aktualna lokacje do bazy GPS")
+    self:space()
+    self:section("Tryby:")
+    self:command("/lucznik", "Opis trybu lucznika")
+    self:command("/drwal", "Opis trybu drwala")
+    self:command("/gornik", "Opis trybu gornika")
     self:bottom()
 end
 
@@ -65,6 +75,18 @@ function printer:woodHelp()
     self:info("przez szybkie menu oraz ustawic w /opcje aby aktywowal sie na starcie.")
     self:info("W momencie gdy tryb jest aktywny '/' na klawiaturze numerycznej")
     self:info("zmienia bronie natomiast 'NUM5' scina drzewa po kolei.")
+    self:bottom()
+end
+
+function printer:minerHelp()
+    self:title("Barsawia Gornik")
+    self:section("Podstawowe wyposazenie to oskardzik i kilof z Ered Luin")
+    self:info("Gornik to jeden z trybow dostepny w skryptach. Mozna go wlaczyc")
+    self:info("przez szybkie menu oraz ustawic w /opcje aby aktywowal sie na starcie.")
+    self:info("W momencie gdy tryb jest aktywny kombinacja klawiszy CTRL + (kierunek)")
+    self:info("pozwala na kopanie w danym kierunku.")
+    self:info("'/' podnosi mineraly")
+    self:info("CTRL + 4 napelnia lampe olejem")
     self:bottom()
 end
 
@@ -95,8 +117,7 @@ function printer:mapper()
     self:section("Obszary:")
     self:command("/obszary", "Dostepny obszary oraz ich ID")
     self:command("/dodaj_obszar (nazwa)", "Dodanie nowego obszaru oraz lokacji startowej")
-    self:info("(Uwaga! Lokacja startowa utworzy sie za pomoca GMCP w miejscu, w ktorym")
-    self:info("aktualnie sie znajdujesz)")
+    self:info("(Prawczy przycisk myszy na lokacji > Area - aby dodac lokacje do nowego obszaru)")
     self:command("/nazwij_obszar (id) (nazwa)", "Nowa nazwa dla obszaru z id")
     self:command("/usun_obszar (nazwa/id)", "Usun obszar")
     self:space()
@@ -207,14 +228,21 @@ function printer:box(arr)
     self:bottom(false, true)
 end
 
--- profesje (adept) autojoin od 4. Podrozni pytani na trakcie o twoje imie niemalze zawsze kreca przeczaco glowa.
+function printer:gps(arr)
+    self:title("GPS")
+    self:line("Kliknij na lokacje aby dotrzec do niej!", self.sectionColor)
+    self:space()
+    if next(arr) then
+        self:dumpArrayLink(arr, "Nazwa")
+    end
+    self:bottom(false, true)
+end
 
--- Srodziemie
+-- Srodziemie  150 brylkow
 -- Bree
 --  karczma usciskac +
 --  srodek bree tajemniczy - mapa u bossa szczurolazow, cmentarz ???
---Tajemniczy podstarzaly mezczyzna mowi do ciebie: Konkretnie chodzi mi o biblioteke, muzeum, ratusz i
---zielarnie.
+-- biblioteke, muzeum, ratusz i zielarnie
 --  pracownik na poczcie listy Paralon Bargins - Igielniczka  +
 --  pracownik na poczcie Dunwig - po calym swiecie lata zamglone oczy ?????? skrang ???
 -- Stary rumiany olbrzym przedstawia sie jako: Dunwig, olbrzym. lsniace szczyty
@@ -237,6 +265,7 @@ end
 
 
 -- Ustrekt
+-- Listy i questy robic parami List do Draosa/Lustro(klej)    List do Valronda/Urzednik(papier kredowy)
 -- Kratas
 -- ork z kratas - kapitan > rybak > magazyn > karczma > stajenny > krawiec > skup skor > krawiec > stajenny > karczma > o nagrode kapitana
 -- Dorath
@@ -246,5 +275,5 @@ end
 -- gubernator - straznik na polnocnym murze, do celi w wiezieniu z inicjalami sprawcy na scianie, przeszukac prycze, do kanalow przeszukac dziure
 -- swiatynia - lustro - 'dziecko' w miescie - mury n przeszukaj kosze - klej kelevine masc -
 -- urzednik w ratuszu n - papier kratas sklep, okragle ciastko z s cukierni + sol (wyglada jak cukier) z karczmy n (przeszukaj pudeleczka) "posyp ciastko"
--- szewc -
+-- szewc - dorath karczma
 -- poczta - Velrond, Kratas (/npc Velrond)

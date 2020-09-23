@@ -12,7 +12,7 @@ end
 function miner:slash()
 	return function()
 		if self.active then
-			send("napelnij lampe olejem")
+			send("wez wszystko;odloz pomaranczowe kamienie;odloz granity;odloz popielate kamienie")
 		end
 	end
 end

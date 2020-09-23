@@ -28,6 +28,7 @@ function inventory.repair:go()
 	self.how = "naostrz"
 	self.what = "bron"
 	self.step = 1
+    send("zdejmij wszystkie zbroje")
 	self:send()
 end
 

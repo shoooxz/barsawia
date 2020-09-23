@@ -1,3 +1,7 @@
+-- profesje (adept) autojoin od 4. Podrozni pytani na trakcie o twoje imie niemalze zawsze kreca przeczaco glowa.
+
+Ruta powachac  zmeczenie
+biedrzawiec zjesc  kondycja
 
 // kolczuga/kirys
 glowa: kaptur > helm
@@ -30,3 +34,33 @@ Najlepsze zlecenia to mineraly.
 Za mroczny opal mega duzo daja.
 Za diamenty, szafiry itp
 W poniedzialek po resecie najlatwiej wbic ogromy pierwsze.
+
+
+
+Tak, gornictwo wbija sie bardzo dlugo, ale sa gorsze fachy jeszcze.
+Generalnie najlepiej sie podnosi jesli zmieniasz kopalnie i wykopujesz regularnie orichalk/mithril.
+Drwalstwo wbija sie predko. Mi zajelo szmat czasu wbicie maksa. Gornictwo jest tez dosc skomplikowane
+bo z grubsza co lokacje sa inne mineraly. Warto tez wbijac uma gorniczego tak szybko, jak tylko sie da.
+Za zadanka same nie wbijesz 12/12, roznos tez paczki. Kazda dziedzina zycia dodaje troche do puli,
+wiec z grubsza dostajesz tez za bicie, za ziola, drzewa, kopanie itp. Im bardziej zroznicowane
+ i w roznych miejscach swiata tym lepiej.
+
+
+
+Probujesz trafic wylupi
+Probujesz trafic wylup
+Probujesz trafic wylup
+Wylupiasty nieforemny molgrim lekko rani cie
+Jestes w zlej kondycji. Atakuje cie wylupiasty nieforemny molgrim.
+Wylupiasty nieforemny molgrim jest ciezko ranny. Ty go atakujesz.
+>
+Probujesz trafic wylupiastego
+Probujesz trafic wylupiastego
+Wylupiasty nieforemny molgrim ledwo muska cie lewa stopa, trafiajac cie w korpus.
+Wylupiasty nieforemny molgrim lekko rani cie prawym lokciem, trafiajac cie w prawe ramie.
+Swietnym cieciem swojego czarnego zdobionego kordu mocno nacinasz wylupiastego nieforemnego
+molgrima, trafiajac go w prawe lape.
+Wylupiasty nieforemny molgrim rani cie lewa piescia, trafiajac cie w glowe.
+Probujesz trafic
+Probujesz trafic
+Probujesz trafic

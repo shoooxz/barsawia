@@ -48,8 +48,8 @@ function mapper:move(dir)
 			dir = command
 		end
 	end
-	-- jesli jestesmy w gorach mglistych, podarzaj tylko za widocznym wyjsciem
-	if self.room.area == 9 then
+	-- jesli jestesmy w gorach mglistych albo lsniacych szczytach, podarzaj tylko za widocznym wyjsciem
+	if self.room.area == 9 or self.room.area == 11 then
 		if roomID then
 			send(dir)
 		end

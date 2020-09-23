@@ -688,6 +688,30 @@ keybind:pass2()</script>
 						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>skrzynia</name>
+					<script>keybind:lift(matches[2])</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Drewniana skrzynia (przybywa) z dolu.</string>
+						<string>Skrzynia nagle (zatrzymala) sie.</string>
+						<string>Drewniana skrzynia (przybywa) z gory.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+						<integer>1</integer>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
 			<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 				<name>cofnij</name>
@@ -2236,9 +2260,51 @@ mapper:moveBackward()</script>
 						<integer>0</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>follow</name>
+					<script>mapper:centerGMCP()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Podazasz.*za .*\.</string>
+						<string>Wraz z druzyna.*</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>1</integer>
+						<integer>1</integer>
+					</regexCodePropertyList>
+				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>panika</name>
+					<script>mapper:centerGMCP()</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Udalo ci sie gdzies uciec!</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
 		</TriggerGroup>
-		<Trigger isActive="no" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+		<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="yes" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 			<name>kanal</name>
 			<script></script>
 			<triggerType>0</triggerType>
@@ -2252,10 +2318,10 @@ mapper:moveBackward()</script>
 			<colorTriggerFgColor>#000000</colorTriggerFgColor>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
-				<string>.*(grob).*</string>
-				<string>.*(kamien).*</string>
-				<string>.*(elf).*</string>
-				<string>.*(kopiec).*</string>
+				<string>.*(kanal).*</string>
+				<string>.*(otwor).*</string>
+				<string>.*(zejscie).*</string>
+				<string>.*(wejscie).*</string>
 			</regexCodeList>
 			<regexCodePropertyList>
 				<integer>1</integer>
@@ -2279,8 +2345,10 @@ mapper:moveBackward()</script>
 			<colorTriggerBgColor>#000000</colorTriggerBgColor>
 			<regexCodeList>
 				<string>.*skupia sie.*</string>
+				<string>.*wspiera.*</string>
 			</regexCodeList>
 			<regexCodePropertyList>
+				<integer>1</integer>
 				<integer>1</integer>
 			</regexCodePropertyList>
 		</Trigger>
@@ -2623,6 +2691,27 @@ mapper:moveBackward()</script>
 						<regex>^d$</regex>
 					</Alias>
 				</AliasGroup>
+				<AliasGroup isActive="yes" isFolder="yes">
+					<name>GPS</name>
+					<script></script>
+					<command></command>
+					<packageName></packageName>
+					<regex></regex>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/gps\s?([a-z\s]+)?$</name>
+						<script>mapper:gpsInit(matches[2])</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/gps\s?([a-z\s]+)?$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/gps_dodaj ([A-z0-9\s]+)$</name>
+						<script>mapper:gpsAdd(matches[2])</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/gps_dodaj ([A-z0-9\s]+)$</regex>
+					</Alias>
+				</AliasGroup>
 			</AliasGroup>
 			<AliasGroup isActive="yes" isFolder="yes">
 				<name>Killerowo</name>
@@ -2809,6 +2898,13 @@ printer:settings()</script>
 						<command></command>
 						<packageName></packageName>
 						<regex>^/drwal$</regex>
+					</Alias>
+					<Alias isActive="yes" isFolder="no">
+						<name>^/gornik$</name>
+						<script>printer:minerHelp()</script>
+						<command></command>
+						<packageName></packageName>
+						<regex>^/gornik$</regex>
 					</Alias>
 				</AliasGroup>
 				<Alias isActive="yes" isFolder="no">

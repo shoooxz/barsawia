@@ -19,6 +19,7 @@ end
 
 function scripts:loaded()
 	send('opcje szerokosc 0', false)
+	send('opcje sortowanie +', false)
 	mapper:centerGMCP()
 end
 
