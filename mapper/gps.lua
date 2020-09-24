@@ -11,6 +11,7 @@ function mapper:isME()
 			4,
 			7,
 			15,
+			16,
 		}
 		return utils:inArray(self.room.area, me)
 	end
@@ -41,7 +42,7 @@ mapper.gps = db:create("gps", {
 
 function mapper:gpsInit(str)
 	if str then
-		local res = db:fetch(self.gps.gps, {db:like(self.gps.gps.name, "%"..str.."%")})
+		local res = db:fetch(self.gps.gps, {db:like(self.gps.gps.name, str.."%")})
 	    self:gpsGo(res[1].room, res[1].name)
 	else
 		self:gpsList()
