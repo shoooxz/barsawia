@@ -171,7 +171,9 @@ function mapper:colorRoom(color)
 			["agro"] = 261,
 			["laka"] = 262,
 			["tren"] = 266,
-			["?"] = 270
+			["dol"] = 269,
+			["gora"] = 269,
+ 			["?"] = 270
 		}
 		if arr[color] then
 			setRoomEnv(self.room.id, arr[color])

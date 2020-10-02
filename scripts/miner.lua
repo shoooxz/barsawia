@@ -5,7 +5,7 @@ miner.dir = nil
 
 function miner:pick()
 	send("sp")
-	send("opusc oskardzik;dobadz ostrego kilofa")
+	send("opusc oskardzik;dobadz ostrego kilofa;napelnij lampe olejem")
 	send("kuj "..self.dir.." sciane")
 end
 
