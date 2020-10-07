@@ -146,10 +146,10 @@ function wood:slash()
 	return function()
 		if self.active then
 			if self.switch then
-				send("opusc siekiere;"..inventory:weaponGet(true))
+				send("opusc siekiere;opusc drwalski topor;"..inventory:weaponGet(true))
 				self.switch = false
 			else
-				send(inventory:weaponPut(true).."dobadz siekiery")
+				send(inventory:weaponPut(true).."dobadz siekiery;dobadz drwalskiego topora")
 				self.switch = true
 			end
 		end
