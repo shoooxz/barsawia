@@ -567,10 +567,12 @@
 						<string>.*Uwaga! Za chwile znowu wyplywamy!</string>
 						<string>.*Za kilkadziesiat sekund wyruszamy w dalsza podroz.</string>
 						<string>Energiczny bystry mezczyzna mowi: Za okolo minute wyruszamy w dalsza podroz.</string>
+						<string>Gadatliwy wesoly skrang syczy: Za okolo minute wyruszamy w dalsza podroz.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>1</integer>
 						<integer>1</integer>
+						<integer>0</integer>
 						<integer>0</integer>
 					</regexCodePropertyList>
 				</Trigger>
@@ -1610,14 +1612,12 @@ keybind:pass2()</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Glosny trzask uswiadamia ci, ze kucie w tej czesci kopalni nie jest juz bezpieczne!</string>
-						<string>Strop wspiera sie na dwoch stemplach.</string>
 						<string>Jedna z podpor komnaty wyglada niepewnie.</string>
 						<string>Kraaaaach!</string>
 						<string>Krach! Slyszysz glosny huk!</string>
 						<string>Elementy zabezpieczenia komnaty uginaja sie mocno!</string>
 					</regexCodeList>
 					<regexCodePropertyList>
-						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
@@ -1669,9 +1669,29 @@ keybind:pass2()</script>
 						<integer>1</integer>
 					</regexCodePropertyList>
 				</Trigger>
+				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
+					<name>check</name>
+					<script>send("sp")</script>
+					<triggerType>0</triggerType>
+					<conditonLineDelta>0</conditonLineDelta>
+					<mStayOpen>0</mStayOpen>
+					<mCommand></mCommand>
+					<packageName></packageName>
+					<mFgColor>#ff0000</mFgColor>
+					<mBgColor>#ffff00</mBgColor>
+					<mSoundFile></mSoundFile>
+					<colorTriggerFgColor>#000000</colorTriggerFgColor>
+					<colorTriggerBgColor>#000000</colorTriggerBgColor>
+					<regexCodeList>
+						<string>Wsrod gruzu dostrzegasz kilka okruchow jakiegos mineralu.</string>
+					</regexCodeList>
+					<regexCodePropertyList>
+						<integer>0</integer>
+					</regexCodePropertyList>
+				</Trigger>
 			</TriggerGroup>
 			<TriggerGroup isActive="yes" isFolder="yes" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
-				<name>slawa</name>
+				<name>Slawa</name>
 				<script></script>
 				<triggerType>0</triggerType>
 				<conditonLineDelta>0</conditonLineDelta>
@@ -1994,9 +2014,11 @@ keybind:pass2()</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Dostajesz zamknieta .* (skrzynie)\.</string>
-						<string>Dostajesz zamknieta.* *(skrzynke)\.</string>
+						<string>Dostajesz zamknieta.* (skrzynke)\.</string>
+						<string>Dostajesz zamknieta.* (szkatulke)\.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
+						<integer>1</integer>
 						<integer>1</integer>
 						<integer>1</integer>
 					</regexCodePropertyList>
@@ -2074,6 +2096,9 @@ keybind:pass2()</script>
 						<string>Gdy probujesz podazyc w tym kierunku nagle wyrasta przed toba skalna sciana!</string>
 						<string>Biegnac w pospiechu potykasz sie na luznych kamieniach, tlukac sie bolesnie.</string>
 						<string>Zamkniete drzwi i zalegajaca wewnatrz ciemnosc zmuszaja cie do wyczekania na poranek, kiedy to mieszkancy tego budynku przebudza sie z zasluzonego snu i otworza swe progi dla klientow.</string>
+						<string>Chyba nie chcesz wjechac tam konno?</string>
+						<string>.*jest zbyt zmeczony by dalej cie niesc.</string>
+						<string>Wpierw odloz szeroki srebrny dzban.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
 						<integer>0</integer>
@@ -2102,6 +2127,9 @@ keybind:pass2()</script>
 						<integer>0</integer>
 						<integer>0</integer>
 						<integer>0</integer>
+						<integer>0</integer>
+						<integer>0</integer>
+						<integer>1</integer>
 						<integer>0</integer>
 					</regexCodePropertyList>
 				</Trigger>
@@ -2297,8 +2325,12 @@ mapper:moveBackward()</script>
 					<colorTriggerBgColor>#000000</colorTriggerBgColor>
 					<regexCodeList>
 						<string>Udalo ci sie gdzies uciec!</string>
+						<string>... i wyczuwasz pod reka jakas drabinke...</string>
+						<string>Po krotkiej chwile fale wyrzucaja cie na brzeg.</string>
 					</regexCodeList>
 					<regexCodePropertyList>
+						<integer>0</integer>
+						<integer>0</integer>
 						<integer>0</integer>
 					</regexCodePropertyList>
 				</Trigger>
@@ -2962,7 +2994,7 @@ send("zapytaj kobiete o pomoc;zapytaj trolla o pomoc; zapytaj orka o pomoc;zapyt
 		</Alias>
 		<Alias isActive="yes" isFolder="no">
 			<name>^we$</name>
-			<script>send("wespnij sie;wejdz;przeczolgaj sie;wdrap;zejdz;przecisnij sie;przejdz")</script>
+			<script>send("wespnij sie;wejdz;przeczolgaj sie;wdrap;zejdz;przecisnij sie;przejdz;podazaj;rozsun;przesun")</script>
 			<command></command>
 			<packageName></packageName>
 			<regex>^we$</regex>

@@ -14,6 +14,8 @@ function printer:settings()
     self:command("/opcje mapper_szerokosc "..settings:get("mapperWidth"), "Szerokosc okna mappera")
     self:command("/opcje tryb "..profile:get("mode"), "Wlacz tryb przy ladowaniu profilu")
     self:dumpArray({{0, "brak"}, {1, "lucznik"}, {2, "drwal"}, {3, "gornik"}}, 4, nil, self.infoColor)
+    self:command("/opcje gornik "..profile:get("miner"), "Narzedzie gornika do badania scian")
+    self:dumpArray({{1, "oskardzik"}, {2, "czekanik"}}, 4, nil, self.infoColor)
     self:command("/opcje pojemnik "..profile:get("bag"), "Pojemnik na monety")
     self:dumpArray({{1, "plecak"}, {2, "sakwa"}, {3, "torba"}}, 4, nil, self.infoColor)
     self:command("/opcje styl "..profile:get("style"), "Uzyte m.in. przy dobywaniu i opuszczaniu broni")
@@ -238,7 +240,7 @@ function printer:gps(arr)
     self:bottom(false, true)
 end
 
--- Srodziemie  150 brylkow
+
 -- Bree
 --  karczma usciskac +
 --  srodek bree tajemniczy - mapa u bossa szczurolazow, cmentarz ???
@@ -258,10 +260,6 @@ end
 --  Pryszczaty pulchny hobbit - wiezienie > kowal > ratusz > sklepik (zapytaj o noz/burmistrza/czlowieka) > karczma (postaw piwo rainabowi) > Wiesz juz wystarczajo duzo. Opowiedz o tym burmistrzowi. +
 -- Mithlond
 --  Wrak - Lond Daer > zapytaj karczmarza o statki > biblioteka (przeszukaj rupiecie) > magazyn (przeszukaj papiery) > opowiedz o <nazwa statku> +
--- Twierdza Olbrzymow
--- zatroskany olbrzym ???
-
-
 
 
 -- Ustrekt

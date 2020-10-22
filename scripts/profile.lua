@@ -2,6 +2,15 @@ profile = profile or {}
 profile.file = nil
 profile.list = profile.list or {}
 profile.func = {
+	["gornik"] = function(val)
+		val = tonumber(val)
+		if miner:toolExists(val) then
+			profile.list.miner = val
+			profile:save()
+		else
+			printer:one("Opcje", "ID narzedzia nie istnieje")
+		end
+	end,
 	["pojemnik"] = function(val)
 		val = tonumber(val)
 		if inventory:bagExists(val) then
@@ -67,6 +76,7 @@ function profile:init(name)
 		table.load(self.file, self.list)
 	else
 		local default = {
+			["miner"] = 1,
 			["bag"] = 1,
 			["style"] = 1,
 			["weapon"] = 1,
