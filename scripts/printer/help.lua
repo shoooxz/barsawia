@@ -240,7 +240,6 @@ function printer:gps(arr)
     self:bottom(false, true)
 end
 
-
 -- Bree
 --  karczma usciskac +
 --  srodek bree tajemniczy - mapa u bossa szczurolazow, cmentarz ???

@@ -1,8 +1,4 @@
 
- 
-
-
-
 -- profesje (adept) autojoin od 4. Podrozni pytani na trakcie o twoje imie niemalze zawsze kreca przeczaco glowa.
 
 Ruta powachac  zmeczenie
