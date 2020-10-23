@@ -38,7 +38,7 @@ end
 
 function keybind:shipEnter()
 	scripts:beep()
-	self.triggerCommand = inventory:moneyGet(true)..";kup bilet;wejdz na statek"
+	self.triggerCommand = inventory:moneyGet(true)..";kup bilet;wejdz na statek;wejdz na tratwe"
 	self:triggerPrint()
 end
 
