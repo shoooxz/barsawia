@@ -1,6 +1,12 @@
 # barsawia
 Skrypty i mapper do Barsawii (Mudlet)
 
+Dostepne komendy:
+/skrypty
+/mapper
+/opcje
+
+
 Instalacja Szybka
 
 Utworz nowy profil po czym wklej ponizsza linijke:
