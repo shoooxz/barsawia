@@ -1,6 +1,23 @@
 function mapper:roomLoaded()
 	return function()
 		local gmcpID = gmcp.Room.Info.id
+		-- MORIA START
+		if self.room.id == self.moriaEnterLocation then
+			if self.moriaMode == 0 then
+				printer:error("Moria", "Wkraczasz do Morii!")
+			end
+			self.moriaMode = 1
+		end
+		if self.room.id == self.moriaExitLocation then
+			if self.moriaMode == 1 then
+				printer:success("Moria", "Opuszczasz Morie!")
+			end
+			self.moriaMode = 0
+		end
+		if self.moriaMode == 1 then
+			--echo("moria mode on")
+		end
+		-- MORIA END
 		-- connect na wejsciu na lokacje dla wszystkich modow
 		if self.drawing and self.draw and self.draw.connect then
 			local to = nil

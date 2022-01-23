@@ -67,6 +67,9 @@ mapper.walker = {
 	["delay"] = 1,
 	["path"] = {},
 }
+mapper.moriaExitLocation = 29810
+mapper.moriaEnterLocation = 29695
+mapper.moriaMode = 0
 
 function mapper:init()
 	self:unbindEvents()
@@ -294,6 +297,52 @@ function mapper:unbindEvents()
 			killAnonymousEventHandler(id)
 		end
 	end
+end
+
+function mapper:colorExits(pre, exits)
+	selectCaptureGroup(1)
+  creplace("<white>"..pre.." <orange>"..exits.."<reset>.")
+end
+
+function mapper:moria(line1, line2)
+	--`echo Posrod oblewajacego cie ze wszystkich stron mrocznego calunu ciemnosci dostrzegasz: wschod i zachod.
+	if self.moriaMode == 1 then
+		-- if moria
+		local stringExits = {}
+		local gmcpExits = {}
+		local exits = string.match(line2, "Posrod oblewajacego cie ze wszystkich stron mrocznego calunu ciemnosci dostrzegasz.*: (.*).")
+		if exits then
+			stringExits = utils:splitcommai(exits)
+		end
+
+		--utils:dump(stringExits)
+
+		-- jesli gmcp jest na lokacji, dodaj brakujace wyjscia, ktorych nie ma w stringExits
+		local isGmcp = ""
+		if gmcp.Room then
+			if tonumber(gmcp.Room.Info.id) > 0 then
+				isGmcp = "<grey>[gmcp]<reset>"
+			end
+			gmcpExits = gmcp.Room.Info.exits
+			local diff = utils:arrayDiff(gmcpExits, stringExits)
+			for _, exit in pairs(diff) do
+				table.insert(stringExits, exit)
+			end
+		end
+
+		-- listuj polaczone wyjscia ze stringu + gmcp
+		local temp = ""
+		for _, exit in pairs(stringExits) do
+			temp = temp..exit..", "
+		end
+		if temp == "" then
+			cecho("\n<white>Wyjscia: <red>Brak<white>."..isGmcp.." \n")
+		else
+			temp = utils:rtrim(temp, ", ")
+			cecho("\n<white>Wyjscia: <orange>"..temp.."<white>."..isGmcp.."\n")
+		end
+
+	end -- end if moria
 end
 
 mapper:init()

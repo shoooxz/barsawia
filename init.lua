@@ -52,5 +52,7 @@ function reloadObjects()
     loadObjects(true)
     profile:loadLast()
     mapper:centerGMCP()
+    local updateFooter = footer:gmcpCharState()
+    updateFooter()
 end
 loadObjects(false)

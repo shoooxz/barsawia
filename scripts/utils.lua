@@ -41,15 +41,23 @@ end
 
 -- split z `,` `i`
 function utils:splitcommai(str)
-    local s = self:split(str, ", ")
-    local last = nil
-    if string.find(s[#s], " i ") then
-        last = self:split(s[#s], " i ")
-        table.remove(s)
-        table.insert(s, last[1])
-        table.insert(s, last[2])
+    if str then
+      local s = {}
+      if string.find(str, ", ") then
+        s = self:split(str, ", ")
+      else
+        s = {}
+        table.insert(s, str)
+      end
+      local last = nil
+      if s and string.find(s[#s], " i ") then
+          last = self:split(s[#s], " i ")
+          table.remove(s)
+          table.insert(s, last[1])
+          table.insert(s, last[2])
+      end
+      return s
     end
-    return s
 end
 
 function utils:arrayKeys(tab)
@@ -117,4 +125,15 @@ function utils:concat(arr, glue)
     else
         return arr
     end
+end
+
+function utils:dump(var)
+  echo("\n")
+  if type(var) == "table" then
+    for idx, val in pairs(var) do
+  		echo(idx..": "..val.."\n")
+  	end
+  else
+    echo(var.."\n")
+  end
 end
