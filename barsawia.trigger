@@ -870,7 +870,7 @@ keybind:pass2()</script>
 						<colorTriggerFgColor>#000000</colorTriggerFgColor>
 						<colorTriggerBgColor>#000000</colorTriggerBgColor>
 						<regexCodeList>
-							<string>Wydaje ci sie, ze (.*) ci brakuje, zebys mogl wyzej ocenic swa (.*).</string>
+							<string>Wydaje ci sie, ze (.*) ci brakuje, zebys mogla? wyzej ocenic swa (.*).</string>
 						</regexCodeList>
 						<regexCodePropertyList>
 							<integer>1</integer>
@@ -2445,7 +2445,7 @@ mapper:moveBackward()</script>
 				<command></command>
 				<packageName>back11</packageName>
 				<time>00:00:00.000</time>
-				<Timer isActive="yes" isFolder="no" isTempTimer="no" isOffsetTimer="no">
+				<Timer isActive="no" isFolder="no" isTempTimer="no" isOffsetTimer="no">
 					<name>idle</name>
 					<script>send("kto")</script>
 					<command></command>
@@ -3141,14 +3141,6 @@ require("init")
 					<script>mapper:move("se")</script>
 					<command></command>
 					<keyCode>51</keyCode>
-					<keyModifier>536870912</keyModifier>
-				</Key>
-				<Key isActive="yes" isFolder="no">
-					<name>West</name>
-					<packageName></packageName>
-					<script>mapper:move("w")</script>
-					<command></command>
-					<keyCode>52</keyCode>
 					<keyModifier>536870912</keyModifier>
 				</Key>
 				<Key isActive="yes" isFolder="no">

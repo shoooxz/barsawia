@@ -8,7 +8,7 @@ function mapper:roomLoaded()
 			end
 			self.moriaMode = 1
 		end
-		if self.room.id == self.moriaExitLocation then
+		if self.room.id == self.moriaExitLocation or self.room.id == self.moriaExitLocation2 then
 			if self.moriaMode == 1 then
 				printer:success("Moria", "Opuszczasz Morie!")
 			end

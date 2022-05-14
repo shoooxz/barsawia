@@ -66,6 +66,7 @@ function character:captureStats(stats)
 	if not stored then
 		info = "Uzyj komendy /medytuj w gildii podroznikow aby przechowac progres"
 	end
+
 	if not self.capturing then
 		deleteLine()
 		printer:stats(

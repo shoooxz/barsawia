@@ -114,8 +114,8 @@ character.wis = {
 }
 
 character.bra = {
-	["thorzliwy"] = 1,
-	["thorzliwa"] = 1,
+	["tchorzliwy"] = 1,
+	["tchorzliwa"] = 1,
 	["strachliwy"] = 2,
 	["strachliwa"] = 2,
 	["bojazliwy"] = 3,

@@ -68,6 +68,7 @@ mapper.walker = {
 	["path"] = {},
 }
 mapper.moriaExitLocation = 29810
+mapper.moriaExitLocation2 = 28407
 mapper.moriaEnterLocation = 29695
 mapper.moriaMode = 0
 
