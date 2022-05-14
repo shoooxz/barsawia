@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<ScriptPackage>
+		<Script isActive="yes" isFolder="no">
+			<name>BarsawiaSkryptyInstalacja</name>
+			<packageName></packageName>
+			<script>
+        local this = ""
+				local dir = getMudletHomeDir()
+				local release_src = "https://api.github.com/repos/shoooxz/barsawia/releases/latest"
+				local release_dst = dir.."/release.json"
+				local scripts_dst = dir.."/barsawia/"
+				local package_src = "https://codeload.github.com/shoooxz/barsawia/zip/"
+				local package_dst = dir.."/package.zip"
+        -- construct
+        function BarsawiaSkryptyInstalacja(_, name)
+          this = name
+					getLatestRelease()
+					clearCmdLine()
+        end
+				-- Get latest Release start
+				function getLatestRelease()
+					local downloadHandler, errorHandler = nil
+					debug("Installer", "Rozpoczynam instalacje skryptow Barsawii", true)
+					lfs.chdir(dir)
+					if downloadHandler then killAnonymousEventHandler(downloadHandler) end
+					downloadHandler = registerAnonymousEventHandler(
+					  "sysDownloadDone",
+					  function(_, filename)
+							if filename ~= release_dst then
+								return true
+							end
+							local file = io.open(release_dst, "rb")
+							if file then
+								-- pobierz z latest name
+								local obj = yajl.to_value(file:read("*a"))
+								file:close()
+								os.remove(release_dst)
+								debug("Wersja", obj.name, true)
+								deleteDir(scripts_dst)
+								getLatestPackage(obj.name)
+							end -- end if file true
+					  end,
+					  true
+					)
+					if errordHandler then killAnonymousEventHandler(errorHandler) end
+					errorHandler = registerAnonymousEventHandler(
+						"sysDownloadError",
+						function(_, error)
+							debug("Wersja", error, false)
+							uninstallPackage(this)
+						end,
+						true
+					)
+					downloadFile(release_dst, release_src)
+				end
+ 			  -- Get latest Release end
+				-- Get latest Package start
+				function getLatestPackage(version)
+					local downloadHandler, errorHandler, unzipDoneHandler, unzipErrorHandler = nil
+					if downloadHandler then killAnonymousEventHandler(downloadHandler) end
+					downloadHandler = registerAnonymousEventHandler(
+						"sysDownloadDone",
+						function(_, filename)
+							if filename ~= package_dst then
+								return true
+							end
+							local unzip = function(res, ...)
+								if res == "sysUnzipDone" then
+									os.remove(package_dst)
+									disableScript(this)
+									uninstallPackage("barsawia")
+									uninstallPackage("generic_mapper")
+									os.rename(dir.."/barsawia-"..version.."/", scripts_dst) -- zmien sciagnieta paczke na docelowa nazwe
+									os.remove(dir.."/barsawia_mapa.dat")
+									os.remove(dir.."/Database_gps.db")
+									os.remove(dir.."/Database_npc.db")
+									os.rename(scripts_dst.."barsawia_mapa.dat", dir.."/barsawia_mapa.dat")
+									os.rename(scripts_dst.."Database_gps.db", dir.."/Database_gps.db")
+									os.rename(scripts_dst.."Database_npc.db", dir.."/Database_npc.db")
+									installPackage(scripts_dst.."barsawia.trigger")
+									debug("Installer", "Barsawia skrypty zainstalowane poprawnie!", true)
+									debug("Installer", "Zresetuj polaczenie i zaloguj sie do gry aby utworzyc profil!", true)
+									debug("Installer", "/zaladuj_mape aby sie odnalezc /zlok!", true)
+								elseif res == "sysUnzipError" then
+									debug("Installer", "Blad podczas unzipa!", false)
+								end
+								uninstallPackage(this)
+							end
+							if unzipDoneHandler then killAnonymousEventHandler(unzipDoneHandler) end
+							unzipDoneHandler = registerAnonymousEventHandler("sysUnzipDone", unzip, true)
+							if unzipErrorHandler then killAnonymousEventHandler(unzipErrorHandler) end
+							unzipErrorHandler = registerAnonymousEventHandler("sysUnzipError", unzip, true)
+							debug("Installer", "Paczka pobrana, unzipuje...", true)
+							unzipAsync(package_dst, dir)
+						end,
+						true
+					)
+					if errordHandler then killAnonymousEventHandler(errorHandler) end
+					errorHandler = registerAnonymousEventHandler(
+						"sysDownloadError",
+						function(_, error)
+							debug("Installer", error, false)
+							uninstallPackage(this)
+						end,
+						true
+					)
+					downloadFile(package_dst, package_src..version)
+				end
+				-- Get latest Package end
+				-- Helpers
+				function debug(stage, msg, bool)
+					if bool then
+						cecho("\n&lt;white&gt;"..stage..": &lt;green&gt;"..msg.."\n");
+					else
+						cecho("\n&lt;white&gt;"..stage..": &lt;red&gt;"..msg.."\n");
+					end
+				end
+				function deleteDir(dir)
+				    for file in lfs.dir(dir) do
+				        local file_path = dir .. '/' .. file
+				        if file ~= "." and file ~= ".." then
+				            if lfs.attributes(file_path, 'mode') == 'file' then
+				                os.remove(file_path)
+				            elseif lfs.attributes(file_path, 'mode') == 'directory' then
+				                deleteDir(file_path)
+				            end
+				        end
+				    end
+				    lfs.rmdir(dir)
+				end
+      </script>
+			<eventHandlerList>
+				<string>sysInstallPackage</string>
+			</eventHandlerList>
+		</Script>
+	</ScriptPackage>
+</MudletPackage>
