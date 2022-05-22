@@ -71,7 +71,7 @@ function updater:update(map)
         end
         local unzip = function(res, ...)
           if res == "sysUnzipDone" then
-            deleteDir(scripts_dst)
+            utils:deleteDir(scripts_dst)
             os.remove(package_dst)
             disableScript(this)
             uninstallPackage("barsawia")

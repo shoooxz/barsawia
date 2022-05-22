@@ -1,5 +1,19 @@
 utils = utils or {}
 
+function utils:deleteDir(dir)
+    for file in lfs.dir(dir) do
+        local file_path = dir .. '/' .. file
+        if file ~= "." and file ~= ".." then
+            if lfs.attributes(file_path, 'mode') == 'file' then
+                os.remove(file_path)
+            elseif lfs.attributes(file_path, 'mode') == 'directory' then
+                deleteDir(file_path)
+            end
+        end
+    end
+    lfs.rmdir(dir)
+end
+
 function utils:trim(s)
     return s:gsub("^%s+", ""):gsub("%s+$", "")
 end
