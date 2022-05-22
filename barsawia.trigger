@@ -754,7 +754,8 @@ keybind:pass2()</script>
 				</Trigger>
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>profil</name>
-					<script>profile:init(matches[2])</script>
+					<script>profile:init(matches[2])
+updater:checkVersion()</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
@@ -3059,6 +3060,27 @@ printer:settings()</script>
 							<regex>^op$</regex>
 						</Alias>
 					</AliasGroup>
+					<AliasGroup isActive="yes" isFolder="yes">
+						<name>Update</name>
+						<script></script>
+						<command></command>
+						<packageName></packageName>
+						<regex></regex>
+						<Alias isActive="yes" isFolder="no">
+							<name>^/aktualizuj$</name>
+							<script>updater:update(false)</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^/aktualizuj$</regex>
+						</Alias>
+						<Alias isActive="yes" isFolder="no">
+							<name>^/aktualizuj_z_mapa$</name>
+							<script>updater:update(true)</script>
+							<command></command>
+							<packageName></packageName>
+							<regex>^/aktualizuj_z_mapa$</regex>
+						</Alias>
+					</AliasGroup>
 				</AliasGroup>
 			</AliasGroup>
 			<Alias isActive="yes" isFolder="no">
@@ -3199,9 +3221,17 @@ require("init")
 					<keyCode>43</keyCode>
 					<keyModifier>536870912</keyModifier>
 				</Key>
+				<Key isActive="yes" isFolder="no">
+					<name>West</name>
+					<packageName></packageName>
+					<script>mapper:move("w")</script>
+					<command></command>
+					<keyCode>52</keyCode>
+					<keyModifier>536870912</keyModifier>
+				</Key>
 			</KeyGroup>
 			<Key isActive="yes" isFolder="no">
-				<name>New key</name>
+				<name>PageUp</name>
 				<packageName></packageName>
 				<script>display("test")</script>
 				<command></command>

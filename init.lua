@@ -28,6 +28,7 @@ function loadObjects(force)
         "scripts/gag",
         "scripts/box",
         "scripts/miner",
+        "scripts/updater",
         "mapper/core",
         "mapper/liaj",
         "mapper/area",

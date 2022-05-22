@@ -7,6 +7,14 @@ function printer:help()
     self:bottom()
 end
 
+function printer:updater(ver)
+    self:title("Aktualizacja".." "..ver)
+    self:section("Uwaga! Dostepna jest nowa wersja skryptow "..ver.."!")
+    self:command("/aktualizuj", "Zaktualizuj TYLKO SKRYPTY, bez mapy")
+    self:command("/aktualizuj_z_mapa", "Zaktualizuj skrypty Z MAPA")
+    self:bottom()
+end
+
 function printer:settings()
     self:title("Barsawia Ustawienia")
     self:command("/opcje szerokosc "..settings:get("mainWindowWidth"), "Szerokosc glownego okna w Mudlecie")
