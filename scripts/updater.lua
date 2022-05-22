@@ -73,7 +73,6 @@ function updater:update(map)
           if res == "sysUnzipDone" then
             utils:deleteDir(scripts_dst)
             os.remove(package_dst)
-            disableScript(this)
             uninstallPackage("barsawia")
             uninstallPackage("generic_mapper")
             os.rename(dir.."/barsawia-"..updater.version.."/", scripts_dst) -- zmien sciagnieta paczke na docelowa nazwe
