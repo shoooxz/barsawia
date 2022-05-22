@@ -1,7 +1,7 @@
 scripts = scripts or {}
 scripts.events = scripts.events or {}
 -- PAMIETAC O ZMIANIE WERSJI PRZY RELEASACH
-scripts.version = "1.2"
+scripts.version = "1.21"
 
 function scripts:init()
 	if mudletOlderThan(4, 8) then
