@@ -76,7 +76,7 @@ function updater:update(map)
             disableScript(this)
             uninstallPackage("barsawia")
             uninstallPackage("generic_mapper")
-            os.rename(dir.."/barsawia-"..self.version.."/", scripts_dst) -- zmien sciagnieta paczke na docelowa nazwe
+            os.rename(dir.."/barsawia-"..updater.version.."/", scripts_dst) -- zmien sciagnieta paczke na docelowa nazwe
             if map then
               os.remove(dir.."/barsawia_mapa.dat")
               os.rename(scripts_dst.."barsawia_mapa.dat", dir.."/barsawia_mapa.dat")
@@ -107,6 +107,6 @@ function updater:update(map)
       end,
       true
     )
-    downloadFile(package_dst, package_src..self.version)
+    downloadFile(package_dst, package_src..updater.version)
   end
 end
