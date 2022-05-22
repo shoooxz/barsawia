@@ -7,7 +7,7 @@ function utils:deleteDir(dir)
             if lfs.attributes(file_path, 'mode') == 'file' then
                 os.remove(file_path)
             elseif lfs.attributes(file_path, 'mode') == 'directory' then
-                deleteDir(file_path)
+                self:deleteDir(file_path)
             end
         end
     end
