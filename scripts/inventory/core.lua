@@ -21,11 +21,13 @@ inventory.bag.openWhat = {
     "plecak",
 	"sakwe",
     "torbe",
+	"sakiewke",
 }
 inventory.bag.getFrom = {
     "plecaka",
 	"sakwy",
     "torby",
+	"sakiewki",
 }
 inventory.case.put = {
     "wloz %s do pokrowca",
