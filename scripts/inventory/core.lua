@@ -21,11 +21,13 @@ inventory.bag.openWhat = {
     "plecak",
 	"sakwe",
     "torbe",
+	"sakiewke",
 }
 inventory.bag.getFrom = {
     "plecaka",
 	"sakwy",
     "torby",
+	"sakiewki",
 }
 inventory.case.put = {
     "wloz %s do pokrowca",
@@ -88,7 +90,7 @@ function inventory:unique()
 end
 
 function inventory:moneyPut(ret)
-	local cmd = "otworz "..self.bag.openWhat[profile:get("bag")]..";wloz monety do "..self.bag.getFrom[profile:get("bag")]
+	local cmd = "otworz "..self.bag.openWhat[profile:get("bag")]..";wloz monety do "..self.bag.getFrom[profile:get("bag")]..";zamknij "..self.bag.openWhat[profile:get("bag")]
 	if ret then return cmd end
 	send(cmd)
 end
